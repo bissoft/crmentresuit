@@ -1,0 +1,464 @@
+.media {
+  display: flex;
+  align-items: flex-start
+}
+
+.media-body {
+  flex: 1
+}
+
+.athlete-listing  .athlete-serach .form-group{
+  position: relative;
+}
+.athlete-listing  .athlete-serach input{
+  height: 50px;
+  padding-left: 38px;
+}
+.athlete-listing  .athlete-serach .form-group i{
+      position: absolute;
+  top: 19px;
+  left: 13px
+}
+.athlete-listing  .athlete-serach .form-group  .filter-btn{
+      position: absolute;
+  right: 9px;
+  top: 7px;
+}
+.athlete-listing  .athlete-serach .form-group  .filter-btn i{
+  position: unset;
+}
+.filter-modal label{
+  font-size: 13px;
+}
+.athlete-listing-sec .athlete-box{
+  border-radius: 10px;
+  padding: 15px;
+}
+.athlete-listing-sec .athlete-box .athlete-img img{ 
+  border-radius: 8px;
+  height: 220px;
+  object-fit: cover;
+}
+.athlete-listing-sec .athlete-box  .athlete-name{
+  position: relative;
+}
+.modal-backdrop{
+display: none;
+}
+
+.message .text-group {
+  width: 100%;
+  margin-top: 5px;
+}
+.serach-btn{
+border: none;
+box-shadow: none;
+}
+small{
+  font-size: 0.8rem!important;
+}
+.text-group.me {
+      display: flex;
+  justify-content: end;
+  text-align: end;
+  width: fit-content;
+  max-width: 90%;
+  margin-left: auto;
+}
+ input:focus-visible {
+  outline: none;
+} 
+
+
+/*fiver new design*/
+.out-banner{
+background-color: #2c2c51f2;
+}
+.athlete-profile .user-imgs{
+width: 130px;
+height: 130px;
+border-radius: 100%;
+overflow: hidden;
+margin: 30px auto 0 auto;
+}
+.athlete-profile .user-imgs img{
+width: 130px;
+height: 130px;
+object-fit: cover;
+}
+.athlete-profile .reating {
+text-align: center;
+}
+.athlete-profile .reating i{
+color: #f7bc17;
+}
+.athlete-profile .info-list li .la{
+color: black;
+background-color: transparent;
+}
+.athlete-profile  .profile-reviews .reviewe {
+padding: 10px 0;
+border-bottom: 1px solid #dadada;
+margin-bottom: 10px;
+}
+.athlete-profile  .profile-reviews .reviewe .media img{
+width: 40px;
+height: 40px;
+border-radius: 100%;
+}
+.athlete-profile  .profile-reviews .reviewe .media h6{
+font-size: 16px;
+line-height: 120%;
+margin-right: 10px;
+font-weight: 700;
+color: black;
+}
+.athlete-chat .user-tabs{
+max-height: 70vh;
+min-height: 70vh;
+overflow: auto;
+}
+.athlete-chat .user-tabs .user{
+padding: 10px;
+border-bottom: 1px solid gainsboro;
+cursor: pointer;
+padding: 10px;
+}
+.athlete-chat .user-tabs .active , .athlete-chat .user-tabs .user:hover{
+background-color: aliceblue;
+}
+.athlete-chat .user-tabs .media img{
+width: 40px;
+height: 40px;
+border-radius: 100%;
+}
+.athlete-chat .user-tabs .media h5{
+font-size: 14px;
+font-weight: 600;
+color: black;
+}
+.athlete-chat .user-tabs .media p{
+font-size: 13px;
+display: -webkit-box;
+-webkit-line-clamp: 1;
+-webkit-box-orient: vertical;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+.athlete-chat  .chat-person .online-badge
+{
+width: 10px;
+height: 10px;
+background: #1aca1a;
+border-radius: 100%;
+margin: 10px;
+}
+.athlete-chat  .chat-person  .top-bar{
+background-color: white;
+border-bottom: 1px solid gainsboro;
+}
+.athlete-chat .messages{
+min-height: 70vh;
+max-height: 70vh;
+overflow: auto;
+padding: 20px;
+}
+.athlete-chat .messages .media{
+margin-bottom: 20px;
+}
+.athlete-chat .messages .media img{
+width: 40px;
+height: 40px;
+border-radius: 100%;
+}
+.athlete-chat .messages .media h5{
+font-size: 14px;
+font-weight: 600;
+color: black;
+}
+.athlete-chat .messages .media p{
+font-size: 13px;
+line-height: 20px;
+margin-top: 7px;
+}
+.athlete-chat  .message-type textarea{
+  resize: none;
+
+}
+.athlete-chat .about-chat-person {
+padding: 10px;
+}
+.athlete-chat .about-chat-person img{
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+  margin: 20px auto 20px auto;
+}
+
+
+/*--------*/
+.athlete-listing-sec .athlete-box .name{
+  background: #5e87e2;
+  color: white;
+  padding: 0;
+}
+.athlete-listing-sec .athlete-box .name span{
+  background: white;
+  color: black;
+  height: 61px;
+  padding: 7px;
+      border-radius: 100px;
+}
+
+.athlete-profile-v2 .athlete-profile img{
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+  object-fit: cover;
+  border: 2px solid #164892;
+}
+
+
+@media (min-width: 992px){
+.invest-section  .invest-section-row .col-lg-2 {
+  flex: 0 0 20%;
+  max-width: 20%;
+}
+  }
+@media screen and (max-width:998px){
+  .invest-section {
+  background: unset;
+}
+.invest-section .overlay .single-box.location-left , .invest-section .overlay .single-box.location-right{
+  top: unset;
+  
+  }
+}
+
+
+
+.custom-banner{
+ background-color: #F3F3F4;
+  background-image: url(../../assets/img/at-bg.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 90vh;
+  min-height: 600px;
+  margin-top: 30px;
+}
+.custom-banner .carousel-inner img{
+  max-width: 500px;
+  max-height: 500px;
+  min-height: 500px;
+}
+.custom-banner select{
+  height: 45px;
+  }
+  
+@media screen and (min-width:998px){
+    .location-last{
+        top: 3.625rem!important;
+}  
+  }
+  
+   #about-section .nav-pills .nav-link{
+       color:#000;
+       margin-bottom: 10px;
+       font-weight:600;
+   }
+  
+ 
+  #about-section .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+  color: #426CB4!important;
+  background-color: transparent!important;
+  border: 1px solid #426CB4!important;
+  padding:35px 0 ;
+}
+.custom-menu small{
+line-height: 0px;
+}
+.custom-menu p{
+line-height: 15px;
+}
+.megamenu .dropdown-menu{
+width: 30%!important;
+  margin-left: auto;
+}
+
+/* adds some margin below the link sets  */
+.megamenu.navbar-toggler{
+border:none;
+}
+
+@media only screen and (max-width: 600px) {
+.megamenu .navbar {
+  padding:0;
+}
+.megamenu .navbar-light .navbar-nav li{
+  width: 100%;
+  text-align:center ;
+
+}
+.megamenu .dropdown-menu{
+width: 95%!important;
+  margin: auto;
+}
+.megamenu .navbar-light .navbar-nav .nav-link{
+      margin-left:3%;
+}
+.megamenu .dropdown-toggle::after{
+  display: none;
+}
+.megamenu.navbar .dropdown-menu {
+border:none;
+
+}
+.megamenu .menu-top #textNav{
+  color:rgb(255,255,255);
+}
+
+.megamenu.menu-top #textDropdown{
+  padding-bottom:0;
+  padding-top:0;
+}
+}
+/* breakpoint and up - mega dropdown styles */
+@media screen and (min-width: 992px) {
+.menu-top #textNav{
+  color:rgb(0,0,0);
+}
+.megamenu .menu-top #textDropdown{
+  color:rgb(255,255,255);
+}
+
+
+.megamenu .dropdown-menu{
+ background-color: rgb(247 247 247)!important;
+  margin-top:2%;
+}
+.megamenu .dropdown-toggle::after{
+  display:none;
+}
+ .megamenu .menu-top #menu-text #navbarDropdown{
+  color:rgb(0,0,0);
+}
+/* remove the padding from the navbar so the dropdown hover state is not broken */
+.megamenu .navbar {
+padding-top:0px;
+padding-bottom:0px;
+}
+
+.megamenu .box.arrow-top:after {
+content: " ";
+position: absolute;
+left:22%;
+top: -15px;
+border-top: none;
+border-right: 13px solid transparent;
+border-left: 13px solid transparent;
+border-bottom: 15px solid black;
+}
+
+/* remove the padding from the nav-item and add some margin to give some breathing room on hovers */
+.megamenu .navbar #navPad {
+padding:.5rem .5rem;
+margin:0 .25rem;
+}
+.megamenu .navbar .dropdown-menu .nav-item {
+padding-left:.7rem;
+padding-right:.7rem;
+margin:0 .25rem;
+}
+
+/* makes the dropdown full width  */
+.megamenu .navbar .dropdown {position:static;}
+
+.megamenu .navbar .dropdown-menu {
+width:100%;
+left:0;
+right:0;
+/*  height of nav-item  */
+top:45px;
+
+display:block;
+visibility: hidden;
+opacity: 0;
+transition: visibility 0s, opacity 0.3s linear;
+
+}
+ .megamenu .dropdown-menu a{
+  padding: 0px!important;
+ }
+    .megamenu .dropdown-menu li{
+      padding: 0px!important;
+    }
+
+/* shows the dropdown menu on hover */
+.megamenu .navbar .dropdown:hover .dropdown-menu, .navbar .dropdown .dropdown-menu:hover {
+display:block;
+visibility: visible;
+opacity: 1;
+transition: visibility 0s, opacity 0.3s linear;
+}
+
+.megamenu  .navbar .dropdown-menu {
+  border: 1px solid rgba(0,0,0,.15);
+  background-color: #fff;
+}
+
+}
+.megamenu .navbar-light .navbar-nav .nav-link{
+font-weight: 600;
+}   
+
+
+.megamenu .navbar-light .navbar-nav .nav-link{
+  text-decoration: none;
+  color: #201075;
+  font-weight: 600;
+  font-size: 14px;
+}
+@media screen and (max-width: 600px) {
+.invest-section .overlay{
+  padding:0!important;
+}
+.invest-section .overlay .invest-text , .download-section{
+  margin-bottom:0px !important;
+}
+.footer-section .overlay .footer-content{
+  padding-top:2rem;
+}
+.megamenu .navbar .dropdown:hover .dropdown-menu, .navbar .dropdown .dropdown-menu:hover {
+display:block;
+visibility: unset;
+opacity: unset;
+transition: visibility 0s, opacity 0.3s linear;
+}
+.megamenu .navbar-light .navbar-nav h6{
+  text-align:center;
+}
+}
+
+.offer-payment{
+  position: relative;
+}
+.offer-payment input{
+  padding-left:22px;
+}
+.offer-payment i{
+      position: absolute;
+  top: 13px;
+  left: 24px;
+}
+@media (max-width:600px){
+  .custom-banner .carousel-inner img {
+  max-width: 100%;
+  max-height: 370px;
+  min-height: 370px;
+}
+}
+.pac-container{
+  z-index:99999999999!important;
+}
+
