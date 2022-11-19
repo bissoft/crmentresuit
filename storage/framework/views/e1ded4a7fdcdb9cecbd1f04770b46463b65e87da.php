@@ -131,6 +131,22 @@
                         </li>
                     <?php endif; ?>
                 <?php endif; ?>
+                
+                
+                    <li class="nav-item">
+                        <a href="<?php echo e(route('referral.index')); ?>" class="nav-link <?php echo e((Request::segment(1) == 'referral')?'active':''); ?>">
+                            <i class="fas fa-user-plus"></i><?php echo e(__('Referral')); ?>
+
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="<?php echo e(route('booking.index')); ?>" class="nav-link <?php echo e((Request::segment(1) == 'booking' || Request::segment(1) == 'booking-schedule')?'active':''); ?>">
+                            <i class="fas fa-ticket-alt"></i><?php echo e(__('Book Schedule')); ?>
+
+                        </a>
+                    </li>
+                
+
                 <?php if(Gate::check('manage product & service')): ?>
                     <li class="nav-item">
                         <a href="<?php echo e(route('productservice.index')); ?>" class="nav-link <?php echo e((Request::segment(1) == 'productservice')?'active':''); ?>">
@@ -297,6 +313,12 @@
                 <?php endif; ?>
 
                 <?php if(Gate::check('manage goal')): ?>
+                    <li class="nav-item">
+                        <a href="<?php echo e(route('projects.index')); ?>" class="nav-link <?php echo e((Request::segment(1) == 'projects')?'active':''); ?>">
+                            <i class="fas fa-layer-group"></i><?php echo e(__('Projects')); ?>
+
+                        </a>
+                    </li>
                     <li class="nav-item">
                         <a href="<?php echo e(route('goal.index')); ?>" class="nav-link <?php echo e((Request::segment(1) == 'goal')?'active':''); ?>">
                             <i class="fas fa-bullseye"></i><?php echo e(__('Goal')); ?>

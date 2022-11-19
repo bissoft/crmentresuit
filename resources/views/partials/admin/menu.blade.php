@@ -119,6 +119,20 @@
                         </li>
                     @endif
                 @endif
+                
+                {{-- @if(Gate::check('manage referrals')) --}}
+                    <li class="nav-item">
+                        <a href="{{ route('referral.index') }}" class="nav-link {{ (Request::segment(1) == 'referral')?'active':''}}">
+                            <i class="fas fa-user-plus"></i>{{__('Referral')}}
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('booking.index') }}" class="nav-link {{ (Request::segment(1) == 'booking' || Request::segment(1) == 'booking-schedule')?'active':''}}">
+                            <i class="fas fa-ticket-alt"></i>{{__('Book Schedule')}}
+                        </a>
+                    </li>
+                {{-- @endif --}}
+
                 @if(Gate::check('manage product & service'))
                     <li class="nav-item">
                         <a href="{{ route('productservice.index') }}" class="nav-link {{ (Request::segment(1) == 'productservice')?'active':''}}">
@@ -275,6 +289,11 @@
                 @endif
 
                 @if(Gate::check('manage goal'))
+                    <li class="nav-item">
+                        <a href="{{ route('projects.index') }}" class="nav-link {{ (Request::segment(1) == 'projects')?'active':''}}">
+                            <i class="fas fa-layer-group"></i>{{__('Projects')}}
+                        </a>
+                    </li>
                     <li class="nav-item">
                         <a href="{{ route('goal.index') }}" class="nav-link {{ (Request::segment(1) == 'goal')?'active':''}}">
                             <i class="fas fa-bullseye"></i>{{__('Goal')}}

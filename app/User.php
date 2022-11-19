@@ -25,6 +25,7 @@ class User extends Authenticatable
         'lang',
         'delete_status',
         'plan',
+        'referred_by',
         'plan_expire_date',
         'created_by',
     ];
@@ -45,6 +46,17 @@ class User extends Authenticatable
     {
         return $this->id;
     }
+
+    public function referrer()
+    {
+        return $this->belongsTo(User::class, 'referred_by');
+    }
+
+    public function referrals()
+    {
+        return $this->hasMany(User::class, 'referred_by');
+    }
+
 
     public function creatorId()
     {

@@ -337,11 +337,15 @@ Route::group(
 
 
 
+// Emails Routes
 Route::get('/emails', 'EmailMarketingController@index')->name('emails.index');
 Route::match(['get','post'],'/emails/create', 'EmailMarketingController@create')->name('emails.create');
 Route::match(['get','post'],'/emails/update/{id}', 'EmailMarketingController@update')->name('emails.update');
 Route::match(['get','post'],'/emails/send', 'EmailMarketingController@send')->name('emails.send');
 Route::match(['get','post'],'/emails/send/single/{id}', 'EmailMarketingController@single')->name('emails.send.single');
+
+
+// Messages Route
 
 Route::get('/start-chat', 'ChatController@startChat')->name('startChat');
 Route::get('/chat/{id?}', 'ChatController@chat')->name('chat');
@@ -349,6 +353,28 @@ Route::get('/refresh-msgs/{id}', 'ChatController@refreshMsgs')->name('refreshMsg
 Route::get('/send-msg', 'ChatController@sendMsg')->name('sendMsg');
 
 
+// Route::resource('booking', BookingController::class);
+
+Route::resource('booking', 'BookingController')->middleware(
+    [
+        'auth',
+        'XSS',
+    ]
+);
+
+Route::get('/booking-schedule', 'BookingController@bookingSchedule')->name('bookingSchedule');
+
+
+// referral route
+Route::get('/referral', 'ReferralController@index')->name('referral.index');
+
+//Project 
+Route::resource('projects', 'ProjectController')->middleware(
+    [
+        'auth',
+        'XSS',
+    ]
+);
 
 
 Route::get('productservice/index', 'ProductServiceController@index')->name('productservice.index');
