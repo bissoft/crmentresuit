@@ -1,786 +1,725 @@
-@php
-    $logo=asset(Storage::url('uploads/logo/'));
-    $company_favicon=Utility::getValByName('company_favicon');
-@endphp
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{(Utility::getValByName('title_text')) ? Utility::getValByName('title_text') : config('app.name', 'AccountGo')}}</title>
-    <link rel="icon" href="{{$logo.'/'.(isset($company_favicon) && !empty($company_favicon)?$company_favicon:'favicon.png')}}" type="image" sizes="16x16">
-    <!-- Landing External CSS -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('landing/css/font-awesome.min.css') }}">
-    <link href="{{ asset('landing/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" media="all">
-    <link href="{{ asset('landing/css/style.css') }}" rel="stylesheet" type="text/css" media="all">
-    <link href="{{ asset('landing/css/responsive.css') }}" rel="stylesheet" type="text/css" media="all">
-    <link href="{{ asset('landing/css/owl.carousel.min.css') }}" rel="stylesheet" type="text/css" media="all">
-    <script src="{{ asset('landing/js/jquery-3.4.1.min.js') }}"></script>
-    <script src="{{ asset('landing/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('landing/js/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('landing/js/script.js') }}"></script>
-</head>
-<body>
-<div class="content">
-    <div class="top-header-part bg-gredient">
-        <div class="container">
-            <div class="row top-bar">
-                <div class="col-lg-6 col-md-6 left-part">
-                    <ul>
-                        <li>
-                            <a href="#">
-                                <img src="{{asset(Storage::url('uploads/logo/')).'/landing_logo.png'}}" class="landing-logo" alt="logo">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#features">Features</a>
-                        </li>
-                        <li>
-                            <a href="#testimonial">Testimonial</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-lg-6 col-md-6 right-part">
-                    <ul>
-                        <li>
-                            <a href="{{ route('login') }}" class="button">Login</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 inner-text">
-                    <h2>AccountGo</h2>
-                    <span class="sub-heading">Accounting and Billing Tool</span>
-                    <div class="body-text">
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                    </div>
-                    <a href="{{route('login')}}" class="button">get started - it's free</a>
-                    <span>no creadit card reqired</span>
-                </div>
-                <div class="col-lg-12 top-banner-img">
-                    <img src="{{ asset('landing/images/top-banner.png') }}" alt="dashboard">
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="logo-part-main back-part">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 logo-img">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="row">
-                                <div class="col-3 ">
-                                    <img src="{{ asset('landing/images/nexo.png') }}" alt="">
-                                </div>
-                                <div class="col-3 ">
-                                    <img src="{{ asset('landing/images/edge.png') }}" alt="">
-                                </div>
-                                <div class="col-3">
-                                    <img src="{{ asset('landing/images/atomic.png') }}" alt="">
-                                </div>
-                                <div class="col-3">
-                                    <img src="{{ asset('landing/images/brd.png') }}" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="row">
-                                <div class="col-3">
-                                    <img src="{{ asset('landing/images/trust.png') }}" alt="">
-                                </div>
-                                <div class="col-3">
-                                    <img src="{{ asset('landing/images/keep-key.png') }}" alt="">
-                                </div>
-                                <div class="col-3">
-                                    <img src="{{ asset('landing/images/atomic.png') }}" alt="">
-                                </div>
-                                <div class="col-3">
-                                    <img src="{{ asset('landing/images/edge.png') }}" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="simple-sec odd main-image">
-            <div class="responsive-image">
-                <img src="{{ asset('landing/images/cal-sec.png') }}" alt="calander">
-            </div>
-            <div class="container">
-                <div class="row com-padding">
-                    <div class="col-lg-6 inner-text">
-                        <div class="main-inner-text">
-                            <span class="heading-btn">Features</span>
-                            <h3>Lorem Ipsum is simply dummy</h3>
-                            <span class="sub-heading">text of the printing</span>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting</p>
-                            <a href="{{route('login')}}" class="button">try our system</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 inner-image">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="simple-sec even bg-gredient1">
-        <div class="responsive-image">
-            <img src="{{ asset('landing/images/sec-2.png') }}" alt="calander">
-        </div>
-        <div class="container">
-            <div class="row com-padding">
-                <div class="col-lg-6 inner-text">
-                    <div class="main-inner-text">
-                        <span class="heading-btn">Features</span>
-                        <h3>Lorem Ipsum is simply dummy</h3>
-                        <span class="sub-heading">text of the printing</span>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting</p>
-                        <a href="{{route('login')}}" class="button">try our system</a>
-                    </div>
-                </div>
-                <div class="col-lg-6 inner-image">
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="simple-sec odd bg-gredient1">
-        <div class="responsive-image">
-            <img src="{{ asset('landing/images/sec-3.png') }}" alt="calander">
-        </div>
-        <div class="container">
-            <div class="row com-padding">
-                <div class="col-lg-6 inner-text">
-                    <div class="main-inner-text">
-                        <span class="heading-btn">Features</span>
-                        <h3>Lorem Ipsum is simply dummy</h3>
-                        <span class="sub-heading">text of the printing</span>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting</p>
-                        <a href="{{route('login')}}" class="button">try our system</a>
-                    </div>
-                </div>
-                <div class="col-lg-6 inner-image">
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="simple-sec even bg-gredient1">
-        <div class="responsive-image">
-            <img src="{{ asset('landing/images/sec-4.png') }}" alt="calander">
-        </div>
-        <div class="container">
-            <div class="row com-padding">
-                <div class="col-lg-6 inner-text">
-                    <div class="main-inner-text">
-                        <span class="heading-btn">Features</span>
-                        <h3>Lorem Ipsum is simply dummy</h3>
-                        <span class="sub-heading">text of the printing</span>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting</p>
-                        <a href="{{route('login')}}" class="button">try our system</a>
-                    </div>
-                </div>
-                <div class="col-lg-6 inner-image">
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="simple-sec odd bg-gredient1">
-        <div class="responsive-image">
-            <img src="{{ asset('landing/images/sec-5.png') }}" alt="calander">
-        </div>
-        <div class="container">
-            <div class="row com-padding">
-                <div class="col-lg-6 inner-text">
-                    <div class="main-inner-text">
-                        <span class="heading-btn">Features</span>
-                        <h3>Lorem Ipsum is simply dummy</h3>
-                        <span class="sub-heading">text of the printing</span>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting</p>
-                        <a href="{{route('login')}}" class="button">try our system</a>
-                    </div>
-                </div>
-                <div class="col-lg-6 inner-image">
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="simple-sec even bg-gredient1">
-        <div class="responsive-image">
-            <img src="{{ asset('landing/images/sec-6.png') }}" alt="calander">
-        </div>
-        <div class="container">
-            <div class="row com-padding">
-                <div class="col-lg-6 inner-text">
-                    <div class="main-inner-text">
-                        <span class="heading-btn">Features</span>
-                        <h3>Lorem Ipsum is simply dummy</h3>
-                        <span class="sub-heading">text of the printing</span>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting</p>
-                        <a href="{{route('login')}}" class="button">try our system</a>
-                    </div>
-                </div>
-                <div class="col-lg-6 inner-image">
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="features-inner-part">
-        <div class="features-part">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="see-more">
-                            <span>See more features</span>
-                        </div>
-                    </div>
-                    <div class="col-lg-12 inner-main-text">
-                        <h3>All Features <span>in one place</span></h3>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-3 features-card">
-                        <div class="inner-text">
-                            <h5>Attractive Dashboard
-                                Customer & Vendor Login
-                                Multi Languages
-                            </h5>
-                            <p>
-                                Invoice, Billing & Transaction
-                                Multi User & Permission
-                                Paypal & Stripe for Invoice
-                                User Friendly Invoice Theme
-                                Make your own setting
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 features-card">
-                        <div class="inner-text">
-                            <p>Multi User & Permission
-                                Paypal & Stripe for Invoice
-                                User Friendly Invoice Theme
-                                Make your own setting
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 features-card">
-                        <div class="inner-text">
-                            <p>Multi User & Permission
-                                Paypal & Stripe for Invoice
-                                User Friendly Invoice Theme
-                                Make your own setting
-                                User Friendly Invoice Theme
-                                Make your own setting
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 features-card">
-                        <div class="inner-text">
-                            <p>Multi User & Permission
-                                Paypal & Stripe for Invoice
-                            </p>
-                        </div>
-                    </div>
-                    <div class="features-button col-lg-12"><a href="{{route('login')}}">TRY OUR SYSTEM</a></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="bg-gredient2 our-system" id="features">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h3>See our system <span> on images</span></h3>
-                    <ul class="nav nav-tabs">
-                        <li><a data-toggle="tab" href="#Dashboard" class="active">Dashboard</a></li>
-                        <li><a data-toggle="tab" href="#Functions">Functions</a></li>
-                        <li><a data-toggle="tab" href="#Reports"> Reports</a></li>
-                        <li><a data-toggle="tab" href="#Tables"> Tables</a></li>
-                        <li><a data-toggle="tab" href="#Settings"> Settings</a></li>
-                        <li><a data-toggle="tab" href="#Contact"> Contact</a></li>
-                    </ul>
-                </div>
-                <div class="tab-content">
-                    <div id="Dashboard" class="tab-pane in active">
-                        <div class="row">
-                            <div class="col-lg-4 col-sm-6 col-md-6">
-                                <div class="panal-1">
-                                    <figure>
-                                        <img alt="data-1" src="{{ asset('landing/images/tab-1.png') }}">
-                                        <figcaption>
-                                            <div class="contant-tab">
-                                                <h5>Dashboard</h5>
-                                                <p>Main Page</p>
-                                            </div>
-                                            <a href="#" class="button">LIVE DEMO</a>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-6 col-md-6">
-                                <div class="panal-1">
-                                    <figure>
-                                        <img alt="data-1" src="{{ asset('landing/images/tab-2.png') }}">
-                                        <figcaption>
-                                            <div class="contant-tab">
-                                                <h5>Dashboard</h5>
-                                                <p>Main Page</p>
-                                            </div>
-                                            <a href="#" class="button">LIVE DEMO</a>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-6 col-md-6">
-                                <div class="panal-1">
-                                    <figure>
-                                        <img alt="data-1" src="{{ asset('landing/images/tab-3.png') }}">
-                                        <figcaption>
-                                            <div class="contant-tab">
-                                                <h5>Dashboard</h5>
-                                                <p>Main Page</p>
-                                            </div>
-                                            <a href="#" class="button">LIVE DEMO</a>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-6 col-md-6">
-                                <div class="panal-1">
-                                    <figure>
-                                        <img alt="data-1" src="{{ asset('landing/images/tab-7.png') }}">
-                                        <figcaption>
-                                            <div class="contant-tab">
-                                                <h5>Dashboard</h5>
-                                                <p>Main Page</p>
-                                            </div>
-                                            <a href="#" class="button">LIVE DEMO</a>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-6 col-md-6">
-                                <div class="panal-1">
-                                    <figure>
-                                        <img alt="data-1" src="{{ asset('landing/images/tab-4.png') }}">
-                                        <figcaption>
-                                            <div class="contant-tab">
-                                                <h5>Dashboard</h5>
-                                                <p>Main Page</p>
-                                            </div>
-                                            <a href="#" class="button">LIVE DEMO</a>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="Functions" class="tab-pane fade">
-                        <div class="row">
-                            <div class="col-lg-4 col-sm-6 col-md-6">
-                                <div class="panal-1">
-                                    <figure>
-                                        <img alt="data-1" src="{{ asset('landing/images/tab-5.png') }}">
-                                        <figcaption>
-                                            <div class="contant-tab">
-                                                <h5>Dashboard</h5>
-                                                <p>Main Page</p>
-                                            </div>
-                                            <a href="#" class="button">LIVE DEMO</a>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-6 col-md-6">
-                                <div class="panal-1">
-                                    <figure>
-                                        <img alt="data-1" src="{{ asset('landing/images/tab-6.png') }}">
-                                        <figcaption>
-                                            <div class="contant-tab">
-                                                <h5>Dashboard</h5>
-                                                <p>Main Page</p>
-                                            </div>
-                                            <a href="#" class="button">LIVE DEMO</a>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-6 col-md-6">
-                                <div class="panal-1">
-                                    <figure>
-                                        <img alt="data-1" src="{{ asset('landing/images/tab-7.png') }}">
-                                        <figcaption>
-                                            <div class="contant-tab">
-                                                <h5>Dashboard</h5>
-                                                <p>Main Page</p>
-                                            </div>
-                                            <a href="#" class="button">LIVE DEMO</a>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="Reports" class="tab-pane fade">
-                        <div class="row">
-                            <div class="col-lg-4 col-sm-6 col-md-6">
-                                <div class="panal-1">
-                                    <figure>
-                                        <img alt="data-1" src="{{ asset('landing/images/tab-1.png') }}">
-                                        <figcaption>
-                                            <div class="contant-tab">
-                                                <h5>Dashboard</h5>
-                                                <p>Main Page</p>
-                                            </div>
-                                            <a href="#" class="button">LIVE DEMO</a>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-6 col-md-6">
-                                <div class="panal-1">
-                                    <figure>
-                                        <img alt="data-1" src="{{ asset('landing/images/tab-2.png') }}">
-                                        <figcaption>
-                                            <div class="contant-tab">
-                                                <h5>Dashboard</h5>
-                                                <p>Main Page</p>
-                                            </div>
-                                            <a href="#" class="button">LIVE DEMO</a>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="Tables" class="tab-pane fade">
-                        <div class="row">
-                            <div class="col-lg-4 col-sm-6 col-md-6">
-                                <div class="panal-1">
-                                    <figure>
-                                        <img alt="data-1" src="{{ asset('landing/images/tab-1.png') }}">
-                                        <figcaption>
-                                            <div class="contant-tab">
-                                                <h5>Dashboard</h5>
-                                                <p>Main Page</p>
-                                            </div>
-                                            <a href="#" class="button">LIVE DEMO</a>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-6 col-md-6">
-                                <div class="panal-1">
-                                    <figure>
-                                        <img alt="data-1" src="{{ asset('landing/images/tab-2.png') }}">
-                                        <figcaption>
-                                            <div class="contant-tab">
-                                                <h5>Dashboard</h5>
-                                                <p>Main Page</p>
-                                            </div>
-                                            <a href="#" class="button">LIVE DEMO</a>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-6 col-md-6">
-                                <div class="panal-1">
-                                    <figure>
-                                        <img alt="data-1" src="{{ asset('landing/images/tab-4.png') }}">
-                                        <figcaption>
-                                            <div class="contant-tab">
-                                                <h5>Dashboard</h5>
-                                                <p>Main Page</p>
-                                            </div>
-                                            <a href="#" class="button">LIVE DEMO</a>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-6 col-md-6">
-                                <div class="panal-1">
-                                    <figure>
-                                        <img alt="data-1" src="{{ asset('landing/images/tab-1.png') }}">
-                                        <figcaption>
-                                            <div class="contant-tab">
-                                                <h5>Dashboard</h5>
-                                                <p>Main Page</p>
-                                            </div>
-                                            <a href="#" class="button">LIVE DEMO</a>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="Settings" class="tab-pane fade">
-                        <div class="row">
-                            <div class="col-lg-4 col-sm-6 col-md-6">
-                                <div class="panal-1">
-                                    <figure>
-                                        <img alt="data-1" src="{{ asset('landing/images/tab-1.png') }}">
-                                        <figcaption>
-                                            <div class="contant-tab">
-                                                <h5>Dashboard</h5>
-                                                <p>Main Page</p>
-                                            </div>
-                                            <a href="#" class="button">LIVE DEMO</a>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-6 col-md-6">
-                                <div class="panal-1">
-                                    <figure>
-                                        <img alt="data-1" src="{{ asset('landing/images/tab-2.png') }}">
-                                        <figcaption>
-                                            <div class="contant-tab">
-                                                <h5>Dashboard</h5>
-                                                <p>Main Page</p>
-                                            </div>
-                                            <a href="#" class="button">LIVE DEMO</a>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="Contact" class="tab-pane fade">
-                        <div class="row">
-                            <div class="col-lg-4 col-sm-6 col-md-6">
-                                <div class="panal-1">
-                                    <figure>
-                                        <img alt="data-1" src="{{ asset('landing/images/tab-1.png') }}">
-                                        <figcaption>
-                                            <div class="contant-tab">
-                                                <h5>Dashboard</h5>
-                                                <p>Main Page</p>
-                                            </div>
-                                            <a href="#" class="button">LIVE DEMO</a>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="bg-gredient2" id="testimonial">
-        <div class="container">
-            <!-- TESTIMONIALS -->
-            <section class="testimonials">
-                <div class="container">
-                    <h3>Testimonials</h3>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div id="customers-testimonials" class="owl-carousel">
-                                <div class="item">
-                                    <div class="shadow-effect">
-                                        <p>"We have been building AI projects for a long time and we decided it was time to build a
-                                            platform that can streamline the broken process that we had to put up with. Here are some of the key things we wish we had when we were building projects before.”
-                                        </p>
-                                        <div class="img-testimonial">
-                                            <img class="img-circle" src="{{ asset('landing/images/testimonials-img.png') }}" alt="">
-                                            <div class="testimonial-name">
-                                                <h4>Lorem Ipsum</h4>
-                                                <h5>Founder and CEO at Rajodiya Infotech</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="shadow-effect">
-                                        <p>"We have been building AI projects for a long time and we decided it was time to build a
-                                            platform that can streamline the broken process that we had to put up with. Here are some of the key things we wish we had when we were building projects before.”
-                                        </p>
-                                        <div class="img-testimonial">
-                                            <img class="img-circle" src="{{ asset('landing/images/testimonials-img.png') }}" alt="">
-                                            <div class="testimonial-name">
-                                                <h4>Lorem Ipsum</h4>
-                                                <h5>Founder and CEO at Rajodiya Infotech</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="shadow-effect">
-                                        <p>"We have been building AI projects for a long time and we decided it was time to build a
-                                            platform that can streamline the broken process that we had to put up with. Here are some of the key things we wish we had when we were building projects before.”
-                                        </p>
-                                        <div class="img-testimonial">
-                                            <img class="img-circle" src="{{ asset('landing/images/testimonials-img.png') }}" alt="">
-                                            <div class="testimonial-name">
-                                                <h4>Lorem Ipsum</h4>
-                                                <h5>Founder and CEO at Rajodiya Infotech</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="shadow-effect">
-                                        <p>"We have been building AI projects for a long time and we decided it was time to build a
-                                            platform that can streamline the broken process that we had to put up with. Here are some of the key things we wish we had when we were building projects before.”
-                                        </p>
-                                        <div class="img-testimonial">
-                                            <img class="img-circle" src="{{ asset('landing/images/testimonials-img.png') }}" alt="">
-                                            <div class="testimonial-name">
-                                                <h4>Lorem Ipsum</h4>
-                                                <h5>Founder and CEO at Rajodiya Infotech</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="shadow-effect">
-                                        <p>"We have been building AI projects for a long time and we decided it was time to build a
-                                            platform that can streamline the broken process that we had to put up with. Here are some of the key things we wish we had when we were building projects before.”
-                                        </p>
-                                        <div class="img-testimonial">
-                                            <img class="img-circle" src="{{ asset('landing/images/testimonials-img.png') }}" alt="">
-                                            <div class="testimonial-name">
-                                                <h4>Lorem Ipsum</h4>
-                                                <h5>Founder and CEO at Rajodiya Infotech</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- END OF TESTIMONIALS -->
-        </div>
-    </div>
+@extends('layouts.app')
 
-</div>
-<div class="subscribe-part">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12">
-                <span class="top-heading">Try for free</span>
-                <h3>Lorem Ipsum is simply dummy text</h3>
-                <span class="sub-heading">of the printing and typesetting industry</span>
-                <p>Type your email address and click the button</p>
-                <form action="#">
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Type your email address.." id="demo" name="email">
-                        <button type="submit" class="btn btn-default">Subscribe</button>
+@section('content')
+<section class="wrapper bg-soft-primary">
+    <div class="container pt-10 pb-15 pt-md-14 pb-md-20">
+        <div class="row gx-lg-8 gx-xl-12 gy-10 mb-5 align-items-center">
+            <div class="col-md-10 offset-md-1 offset-lg-0 col-lg-5 text-center text-lg-start order-2 order-lg-0"
+                data-cues="slideInDown" data-group="page-title" data-delay="600">
+                <h1 class="display-1 mb-5 mx-md-n5 mx-lg-0">Creative. Smart. Awesome.</h1>
+                <p class="lead fs-lg mb-7">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                    eiusmod tempor incididunt ut labore et dolore</p>
+                <div class="d-flex justify-content-center justify-content-lg-start" data-cues="slideInDown"
+                    data-group="page-title-buttons" data-delay="900">
+                    <span><a class="btn btn-primary rounded me-2">See Projects</a></span>
+                    <span><a class="btn btn-yellow rounded">Learn More</a></span>
+                </div>
+            </div>
+            <!-- /column -->
+            <div class="col-lg-7" data-cue="slideInDown">
+                <figure><img class="w-auto" src="app/assets/img/illustrations/i6.png"
+                        srcset="./app/assets/img/illustrations/i6@2x.png 2x" alt="" /></figure>
+            </div>
+            <!-- /column -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+</section>
+<!-- /section -->
+<section class="wrapper bg-light">
+    <div class="container py-14 py-md-16 pb-md-17">
+        <div class="row gx-md-5 gy-5 mt-n18 mt-md-n21 mb-14 mb-md-17">
+            <div class="col-md-6 col-xl-3">
+                <div class="card shadow-lg card-border-bottom border-soft-yellow">
+                    <div class="card-body">
+                        <img src="app/assets/img/icons/lineal/browser.svg"
+                            class="svg-inject icon-svg icon-svg-md text-yellow mb-3" alt="" />
+                        <h4>lorem plusam </h4>
+                        <p class="mb-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+                        <a href="#" class="more hover link-yellow">Learn More</a>
                     </div>
-                </form>
+                    <!--/.card-body -->
+                </div>
+                <!--/.card -->
             </div>
+            <!--/column -->
+            <div class="col-md-6 col-xl-3">
+                <div class="card shadow-lg card-border-bottom border-soft-green">
+                    <div class="card-body">
+                        <img src="app/assets/img/icons/lineal/chat-2.svg"
+                            class="svg-inject icon-svg icon-svg-md text-green mb-3" alt="" />
+                        <h4>Lorem ipsum dolor </h4>
+                        <p class="mb-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+                        <a href="#" class="more hover link-green">Learn More</a>
+                    </div>
+                    <!--/.card-body -->
+                </div>
+                <!--/.card -->
+            </div>
+            <!--/column -->
+            <div class="col-md-6 col-xl-3">
+                <div class="card shadow-lg card-border-bottom border-soft-orange">
+                    <div class="card-body">
+                        <img src="app/assets/img/icons/lineal/id-card.svg"
+                            class="svg-inject icon-svg icon-svg-md text-orange mb-3" alt="" />
+                        <h4>Lorem ipsum dolor </h4>
+                        <p class="mb-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+                        <a href="#" class="more hover link-orange">Learn More</a>
+                    </div>
+                    <!--/.card-body -->
+                </div>
+                <!--/.card -->
+            </div>
+            <!--/column -->
+            <div class="col-md-6 col-xl-3">
+                <div class="card shadow-lg card-border-bottom border-soft-blue">
+                    <div class="card-body">
+                        <img src="app/assets/img/icons/lineal/gift.svg"
+                            class="svg-inject icon-svg icon-svg-md text-blue mb-3" alt="" />
+                        <h4>Lorem ipsum dolor </h4>
+                        <p class="mb-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+                        <a href="#" class="more hover link-blue">Learn More</a>
+                    </div>
+                    <!--/.card-body -->
+                </div>
+                <!--/.card -->
+            </div>
+            <!--/column -->
         </div>
-    </div>
-</div>
-<div class="social-links">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-3 col-sm-6 inner-text">
-                <div class="links">
-                    <a href="#">Facebook</a>
-                </div>
+        <!--/.row -->
+        <div class="row gx-lg-8 gx-xl-12 gy-10 mb-14 mb-md-17 align-items-center">
+            <div class="col-lg-7">
+                <figure><img class="w-auto" src="app/assets/img/illustrations/i8.png"
+                        srcset="./app/assets/img/illustrations/i8@2x.png 2x" alt="" /></figure>
             </div>
-            <div class="col-lg-3 col-sm-6 inner-text">
-                <div class="links">
-                    <a href="#">LinkedIn</a>
+            <!--/column -->
+            <div class="col-lg-5">
+                <h3 class="display-4 mb-7">Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
+                <div class="d-flex flex-row mb-6">
+                    <div>
+                        <span class="icon btn btn-circle btn-soft-primary pe-none me-5"><span
+                                class="number fs-18">1</span></span>
+                    </div>
+                    <div>
+                        <h4 class="mb-1">lorem Ideas</h4>
+                        <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore</p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-3 col-sm-6 inner-text">
-                <div class="links">
-                    <a href="#">Twitter</a>
+                <div class="d-flex flex-row mb-6">
+                    <div>
+                        <span class="icon btn btn-circle btn-soft-primary pe-none me-5"><span
+                                class="number fs-18">2</span></span>
+                    </div>
+                    <div>
+                        <h4 class="mb-1">lorem Analysis</h4>
+                        <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore</p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-3 col-sm-6 inner-text">
-                <div class="links">
-                    <a href="#">Discord</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<footer class="bg-gredient4">
-    <div class="container top-part-main">
-        <div class="row">
-            <div class="col-lg-3 top-part">
-                <div class="first-sec">
-                    <a href="#">
-                        <img src="{{asset(Storage::url('uploads/logo/')).'/landing_logo.png'}}" class="landing-logo" alt="logo">
-                    </a>
-                    <div class="copy-right">
-                        ©
-                        <script>document.write(new Date().getFullYear());</script>
-                        All rights reserved.
+                <div class="d-flex flex-row">
+                    <div>
+                        <span class="icon btn btn-circle btn-soft-primary pe-none me-5"><span
+                                class="number fs-18">3</span></span>
+                    </div>
+                    <div>
+                        <h4 class="mb-1">lorem Product</h4>
+                        <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore.</p>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 top-part">
-                <h3>Features</h3>
-                <ul>
-                    <li><a href="#">Staff</a></li>
-                    <li><a href="#">Customer</a></li>
-                    <li><a href="#">Vendor</a></li>
-                    <li><a href="#">Goal</a></li>
-                </ul>
-            </div>
-            <div class="col-lg-3 top-part">
-                <h3>Income</h3>
-                <ul>
-                    <li><a href="#">Proposal</a></li>
-                    <li><a href="#">Invoice</a></li>
-                    <li><a href="#">Revenue</a></li>
-                    <li><a href="#">Credit Note</a></li>
-                </ul>
-            </div>
-            <div class="col-lg-3 top-part">
-                <h3>Expense</h3>
-                <ul>
-                    <li><a href="#">Bill</a></li>
-                    <li><a href="#">Payment</a></li>
-                    <li><a href="#">Debit Note</a></li>
-                </ul>
-            </div>
-            <div class="col-lg-3 top-part">
-                <h3>Contact</h3>
-                <ul>
-                    <li><a href="#"><img src="{{ asset('landing/images/app-store.png') }}" alt="logo"></a></li>
-                    <li><a href="#"><img src="{{ asset('landing/images/google-pay.png') }}" alt="logo"></a></li>
-                </ul>
-            </div>
+            <!--/column -->
         </div>
-    </div>
-    <div class="container bottom-part">
-        <div class="row">
-            <div class="col-lg-6 col-md-6 inner-text">
-                <div class="copy-right">
-                    ©
-                    <script>document.write(new Date().getFullYear());</script>
-                    All rights reserved.
+        <!--/.row -->
+        <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center">
+            <div class="col-lg-7 order-lg-2">
+                <figure><img class="w-auto" src="app/assets/img/illustrations/i2.png"
+                        srcset="./app/assets/img/illustrations/i2@2x.png 2x" alt="" /></figure>
+            </div>
+            <!--/column -->
+            <div class="col-lg-5">
+                <h3 class="display-4 mb-7 mt-lg-10">Few reasons why our valued customers choose us.</h3>
+                <div class="accordion accordion-wrapper" id="accordionExample">
+                    <div class="card plain accordion-item">
+                        <div class="card-header" id="headingOne">
+                            <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                                aria-expanded="true" aria-controls="collapseOne">
+                                Professional </button>
+                        </div>
+                        <!--/.card-header -->
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                            data-bs-parent="#accordionExample">
+                            <div class="card-body">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                    tempor incididunt ut labore et doloreLorem ipsum dolor sit amet, consectetur
+                                    adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore</p>
+                            </div>
+                            <!--/.card-body -->
+                        </div>
+                        <!--/.accordion-collapse -->
+                    </div>
+                    <!--/.accordion-item -->
+                    <div class="card plain accordion-item">
+                        <div class="card-header" id="headingTwo">
+                            <button class="collapsed" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                aria-expanded="false" aria-controls="collapseTwo"> loewm Support </button>
+                        </div>
+                        <!--/.card-header -->
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                            data-bs-parent="#accordionExample">
+                            <div class="card-body">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                    tempor incididunt ut labore et doloreLorem ipsum dolor sit amet, consectetur
+                                    adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore</p>
+                            </div>
+                            <!--/.card-body -->
+                        </div>
+                        <!--/.accordion-collapse -->
+                    </div>
+                    <!--/.accordion-item -->
+                    <div class="card plain accordion-item">
+                        <div class="card-header" id="headingThree">
+                            <button class="collapsed" data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                                aria-expanded="false" aria-controls="collapseThree"> Header and Slider Options
+                            </button>
+                        </div>
+                        <!--/.card-header -->
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                            data-bs-parent="#accordionExample">
+                            <div class="card-body">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                    tempor incididunt ut labore et doloreLorem ipsum dolor sit amet, consectetur
+                                    adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore</p>
+                            </div>
+                            <!--/.card-body -->
+                        </div>
+                        <!--/.accordion-collapse -->
+                    </div>
+                    <!--/.accordion-item -->
                 </div>
+                <!--/.accordion -->
             </div>
-            <div class="col-lg-6 col-md-6 inner-text">
-                <ul>
-                    <li>
-                        <a href="#">Privacy Policy</a>
-                    </li>
-                    <li>
-                        <a href="#">Github</a>
-                    </li>
-                    <li>
-                        <a href="#">Press Kit</a>
-                    </li>
-                    <li>
-                        <a href="#">Contact</a>
-                    </li>
-                </ul>
-            </div>
+            <!--/column -->
         </div>
+        <!--/.row -->
     </div>
-</footer>
-</body>
-</html>
+    <!-- /.container -->
+</section>
+<section class="wrapper bg-light">
+    <div class="container pt-14 pt-md-16">
+        <div class="row text-center">
+            <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+                <h2 class="fs-16 text-uppercase text-muted mb-3">What We Do?</h2>
+                <h3 class="display-4 mb-10 px-xl-10">The service we offer is specifically designed to meet your
+                    needs.</h3>
+            </div>
+            <!-- /column -->
+        </div>
+        <!-- /.row -->
+        <div class="position-relative">
+            <div class="shape rounded-circle bg-soft-blue rellax w-16 h-16" data-rellax-speed="1"
+                style="bottom: -0.5rem; right: -2.2rem; z-index: 0;"></div>
+            <div class="shape bg-dot primary rellax w-16 h-17" data-rellax-speed="1"
+                style="top: -0.5rem; left: -2.5rem; z-index: 0;"></div>
+            <div class="row gx-md-5 gy-5 text-center">
+                <div class="col-md-6 col-xl-3">
+                    <div class="card shadow-lg">
+                        <div class="card-body">
+                            <img src="app/assets/img/icons/lineal/search-2.svg"
+                                class="svg-inject icon-svg icon-svg-md text-yellow mb-3" alt="" />
+                            <h4>lorem Services</h4>
+                            <p class="mb-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                                eiusmod tempor incididunt ut labore et dolore.</p>
+                            <a href="#" class="more hover link-yellow">Learn More</a>
+                        </div>
+                        <!--/.card-body -->
+                    </div>
+                    <!--/.card -->
+                </div>
+                <!--/column -->
+                <div class="col-md-6 col-xl-3">
+                    <div class="card shadow-lg">
+                        <div class="card-body">
+                            <img src="app/assets/img/icons/lineal/browser.svg"
+                                class="svg-inject icon-svg icon-svg-md text-red mb-3" alt="" />
+                            <h4>lorem Design</h4>
+                            <p class="mb-2">Nulla vitae elit libero, a pharetra augue. Donec id elit non mi
+                                porta gravida at eget metus cras justo.</p>
+                            <a href="#" class="more hover link-red">Learn More</a>
+                        </div>
+                        <!--/.card-body -->
+                    </div>
+                    <!--/.card -->
+                </div>
+                <!--/column -->
+                <div class="col-md-6 col-xl-3">
+                    <div class="card shadow-lg">
+                        <div class="card-body">
+                            <img src="app/assets/img/icons/lineal/chat-2.svg"
+                                class="svg-inject icon-svg icon-svg-md text-green mb-3" alt="" />
+                            <h4>lorem services </h4>
+                            <p class="mb-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                                eiusmod tempor incididunt ut labore et dolore.</p>
+                            <a href="#" class="more hover link-green">Learn More</a>
+                        </div>
+                        <!--/.card-body -->
+                    </div>
+                    <!--/.card -->
+                </div>
+                <!--/column -->
+                <div class="col-md-6 col-xl-3">
+                    <div class="card shadow-lg">
+                        <div class="card-body">
+                            <img src="app/assets/img/icons/lineal/megaphone.svg"
+                                class="svg-inject icon-svg icon-svg-md text-blue mb-3" alt="" />
+                            <h4>lorem servei </h4>
+                            <p class="mb-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                                eiusmod tempor incididunt ut labore et dolore</p>
+                            <a href="#" class="more hover link-blue">Learn More</a>
+                        </div>
+                        <!--/.card-body -->
+                    </div>
+                    <!--/.card -->
+                </div>
+                <!--/column -->
+            </div>
+            <!--/.row -->
+        </div>
+        <!-- /.position-relative -->
+    </div>
+    <!-- /.container -->
+</section>
+<!-- /section -->
+<section class="wrapper bg-gradient-reverse-primary">
+    <div class="container py-16 py-md-18">
+        <div class="row gx-lg-8 gx-xl-12 gy-10 mb-8 align-items-center">
+            <div class="col-lg-7 order-lg-2">
+                <figure><img class="w-auto" src="app/assets/img/illustrations/i3.png"
+                        srcset="./app/assets/img/illustrations/i3@2x.png 2x" alt="" /></figure>
+            </div>
+            <!--/column -->
+            <div class="col-lg-5">
+                <h2 class="fs-16 text-uppercase text-muted mb-3">Analyze Now</h2>
+                <h3 class="display-4 mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                    eiusmod tempor incididunt ut labore et dolore</h3>
+                <p class="mb-7">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore.</p>
+                <div class="row">
+                    <div class="col-lg-9">
+                        <form action="#">
+                            <div class="form-floating input-group">
+                                <input type="url" class="form-control" placeholder="Enter Website URL" id="seo-check">
+                                <label for="seo-check">Enter Website URL</label>
+                                <button class="btn btn-primary" type="button">Check</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /column -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!--/column -->
+        </div>
+        <!--/.row -->
+    </div>
+    <!-- /.container -->
+</section>
+<!-- /section -->
+<section class="wrapper bg-light angled upper-start lower-start">
+    <div class="container py-14 pt-md-17 pb-md-15">
+        <div class="row gx-md-8 gx-xl-12 gy-10 mb-14 mb-md-18 align-items-center">
+            <div class="col-lg-6 order-lg-2">
+                <div class="card shadow-lg me-lg-6">
+                    <div class="card-body p-6">
+                        <div class="d-flex flex-row">
+                            <div>
+                                <span class="icon btn btn-circle btn-lg btn-soft-primary pe-none me-4"><span
+                                        class="number">01</span></span>
+                            </div>
+                            <div>
+                                <h4 class="mb-1">Collect Ideas</h4>
+                                <p class="mb-0">Lorem ipsum dolor sit ametre</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/.card-body -->
+                </div>
+                <!--/.card -->
+                <div class="card shadow-lg ms-lg-13 mt-6">
+                    <div class="card-body p-6">
+                        <div class="d-flex flex-row">
+                            <div>
+                                <span class="icon btn btn-circle btn-lg btn-soft-primary pe-none me-4"><span
+                                        class="number">02</span></span>
+                            </div>
+                            <div>
+                                <h4 class="mb-1">lorem Analysis</h4>
+                                <p class="mb-0">Lorem ipsum dolor sit amet</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/.card-body -->
+                </div>
+                <!--/.card -->
+                <div class="card shadow-lg mx-lg-6 mt-6">
+                    <div class="card-body p-6">
+                        <div class="d-flex flex-row">
+                            <div>
+                                <span class="icon btn btn-circle btn-lg btn-soft-primary pe-none me-4"><span
+                                        class="number">03</span></span>
+                            </div>
+                            <div>
+                                <h4 class="mb-1">lorem Product</h4>
+                                <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                                    eiusmod tempor incididunt ut labore et dolore.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/.card-body -->
+                </div>
+                <!--/.card -->
+            </div>
+            <!--/column -->
+            <div class="col-lg-6">
+                <h2 class="fs-16 text-uppercase text-muted mb-3">Our Strategy</h2>
+                <h3 class="display-4 mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit, </h3>
+                <p>sed do eiusmod tempor incididunt ut labore et doloreLorem ipsum dolor sit amet, consectetur
+                    adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                <p class="mb-6">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                    incididunt ut labore et doloreLorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore</p>
+                <a href="#" class="btn btn-primary rounded-pill mb-0">Learn More</a>
+            </div>
+            <!--/column -->
+        </div>
+        <!--/.row -->
+        <div class="row gx-lg-8 gx-xl-12 gy-10 mb-lg-22 mb-xl-24 align-items-center">
+            <div class="col-lg-7">
+                <figure><img class="w-auto" src="app/assets/img/illustrations/i6.png"
+                        srcset="./app/assets/img/illustrations/i6@2x.png 2x" alt="" /></figure>
+            </div>
+            <!--/column -->
+            <div class="col-lg-5">
+                <h2 class="fs-16 text-uppercase text-muted mb-3">Why Choose Us?</h2>
+                <h3 class="display-4 mb-7">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                    eiusmod tempor incididunt ut labore et dolore.</h3>
+                <div class="accordion accordion-wrapper" id="accordionExample">
+                    <div class="card plain accordion-item">
+                        <div class="card-header" id="headingOne">
+                            <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                                aria-expanded="true" aria-controls="collapseOne">
+                                Professional Design </button>
+                        </div>
+                        <!--/.card-header -->
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                            data-bs-parent="#accordionExample">
+                            <div class="card-body">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                    tempor incididunt ut labore et doloreLorem ipsum dolor sit amet, consectetur
+                                    adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                            </div>
+                            <!--/.card-body -->
+                        </div>
+                        <!--/.accordion-collapse -->
+                    </div>
+                    <!--/.accordion-item -->
+                    <div class="card plain accordion-item">
+                        <div class="card-header" id="headingTwo">
+                            <button class="collapsed" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                aria-expanded="false" aria-controls="collapseTwo"> Top-Notch Support </button>
+                        </div>
+                        <!--/.card-header -->
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                            data-bs-parent="#accordionExample">
+                            <div class="card-body">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                    tempor incididunt ut labore et doloreLorem ipsum dolor sit amet, consectetur
+                                    adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore</p>
+                            </div>
+                            <!--/.card-body -->
+                        </div>
+                        <!--/.accordion-collapse -->
+                    </div>
+                    <!--/.accordion-item -->
+                    <div class="card plain accordion-item">
+                        <div class="card-header" id="headingThree">
+                            <button class="collapsed" data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                                aria-expanded="false" aria-controls="collapseThree"> Header and Slider Options
+                            </button>
+                        </div>
+                        <!--/.card-header -->
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                            data-bs-parent="#accordionExample">
+                            <div class="card-body">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                    tempor incididunt ut labore et doloreLorem ipsum dolor sit amet, consectetur
+                                    adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                            </div>
+                            <!--/.card-body -->
+                        </div>
+                        <!--/.accordion-collapse -->
+                    </div>
+                    <!--/.accordion-item -->
+                </div>
+                <!--/.accordion -->
+            </div>
+            <!--/column -->
+        </div>
+        <!--/.row -->
+    </div>
+    <!-- /.container -->
+</section>
+<!-- /section -->
+<section class="wrapper bg-gradient-primary">
+    <div class="container py-14 pt-md-16 pb-md-18">
+        <div class="position-relative mt-8 mt-lg-n23 mt-xl-n25">
+            <div class="row text-center">
+                <div class="col-lg-8 col-xl-7 col-xxl-6 mx-auto">
+                    <h2 class="fs-16 text-uppercase text-muted mb-3">Our Team</h2>
+                    <h3 class="display-4 mb-10 px-md-13 px-lg-4 px-xl-0">Lorem ipsum dolor sit amet, consectetur
+                        adipisicing elit</h3>
+                </div>
+                <!-- /column -->
+            </div>
+            <!-- /.row -->
+            <div class="position-relative">
+                <div class="shape bg-dot blue rellax w-16 h-17" data-rellax-speed="1"
+                    style="bottom: 0.5rem; right: -1.7rem; z-index: 0;"></div>
+                <div class="shape rounded-circle bg-line red rellax w-16 h-16" data-rellax-speed="1"
+                    style="top: 0.5rem; left: -1.7rem; z-index: 0;"></div>
+                <div class="row grid-view gy-6 gy-xl-0">
+                    <div class="col-md-6 col-xl-3">
+                        <div class="card shadow-lg">
+                            <div class="card-body">
+                                <img class="rounded-circle w-15 mb-4" src="app/assets/img/avatars/te1.jpg"
+                                    srcset="./app/assets/img/avatars/te1@2x.jpg 2x" alt="" />
+                                <h4 class="mb-1">Coriss Ambady</h4>
+                                <div class="meta mb-2">Financial Analyst</div>
+                                <p class="mb-2">Fermentum massa justo sit amet risus morbi leo.</p>
+                                <nav class="nav social mb-0">
+                                    <a href="#"><i class="uil uil-twitter"></i></a>
+                                    <a href="#"><i class="uil uil-facebook-f"></i></a>
+                                    <a href="#"><i class="uil uil-dribbble"></i></a>
+                                </nav>
+                                <!-- /.social -->
+                            </div>
+                            <!--/.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                    <!--/column -->
+                    <div class="col-md-6 col-xl-3">
+                        <div class="card shadow-lg">
+                            <div class="card-body">
+                                <img class="rounded-circle w-15 mb-4" src="app/assets/img/avatars/te2.jpg"
+                                    srcset="./app/assets/img/avatars/te2@2x.jpg 2x" alt="" />
+                                <h4 class="mb-1">Cory Zamora</h4>
+                                <div class="meta mb-2">Marketing Specialist</div>
+                                <p class="mb-2">Fermentum massa justo sit amet risus morbi leo.</p>
+                                <nav class="nav social mb-0">
+                                    <a href="#"><i class="uil uil-twitter"></i></a>
+                                    <a href="#"><i class="uil uil-facebook-f"></i></a>
+                                    <a href="#"><i class="uil uil-dribbble"></i></a>
+                                </nav>
+                                <!-- /.social -->
+                            </div>
+                            <!--/.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                    <!--/column -->
+                    <div class="col-md-6 col-xl-3">
+                        <div class="card shadow-lg">
+                            <div class="card-body">
+                                <img class="rounded-circle w-15 mb-4" src="app/assets/img/avatars/te3.jpg"
+                                    srcset="./app/assets/img/avatars/te3@2x.jpg 2x" alt="" />
+                                <h4 class="mb-1">Nikolas Brooten</h4>
+                                <div class="meta mb-2">Sales Manager</div>
+                                <p class="mb-2">Fermentum massa justo sit amet risus morbi leo.</p>
+                                <nav class="nav social mb-0">
+                                    <a href="#"><i class="uil uil-twitter"></i></a>
+                                    <a href="#"><i class="uil uil-facebook-f"></i></a>
+                                    <a href="#"><i class="uil uil-dribbble"></i></a>
+                                </nav>
+                                <!-- /.social -->
+                            </div>
+                            <!--/.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                    <!--/column -->
+                    <div class="col-md-6 col-xl-3">
+                        <div class="card shadow-lg">
+                            <div class="card-body">
+                                <img class="rounded-circle w-15 mb-4" src="app/assets/img/avatars/te4.jpg"
+                                    srcset="./app/assets/img/avatars/te4@2x.jpg 2x" alt="" />
+                                <h4 class="mb-1">Jackie Sanders</h4>
+                                <div class="meta mb-2">Investment Planner</div>
+                                <p class="mb-2">Fermentum massa justo sit amet risus morbi leo.</p>
+                                <nav class="nav social mb-0">
+                                    <a href="#"><i class="uil uil-twitter"></i></a>
+                                    <a href="#"><i class="uil uil-facebook-f"></i></a>
+                                    <a href="#"><i class="uil uil-dribbble"></i></a>
+                                </nav>
+                                <!-- /.social -->
+                            </div>
+                            <!--/.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                    <!--/column -->
+                </div>
+                <!--/.row -->
+            </div>
+            <!-- /.position-relative -->
+        </div>
+        <!-- /div -->
+    </div>
+    <!-- /.container -->
+</section>
+<!-- /section -->
+
+<!-- /section -->
+<section class="wrapper bg-soft-primary">
+    <div class="container py-14 pt-md-17 pb-md-20">
+        <div class="row gx-lg-8 gx-xl-12 gy-10 gy-lg-0">
+            <div class="col-lg-4 text-center text-lg-start">
+                <h3 class="display-4 mb-3 pe-xl-15">We are proud of our works</h3>
+                <p class="lead fs-lg mb-0 pe-xxl-10">We bring solutions to make life easier for our customers.
+                </p>
+            </div>
+            <!-- /column -->
+            <div class="col-lg-8 mt-lg-2">
+                <div class="row align-items-center counter-wrapper gy-6 text-center">
+                    <div class="col-md-4">
+                        <img src="app/assets/img/icons/lineal/check.svg"
+                            class="svg-inject icon-svg icon-svg-md text-primary mb-3" alt="" />
+                        <h3 class="counter">7518</h3>
+                        <p>Completed Projects</p>
+                    </div>
+                    <!--/column -->
+                    <div class="col-md-4">
+                        <img src="app/assets/img/icons/lineal/user.svg"
+                            class="svg-inject icon-svg icon-svg-md text-primary mb-3" alt="" />
+                        <h3 class="counter">3472</h3>
+                        <p>Happy Customers</p>
+                    </div>
+                    <!--/column -->
+                    <div class="col-md-4">
+                        <img src="app/assets/img/icons/lineal/briefcase-2.svg"
+                            class="svg-inject icon-svg icon-svg-md text-primary mb-3" alt="" />
+                        <h3 class="counter">2184</h3>
+                        <p>Expert Employees</p>
+                    </div>
+                    <!--/column -->
+                </div>
+                <!--/.row -->
+            </div>
+            <!-- /column -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+</section>
+<section class="wrapper bg-light">
+    <div class="container py-14 py-md-16 pb-md-0">
+        <div class="grid mb-14 mb-md-18 mt-3">
+            <div class="row isotope gy-6 mt-n19 mt-md-n22" style="position: relative; height: 372.7px;">
+                <div class="item col-md-6 col-xl-3" style="position: absolute; left: 0%; top: 0px;">
+                    <div class="card shadow-lg card-border-bottom border-soft-primary">
+                        <div class="card-body">
+                            <span class="ratings five mb-3"></span>
+                            <blockquote class="icon mb-0">
+                                <p>“Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                    tempor incididunt ut labore et dolore.”</p>
+                                <div class="blockquote-details">
+                                    <div class="info ps-0">
+                                        <h5 class="mb-1">Coriss Ambady</h5>
+                                        <p class="mb-0">Financial Analyst</p>
+                                    </div>
+                                </div>
+                            </blockquote>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!--/column -->
+                <div class="item col-md-6 col-xl-3" style="position: absolute; left: 25%; top: 0px;">
+                    <div class="card shadow-lg card-border-bottom border-soft-primary">
+                        <div class="card-body">
+                            <span class="ratings five mb-3"></span>
+                            <blockquote class="icon mb-0">
+                                <p>“Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                    tempor incididunt ut labore et dolore.”</p>
+                                <div class="blockquote-details">
+                                    <div class="info ps-0">
+                                        <h5 class="mb-1">Cory Zamora</h5>
+                                        <p class="mb-0">Marketing Specialist</p>
+                                    </div>
+                                </div>
+                            </blockquote>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!--/column -->
+                <div class="item col-md-6 col-xl-3" style="position: absolute; left: 50%; top: 0px;">
+                    <div class="card shadow-lg card-border-bottom border-soft-primary">
+                        <div class="card-body">
+                            <span class="ratings five mb-3"></span>
+                            <blockquote class="icon mb-0">
+                                <p>“Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                    tempor incididunt ut labore et dolore”</p>
+                                <div class="blockquote-details">
+                                    <div class="info ps-0">
+                                        <h5 class="mb-1">Nikolas Brooten</h5>
+                                        <p class="mb-0">Sales Manager</p>
+                                    </div>
+                                </div>
+                            </blockquote>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!--/column -->
+                <div class="item col-md-6 col-xl-3" style="position: absolute; left: 75%; top: 0px;">
+                    <div class="card shadow-lg card-border-bottom border-soft-primary">
+                        <div class="card-body">
+                            <span class="ratings five mb-3"></span>
+                            <blockquote class="icon mb-0">
+                                <p>“Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                    tempor incididunt ut labore et dolore.”</p>
+                                <div class="blockquote-details">
+                                    <div class="info ps-0">
+                                        <h5 class="mb-1">Coriss Ambady</h5>
+                                        <p class="mb-0">Financial Analyst</p>
+                                    </div>
+                                </div>
+                            </blockquote>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!--/column -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.grid-view -->
+
+        <!-- /.projects-tiles -->
+    </div>
+    <!-- /.container -->
+</section>
+<!-- /section -->
+@endsection

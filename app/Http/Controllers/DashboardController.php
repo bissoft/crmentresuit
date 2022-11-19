@@ -112,8 +112,8 @@ DashboardController extends Controller
             }
             else
             {
-                // return view('layouts.landing');
-                return redirect('login');
+                return view('layouts.landing');
+                //return redirect('login');
             }
         }
     }
