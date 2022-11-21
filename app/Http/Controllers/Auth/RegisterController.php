@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Spatie\Permission\Models\Role;
@@ -87,12 +88,13 @@ class RegisterController extends Controller
         $cookie = Cookie::get('referral');
 
         $referred_by = $cookie ? \Hashids::decode($cookie)[0] : null;
-        
+
         $user   = User::create(
             [
                 'name' => $data['name'],
                 'email' => $data['email'],
                 'password' => Hash::make($data['password']),
+                'referred_by' => $referred_by,
                 'type' => 'company',
                 'lang' => \App\Utility::getValByName('default_language'),
                 'created_by' => 1,
