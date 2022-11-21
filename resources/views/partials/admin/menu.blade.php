@@ -8,7 +8,7 @@
     <!-- Sidenav header -->
     <div class="sidenav-header d-flex align-items-center">
         <a class="navbar-brand" href="{{ route('dashboard') }}">
-            <img src="{{$logo.'/'.(isset($company_logo) && !empty($company_logo)?$company_logo:'logo.png')}}" class="navbar-brand-img"/>
+            <img src="{{ asset('app/assets/img/logov2.png') }}" class="navbar-brand-img"/>
         </a>
         <div class="ml-auto">
             <div class="sidenav-toggler sidenav-toggler-dark d-md-none" data-action="sidenav-unpin" data-target="#sidenav-main">
@@ -119,6 +119,20 @@
                         </li>
                     @endif
                 @endif
+                
+                {{-- @if(Gate::check('manage referrals')) --}}
+                    <li class="nav-item">
+                        <a href="{{ route('referral.index') }}" class="nav-link {{ (Request::segment(1) == 'referral')?'active':''}}">
+                            <i class="fas fa-user-plus"></i>{{__('Referral')}}
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('booking.index') }}" class="nav-link {{ (Request::segment(1) == 'booking' || Request::segment(1) == 'booking-schedule')?'active':''}}">
+                            <i class="fas fa-ticket-alt"></i>{{__('Book Schedule')}}
+                        </a>
+                    </li>
+                {{-- @endif --}}
+
                 @if(Gate::check('manage product & service'))
                     <li class="nav-item">
                         <a href="{{ route('productservice.index') }}" class="nav-link {{ (Request::segment(1) == 'productservice')?'active':''}}">
@@ -276,6 +290,11 @@
 
                 @if(Gate::check('manage goal'))
                     <li class="nav-item">
+                        <a href="{{ route('projects.index') }}" class="nav-link {{ (Request::segment(1) == 'projects')?'active':''}}">
+                            <i class="fas fa-layer-group"></i>{{__('Projects')}}
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="{{ route('goal.index') }}" class="nav-link {{ (Request::segment(1) == 'goal')?'active':''}}">
                             <i class="fas fa-bullseye"></i>{{__('Goal')}}
                         </a>
@@ -381,12 +400,18 @@
                     </li>
                 @endif
                 @if(Gate::check('manage company settings'))
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a href="{{ route('company.setting') }}" class="nav-link {{ (Request::route()->getName() == 'systems.index') ? ' active' : '' }}">
                             <i class="fas fa-sliders-h"></i>{{__('Settings')}}
                         </a>
-                    </li>
+                    </li> -->
                 @endif
+                <li class="nav-item">
+                        
+                        <a href="{{route('staff.documents', ['staff_id' => auth()->user()->id, 'category' => 'document'])}}" class="nav-link {{ (Request::route()->getName() == 'staff.documents') ? ' active' : '' }}">
+                            <i class="fas fa-sliders-h"></i>Documents
+                        </a>
+                </li>
             </ul>
         </div>
     </div>

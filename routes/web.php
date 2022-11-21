@@ -14,7 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
+//signature
+Route::get('signature/{id}/{email}', 'DocumentController@customerSign')->name('customer.signature');
+//
 Route::get('/', 'HomeController@index')->name('home');
 
 Auth::routes();
@@ -337,11 +339,15 @@ Route::group(
 
 
 
+// Emails Routes
 Route::get('/emails', 'EmailMarketingController@index')->name('emails.index');
 Route::match(['get','post'],'/emails/create', 'EmailMarketingController@create')->name('emails.create');
 Route::match(['get','post'],'/emails/update/{id}', 'EmailMarketingController@update')->name('emails.update');
 Route::match(['get','post'],'/emails/send', 'EmailMarketingController@send')->name('emails.send');
 Route::match(['get','post'],'/emails/send/single/{id}', 'EmailMarketingController@single')->name('emails.send.single');
+
+
+// Messages Route
 
 Route::get('/start-chat', 'ChatController@startChat')->name('startChat');
 Route::get('/chat/{id?}', 'ChatController@chat')->name('chat');
@@ -349,6 +355,28 @@ Route::get('/refresh-msgs/{id}', 'ChatController@refreshMsgs')->name('refreshMsg
 Route::get('/send-msg', 'ChatController@sendMsg')->name('sendMsg');
 
 
+// Route::resource('booking', BookingController::class);
+
+Route::resource('booking', 'BookingController')->middleware(
+    [
+        'auth',
+        'XSS',
+    ]
+);
+
+Route::get('/booking-schedule', 'BookingController@bookingSchedule')->name('bookingSchedule');
+
+
+// referral route
+Route::get('/referral', 'ReferralController@index')->name('referral.index');
+
+//Project 
+Route::resource('projects', 'ProjectController')->middleware(
+    [
+        'auth',
+        'XSS',
+    ]
+);
 
 
 Route::get('productservice/index', 'ProductServiceController@index')->name('productservice.index');
@@ -358,7 +386,52 @@ Route::resource('productservice', 'ProductServiceController')->middleware(
         'XSS',
     ]
 );
+// /*Document Route starts*/
+Route::get('document', 'DocumentController@index')->name('document.index');
+Route::get('document/view/{id}', 'DocumentController@create')->name('document.create');
+Route::post('document/store',  'DocumentController@store')->name('document.store');
+Route::post('document/update',  'DocumentController@update')->name('document.update');
+Route::get('document/{id}/remove',  'DocumentController@remove')->name('document.remove');
+Route::get('document/details/{id}',  'DocumentController@documentBYId')->name('document.details');
+Route::post('document/rename-document',  'DocumentController@renameDocument')->name('document.rename');
+Route::post('document/add-document-user',  'DocumentController@addDocumentUser')->name('document-user.store');
+Route::post('document/edit-document-user',  'DocumentController@editDocumentUser')->name('document-user.update');
+Route::get('get-document-users/{id}', 'DocumentController@getDocumentUsers')->name('get.document.users');
+Route::get('get-document-user-details/{id}', 'DocumentController@getDocumentUserDetails');
+Route::get('delete-document-user/{id}', 'DocumentController@deleteDocumentUser');
+Route::get('send-document-to-users/{id}','DocumentController@sendDocumentUser')->name('send.document.to.users');
+Route::get('document-download/{id}','DocumentController@getDownload')->name('document.download');
+Route::get('got-it-how-to-add-user', 'DocumentController@gotItHowToAddUser');
+Route::get('got-it-how-to-add-user-signature','DocumentController@gotItHowToAddUserSignature');
+Route::get('got-it-how-to-add-signature-box', 'DocumentController@gotItHowToAddSignatureBox');
+Route::post('folder/search', 'DocumentController@searchFolder')->name('folder.search');
+Route::post('folder/suggestion-search', 'DocumentController@suggestionSearch')->name('folder.suggestion.search');
+Route::get('document/response-list/{id}', 'DocumentController@documentResponseList')->name('document.response.list');
 
+Route::post('document/add-document-user-element', 'DocumentController@addDocumentUserElement')->name('document-user-element.store');
+Route::get('get-document-elements/{id}/{page}/{user_id}', 'DocumentController@getDocumentElements')->name('get.document.element');
+Route::get('delete-document-elements/{id}',  'DocumentController@deleteDocumentElement')->name('delete.document.element');
+
+Route::post('folder/store', 'DocumentController@folderStore')->name('folder.store');
+Route::post('folder/update', 'DocumentController@folderUpdate')->name('folder.update');
+Route::get('folder/details/{id}',  'DocumentController@folderBYId')->name('folder.details');
+Route::get('folder/{id}/remove', 'DocumentController@removeFolder')->name('folder.remove');
+Route::get('document/modify/{id}', 'DocumentController@modifyDocument')->name('document.modify');
+/*un-auth route of document*/
+Route::post('document/document-response-store','DocumentController@documentUserResponseStore')->name('document-user-response.store');
+Route::get('document/check-file/{id}/{user_id}/{send_id}', 'DocumentController@checkDocumentAttachFile')->name('check.email.document');
+Route::get('document/document-file/{id}/{user_id}/{send_id}','DocumentController@downloadFile')->name('download.document.file');
+/*Document route ended*/
+
+Route::post('document/signature-store', 'DocumentController@documentSignature')->name('document-signature.store');
+
+Route::post('document/image-store', 'DocumentController@documentImage')->name('document-image.store');
+Route::post('document/text-store', 'DocumentController@documentText')->name('document-text.store');
+
+
+Route::get('upload/document/{id}', 'DocumentController@uploadDocument')->name('document.upload');
+Route::get('documents','DocumentController@documents')->name('staff.documents');
+//end
 
 Route::group(
     [

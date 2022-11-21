@@ -31,7 +31,7 @@
                 <div class="container flex-lg-row flex-nowrap align-items-center">
                     <div class="navbar-brand w-100">
                         <a href="<?php echo e(url('/')); ?>">
-                            <img src="<?php echo e(asset('app/assets/img/logo-dark.png')); ?>" srcset="<?php echo e(asset('app/assets/img/logov2.png')); ?>" width="200" alt="" />
+                            <img src="<?php echo e(asset('app/assets/img/logov2.png')); ?>" srcset="<?php echo e(asset('app/assets/img/logov2.png')); ?>" width="200" alt="" />
                         </a>
                     </div>
                     <div class="navbar-collapse offcanvas offcanvas-nav offcanvas-start">

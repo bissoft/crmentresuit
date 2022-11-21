@@ -18331,9 +18331,9 @@ textarea[resize="horizontal"] {
 }
 .application .container-application .page-content {
   padding-top: 20px;
-  /* padding-bottom: 100px; */
+  padding-bottom: 100px;
   padding-bottom: 30px;
-  background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),url(../../assets/img/bg-one.jpeg) no-repeat;
+  /* background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),url(../../assets/img/bg-one.jpeg) no-repeat; */
   width: 100%;
   min-height: calc(100vh - 73px);
   background-size: cover;
