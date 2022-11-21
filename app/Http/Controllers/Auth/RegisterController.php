@@ -69,7 +69,7 @@ class RegisterController extends Controller
                          'required',
                          'string',
                          'min:8',
-                         'confirmed',
+                         
                      ],
                  ]
         );

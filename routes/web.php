@@ -22,6 +22,7 @@ Route::get('/', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/login/{lang?}', 'Auth\LoginController@showLoginForm')->name('dashboard')->middleware(['XSS',]);
+Route::get('/register/{lang?}', 'Auth\RegisterController@showRegistrationForm')->name('register')->middleware(['XSS',]);
 
 Route::get('/password/resets/{lang?}', 'Auth\LoginController@showLinkRequestForm')->name('change.langPass');
 

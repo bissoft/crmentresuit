@@ -12,14 +12,18 @@
                 <img src="{{ asset('app/assets/img/logov2.png') }}" class="navbar-brand-img big-logo" alt="logo">
             </a>
             <div class="login-form">
-                <ul class="login-menu">
-                    <li class="blue-login"><a href="{{route('login')}}">{{__('User Login')}}</a></li>
-                    <li class="gray-login"><a href="{{route('customer.login')}}">{{__('Customer Login')}}</a></li>
-                    <li class="gray-login"><a href="{{route('vender.login')}}">{{__('Vendor Login')}}</a></li>
-                </ul>
-                <div class="page-title"><h5><span>{{__('User')}}</span> {{__('Login')}}</h5></div>
-                {{Form::open(array('route'=>'login','method'=>'post','id'=>'loginForm' ))}}
+                
+                <div class="page-title"><h5><span>{{__('User')}}</span>Sign Up</h5></div>
+                {{Form::open(array('route'=>'register','method'=>'post','id'=>'loginForm' ))}}
                 @csrf
+                <div class="form-group">
+                    <label for="email" class="form-control-label">Full Name</label>
+                    <input class="form-control @error('name') is-invalid @enderror" id="email" type="text" name="name" value="{{ old('name') }}" required autocomplete="Name" autofocus>
+                    @error('name')
+                    <div class="invalid-feedback" role="alert">{{ $message }}</div>
+                    @enderror
+                </div>
+                
                 <div class="form-group">
                     <label for="email" class="form-control-label">{{__('Email')}}</label>
                     <input class="form-control @error('email') is-invalid @enderror" id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -42,7 +46,7 @@
                     <a href="{{ route('password.request') }}" class="text-xs text-primary">{{ __('Forgot Your Password?') }}</a>
                 @endif
 
-                <button type="submit" class="btn-login">{{__('Login')}}</button>
+                <button type="submit" class="btn-login">Register</button>
                 {{Form::close()}}
             </div>
 

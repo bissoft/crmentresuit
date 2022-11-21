@@ -1286,7 +1286,7 @@ a.bg-yellow {
     left: 0;
     width: 100%;
     height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),url('../../assets/img/bg-two.jpeg') no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), no-repeat;
     /* background-position: center center; */
     background-size: cover;}
 
