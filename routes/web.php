@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\InterviewController;
+use App\Http\Controllers\VideoMeetingController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -441,6 +443,14 @@ Route::group(
             'XSS',
         ],
     ], function (){
+		Route::post('deleteInterview', [InterviewController::class,'destroy'])->name('deleteInterview');
+		Route::match(['get','post'],'/video-meeting',[InterviewController::class,'index']);
+		Route::match(['get','post'],'/video-meeting/create',[InterviewController::class,'add'])->name('admin.interview.create');
+		Route::match(['get','post'],'/video-meeting/store',[InterviewController::class,'store'])->name('admin.interview.store');
+		Route::match(['get','post'],'/video-meeting/edit/{id}',[InterviewController::class,'edit'])->name('admin.interview.edit');
+		Route::match(['get','post'],'video-meeting/update/{id}',[InterviewController::class,'updated'])->name('admin.interview.update');
+		Route::match(['get','post'],'credentials',[InterviewController::class,'credentials'])->name('credentials');
+		
 
     Route::get('customer/{id}/show', 'CustomerController@show')->name('customer.show');
     Route::resource('customer', 'CustomerController');

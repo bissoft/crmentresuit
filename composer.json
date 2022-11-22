@@ -11,6 +11,7 @@
         "php": "^7.2.5",
         "doctrine/dbal": "^2.10",
         "fideloper/proxy": "^4.2",
+        "firebase/php-jwt": "^6.3",
         "fruitcake/laravel-cors": "^1.0",
         "guzzlehttp/guzzle": "^6.3",
         "kkomelin/laravel-translatable-string-exporter": "^1.10",
@@ -20,11 +21,11 @@
         "laravelcollective/html": "^6.1",
         "paypal/rest-api-sdk-php": "^1.14",
         "rachidlaasri/laravel-installer": "^4.1",
+        "setasign/fpdf": "^1.8",
+        "setasign/fpdi": "^2.3",
         "spatie/laravel-permission": "^3.13",
         "stripe/stripe-php": "^7.36",
-        "vinkla/hashids": "8.0",
-        "setasign/fpdf": "^1.8",
-        "setasign/fpdi": "^2.3"
+        "vinkla/hashids": "8.0"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

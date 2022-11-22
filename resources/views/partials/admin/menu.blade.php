@@ -45,6 +45,16 @@
                         </a>
                     </li>
                 @endcan -->
+					{{-- @can('manage customer proposal') --}}
+					@if ( Auth::user()->name == 'Admin')
+						   <li class="nav-item">
+                        <a href="{{url('video-meeting')}}" class="nav-link {{ (request()->segment(1) == 'video-meeting') ? 'active':''}}">
+                            <i class="fas fa-file"></i>{{__('Video Meeting')}}
+                        </a>
+                    </li>
+					@endif
+
+                {{-- @endcan --}}
                 @can('manage customer invoice')
                     <li class="nav-item">
                         <a href="{{route('customer.invoice')}}" class="nav-link {{ (Request::route()->getName() == 'customer.invoice' || Request::route()->getName() == 'customer.invoice.show') ? ' active' : '' }} ">
