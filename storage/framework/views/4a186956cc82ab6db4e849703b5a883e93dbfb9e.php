@@ -52,13 +52,13 @@
                                     <tr>
                                         <td><?php echo e("TIC-".sprintf("%06d", 100000 + $ticket->id)); ?></td>
                                         <td><?php echo e($ticket->subject); ?></td>
-                                        <td><?php echo e($ticket->customer_contact_id); ?></td>
-                                        <td><?php echo e($ticket->department_id); ?></td>
-                                        <td><?php echo e($ticket->project_id); ?></td>
-                                        <td><?php echo e($ticket->assigned_to); ?></td>
-                                        <td><?php echo e($ticket->ticket_status_id); ?></td>
-                                        <td><?php echo e($ticket->ticket_priority_id); ?></td>
-                                        <td><?php echo e($ticket->ticket_service_id); ?></td>
+                                        <td><?php echo e($ticket->department->name ?? ""); ?></td>
+                                        <td><?php echo e($ticket->service->name ?? ""); ?></td>
+                                        <td><?php echo e($ticket->customerContact->name ?? ""); ?></td>
+                                        <td><?php echo e($ticket->ticketStatus->name ?? ""); ?></td>
+                                        <td><?php echo e($ticket->ticketPriority->name ?? ""); ?></td>
+                                        <td><?php echo e($ticket->assignedTo->name ?? ""); ?></td>
+                                        <td><?php echo e(""); ?></td>
                                         <td><?php echo e($ticket->created_at); ?></td>
                                         <td>
                                             <a href="<?php echo e(route('tickets.show',$ticket->id)); ?>" class="edit-icon bg-success" data-toggle="tooltip" data-original-title="<?php echo e(__('View')); ?>">

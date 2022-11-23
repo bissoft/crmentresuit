@@ -1,6 +1,6 @@
 <div class="card bg-none card-box">
-    <form action="{{route('tickets.store')}}" method="POST">
-        @csrf
+    <form action="<?php echo e(route('tickets.store')); ?>" method="POST">
+        <?php echo csrf_field(); ?>
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
@@ -11,9 +11,9 @@
                 <div class="form-group contact">
                     <label>Contact <span class="required">*</span></label>
                     <select name="customer_contact_id" class='form-control form-control-lg'>
-                        @foreach ($users as $user)
-                        <option value="{{$user->id}}">{{$user->name}}</option>
-                        @endforeach
+                        <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <option value="<?php echo e($user->id); ?>"><?php echo e($user->name); ?></option>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </select>
                     <div class="invalid-feedback d-block"></div>
                 </div>
@@ -22,9 +22,9 @@
                         <label>Department <span class="required">*</span></label>
                         <select name="department_id" class='form-control selectPickerWithoutSearch'>
                             <option value="">Select Department</option>
-                            @foreach ($departments as $item)
-                            <option value="{{$item->id}}">{{$item->name}}</option>
-                            @endforeach
+                            <?php $__currentLoopData = $departments; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <option value="<?php echo e($item->id); ?>"><?php echo e($item->name); ?></option>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                         </select>
                         <div class="invalid-feedback d-block"></div>
@@ -53,9 +53,9 @@
                     <div class="form-group col-md-6">
                         <label>Assign ticket (default is current user) <span class="required">*</span></label>
                         <select name="assigned_to" class='form-control selectpicker'>
-                            @foreach ($users as $user)
-                            <option value="{{$user->id}}">{{$user->name}}</option>
-                            @endforeach
+                            <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <option value="<?php echo e($user->id); ?>"><?php echo e($user->name); ?></option>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </select>
                         <div class="invalid-feedback d-block"></div>
                     </div>
@@ -63,9 +63,9 @@
                         <label>Status <span class="required">*</span></label>
                         <select name="ticket_status_id" class='form-control selectPickerWithoutSearch'>
                             <option value="" selected="selected">Select</option>
-                            @foreach ($ticket_status as $item)
-                            <option value="{{$item->id}}">{{$item->name}}</option>
-                            @endforeach
+                            <?php $__currentLoopData = $ticket_status; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <option value="<?php echo e($item->id); ?>"><?php echo e($item->name); ?></option>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                         </select>
                         <div class="invalid-feedback d-block"></div>
@@ -76,9 +76,9 @@
                         <label>Priority <span class="required">*</span></label>
                         <select name="ticket_priority_id" class='form-control selectPickerWithoutSearch'>
                             <option value="" selected="selected">Select</option>
-                            @foreach ($ticket_priority as $item)
-                            <option value="{{$item->id}}">{{$item->name}}</option>
-                            @endforeach
+                            <?php $__currentLoopData = $ticket_priority; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <option value="<?php echo e($item->id); ?>"><?php echo e($item->name); ?></option>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </select>
                         <div class="invalid-feedback d-block"></div>
                     </div>
@@ -86,9 +86,9 @@
                         <label>Service</label>
                         <select name="ticket_service_id" class='form-control selectPickerWithoutSearch'>
                             <option value="" selected="selected">Select</option>
-                            @foreach ($services as $item)
-                            <option value="{{$item->id}}">{{$item->name}}</option>
-                            @endforeach
+                            <?php $__currentLoopData = $services; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <option value="<?php echo e($item->id); ?>"><?php echo e($item->name); ?></option>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </select>
                         <div class="invalid-feedback d-block"></div>
                     </div>
@@ -99,9 +99,9 @@
                 <div class="form-group project_selection">
                     <label>Project</label>
                     <select name="project_id" class='form-control  project_id'>
-                        @foreach ($projects as $project)
-                        <option value="{{$project->id}}">{{$project->name}}</option>
-                        @endforeach
+                        <?php $__currentLoopData = $projects; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $project): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <option value="<?php echo e($project->id); ?>"><?php echo e($project->name); ?></option>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </select>
                     <div class="invalid-feedback"></div>
                 </div>
@@ -115,9 +115,9 @@
                         <label>Insert predefined reply</label>
                         <select name="pre_defined_replies_id" class='form-control'>
                             <option value="" selected="selected">Select</option>
-                            @foreach ($predefinedreply as $item)
-                            <option value="{{$item->id}}">{{$item->question}}</option>
-                            @endforeach
+                            <?php $__currentLoopData = $predefinedreply; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <option value="<?php echo e($item->id); ?>"><?php echo e($item->question); ?></option>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </select>
                     </div>
 
@@ -130,8 +130,8 @@
             </div>
 
             <div class="col-md-12">
-                <input type="submit" value="{{__('Create')}}" class="btn-create badge-blue">
-                <input type="button" value="{{__('Cancel')}}" class="btn-create bg-gray" data-dismiss="modal">
+                <input type="submit" value="<?php echo e(__('Create')); ?>" class="btn-create badge-blue">
+                <input type="button" value="<?php echo e(__('Cancel')); ?>" class="btn-create bg-gray" data-dismiss="modal">
             </div>
         </div>
     </form>
@@ -146,8 +146,8 @@
     });
 
     function get_predefined_content($id) {
-        $.post("{{route('predefined-reply')}}", {
-                "_token": "{{csrf_token()}}",
+        $.post("<?php echo e(route('predefined-reply')); ?>", {
+                "_token": "<?php echo e(csrf_token()); ?>",
                 id: $id
             })
             .done(function (response) {
@@ -159,3 +159,4 @@
             });
     }
 </script>
+<?php /**PATH C:\xampp\htdocs\ItSolzTechOkara\crmentresuit\resources\views/tickets/create.blade.php ENDPATH**/ ?>

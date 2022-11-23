@@ -409,6 +409,27 @@ Route::resource('predefined-replies', 'PredefinedreplyController')->middleware(
     ]
 );
 
+Route::post('predefined-reply',  'PredefinedreplyController@predefinedReply')->name('predefined-reply')->middleware(
+    [
+        'auth',
+        'XSS',
+    ]
+);
+
+
+Route::resource('ticketpriorities', 'TicketPriorityController')->middleware(
+    [
+        'auth',
+        'XSS',
+    ]
+);
+Route::resource('ticketstatuses', 'TicketStatusController')->middleware(
+    [
+        'auth',
+        'XSS',
+    ]
+);
+
 
 
 

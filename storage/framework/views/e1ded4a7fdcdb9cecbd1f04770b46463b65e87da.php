@@ -337,23 +337,47 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="<?php echo e(route('departments.index')); ?>" class="nav-link <?php echo e((Request::segment(1) == 'departments')?'active':''); ?>">
-                            <i class="fas fa-headset"></i><?php echo e(__('Departments')); ?>
+                        <a class="nav-link <?php echo e((Request::segment(1) == 'departments' || Request::segment(1) == 'services' || Request::segment(2) == 'redefined-replies' ||  Request::segment(2) == 'ticketpriorities' ||  Request::segment(2) == 'ticketstatuses')?' active':'collapsed'); ?>" href="#navbar-support-setting" data-toggle="collapse" role="button" aria-expanded="<?php echo e((Request::segment(1) == 'bill' )?'true':'false'); ?>" aria-controls="navbar-support-setting">
+                            <i class="fas fa-cog"></i><?php echo e(__('Support Settings')); ?>
 
+                            <i class="fas fa-sort-up"></i>
                         </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="<?php echo e(route('services.index')); ?>" class="nav-link <?php echo e((Request::segment(1) == 'services')?'active':''); ?>">
-                            <i class="fas fa-headset"></i><?php echo e(__('Services')); ?>
+                        <div class="collapse <?php echo e((Request::segment(1) == 'departments'  || Request::segment(1) == 'services' || Request::segment(2) == 'redefined-replies' ||  Request::segment(2) == 'ticketpriorities' ||  Request::segment(2) == 'ticketstatuses')?'show':''); ?>" id="navbar-support-setting">
+                            <ul class="nav flex-column submenu-ul">
+                                <li class="nav-item <?php echo e((Request::segment(1) == 'departments')?'active':''); ?>">
+                                    <a href="<?php echo e(route('departments.index')); ?>" class="nav-link">
+                                        <?php echo e(__('Departments')); ?>
 
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="<?php echo e(route('predefined-replies.index')); ?>" class="nav-link <?php echo e((Request::segment(1) == 'predefined-replies')?'active':''); ?>">
-                            <i class="fas fa-headset"></i><?php echo e(__('Predefined Replies')); ?>
+                                    </a>
+                                </li>
+                                <li class="nav-item <?php echo e((Request::segment(1) == 'services')?'active':''); ?>">
+                                    <a href="<?php echo e(route('services.index')); ?>" class="nav-link">
+                                        <?php echo e(__('Services')); ?>
 
-                        </a>
-                    </li>
+                                    </a>
+                                </li>
+                                <li class="nav-item <?php echo e((Request::segment(1) == 'predefined-replies')?'active':''); ?>">
+                                    <a href="<?php echo e(route('predefined-replies.index')); ?>" class="nav-link">
+                                        <?php echo e(__('Predefined Replies')); ?>
+
+                                    </a>
+                                </li>
+            
+                                <li class="nav-item <?php echo e((Request::segment(1) == 'ticketpriorities')?'active':''); ?>">
+                                    <a href="<?php echo e(route('ticketpriorities.index')); ?>" class="nav-link">
+                                        <?php echo e(__('Ticket Priorities')); ?>
+
+                                    </a>
+                                </li>
+                                <li class="nav-item <?php echo e((Request::segment(1) == 'ticketstatuses')?'active':''); ?>">
+                                    <a href="<?php echo e(route('ticketstatuses.index')); ?>" class="nav-link">
+                                        <?php echo e(__('Ticket Statuses')); ?>
+
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>                    
                     <li class="nav-item">
                         <a href="<?php echo e(route('goal.index')); ?>" class="nav-link <?php echo e((Request::segment(1) == 'goal')?'active':''); ?>">
                             <i class="fas fa-bullseye"></i><?php echo e(__('Goal')); ?>

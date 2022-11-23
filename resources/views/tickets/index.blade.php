@@ -50,13 +50,13 @@
                                     <tr>
                                         <td>{{ "TIC-".sprintf("%06d", 100000 + $ticket->id) }}</td>
                                         <td>{{ $ticket->subject }}</td>
-                                        <td>{{ $ticket->customer_contact_id }}</td>
-                                        <td>{{ $ticket->department_id }}</td>
-                                        <td>{{ $ticket->project_id }}</td>
-                                        <td>{{ $ticket->assigned_to }}</td>
-                                        <td>{{ $ticket->ticket_status_id }}</td>
-                                        <td>{{ $ticket->ticket_priority_id }}</td>
-                                        <td>{{ $ticket->ticket_service_id }}</td>
+                                        <td>{{ $ticket->department->name ?? "" }}</td>
+                                        <td>{{ $ticket->service->name ?? "" }}</td>
+                                        <td>{{ $ticket->customerContact->name ?? "" }}</td>
+                                        <td>{{ $ticket->ticketStatus->name ?? "" }}</td>
+                                        <td>{{ $ticket->ticketPriority->name ?? "" }}</td>
+                                        <td>{{ $ticket->assignedTo->name ?? "" }}</td>
+                                        <td>{{ "" }}</td>
                                         <td>{{ $ticket->created_at }}</td>
                                         <td>
                                             <a href="{{ route('tickets.show',$ticket->id) }}" class="edit-icon bg-success" data-toggle="tooltip" data-original-title="{{__('View')}}">

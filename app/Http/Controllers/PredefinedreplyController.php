@@ -105,4 +105,14 @@ class PredefinedreplyController extends Controller
         return redirect()->route('predefined-replies.index')
             ->with(['type'=>'danger', 'msg'=>'Predefined Reply deleted successfully']);
     }
+
+    public function predefinedReply(Request $request)
+    {
+        $id = $request->input('id');
+        $reply = Predefinedreply::find($id);
+        return response()->json([
+            'status' => 1,
+            'answer' => $reply->answer,
+        ]);
+    }
 }

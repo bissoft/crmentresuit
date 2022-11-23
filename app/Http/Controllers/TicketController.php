@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Department;
+use App\Predefinedreply;
 use App\Project;
+use App\Services;
 use App\Ticket;
+use App\TicketPriority;
+use App\TicketStatus;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -29,7 +34,12 @@ class TicketController extends Controller
     {
         $users = User::all();
         $projects = Project::all();
-        return view('tickets.create',compact('users','projects'));
+        $services = Services::all();
+        $departments = Department::all();
+        $ticket_status = TicketStatus::all(); 
+        $ticket_priority = TicketPriority::all();
+        $predefinedreply = Predefinedreply::all();
+        return view('tickets.create',compact('users','projects','services','departments','ticket_status','ticket_priority','predefinedreply'));
     }
 
     /**
@@ -94,7 +104,12 @@ class TicketController extends Controller
     {
         $users = User::all();
         $projects = Project::all();
-        return view('tickets.edit',compact('ticket','users','projects'));
+        $services = Services::all();
+        $departments = Department::all();
+        $ticket_status = TicketStatus::all(); 
+        $ticket_priority = TicketPriority::all();
+        $predefinedreply = Predefinedreply::all();
+        return view('tickets.edit',compact('ticket','users','projects','services','departments','ticket_status','ticket_priority','predefinedreply'));
     }
 
     /**

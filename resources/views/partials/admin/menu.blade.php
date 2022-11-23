@@ -310,20 +310,41 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('departments.index') }}" class="nav-link {{ (Request::segment(1) == 'departments')?'active':''}}">
-                            <i class="fas fa-headset"></i>{{__('Departments')}}
+                        <a class="nav-link {{ (Request::segment(1) == 'departments' || Request::segment(1) == 'services' || Request::segment(2) == 'redefined-replies' ||  Request::segment(2) == 'ticketpriorities' ||  Request::segment(2) == 'ticketstatuses')?' active':'collapsed'}}" href="#navbar-support-setting" data-toggle="collapse" role="button" aria-expanded="{{ (Request::segment(1) == 'bill' )?'true':'false'}}" aria-controls="navbar-support-setting">
+                            <i class="fas fa-cog"></i>{{__('Support Settings')}}
+                            <i class="fas fa-sort-up"></i>
                         </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('services.index') }}" class="nav-link {{ (Request::segment(1) == 'services')?'active':''}}">
-                            <i class="fas fa-headset"></i>{{__('Services')}}
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('predefined-replies.index') }}" class="nav-link {{ (Request::segment(1) == 'predefined-replies')?'active':''}}">
-                            <i class="fas fa-headset"></i>{{__('Predefined Replies')}}
-                        </a>
-                    </li>
+                        <div class="collapse {{ (Request::segment(1) == 'departments'  || Request::segment(1) == 'services' || Request::segment(2) == 'redefined-replies' ||  Request::segment(2) == 'ticketpriorities' ||  Request::segment(2) == 'ticketstatuses')?'show':''}}" id="navbar-support-setting">
+                            <ul class="nav flex-column submenu-ul">
+                                <li class="nav-item {{ (Request::segment(1) == 'departments')?'active':''}}">
+                                    <a href="{{ route('departments.index') }}" class="nav-link">
+                                        {{__('Departments')}}
+                                    </a>
+                                </li>
+                                <li class="nav-item {{ (Request::segment(1) == 'services')?'active':''}}">
+                                    <a href="{{ route('services.index') }}" class="nav-link">
+                                        {{__('Services')}}
+                                    </a>
+                                </li>
+                                <li class="nav-item {{ (Request::segment(1) == 'predefined-replies')?'active':''}}">
+                                    <a href="{{ route('predefined-replies.index') }}" class="nav-link">
+                                        {{__('Predefined Replies')}}
+                                    </a>
+                                </li>
+            
+                                <li class="nav-item {{ (Request::segment(1) == 'ticketpriorities')?'active':''}}">
+                                    <a href="{{ route('ticketpriorities.index') }}" class="nav-link">
+                                        {{__('Ticket Priorities')}}
+                                    </a>
+                                </li>
+                                <li class="nav-item {{ (Request::segment(1) == 'ticketstatuses')?'active':''}}">
+                                    <a href="{{ route('ticketstatuses.index') }}" class="nav-link">
+                                        {{__('Ticket Statuses')}}
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>                    
                     <li class="nav-item">
                         <a href="{{ route('goal.index') }}" class="nav-link {{ (Request::segment(1) == 'goal')?'active':''}}">
                             <i class="fas fa-bullseye"></i>{{__('Goal')}}
