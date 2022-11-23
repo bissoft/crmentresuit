@@ -337,6 +337,24 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a href="<?php echo e(route('departments.index')); ?>" class="nav-link <?php echo e((Request::segment(1) == 'departments')?'active':''); ?>">
+                            <i class="fas fa-headset"></i><?php echo e(__('Departments')); ?>
+
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="<?php echo e(route('services.index')); ?>" class="nav-link <?php echo e((Request::segment(1) == 'services')?'active':''); ?>">
+                            <i class="fas fa-headset"></i><?php echo e(__('Services')); ?>
+
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="<?php echo e(route('predefined-replies.index')); ?>" class="nav-link <?php echo e((Request::segment(1) == 'predefined-replies')?'active':''); ?>">
+                            <i class="fas fa-headset"></i><?php echo e(__('Predefined Replies')); ?>
+
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="<?php echo e(route('goal.index')); ?>" class="nav-link <?php echo e((Request::segment(1) == 'goal')?'active':''); ?>">
                             <i class="fas fa-bullseye"></i><?php echo e(__('Goal')); ?>
 

@@ -310,6 +310,21 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a href="{{ route('departments.index') }}" class="nav-link {{ (Request::segment(1) == 'departments')?'active':''}}">
+                            <i class="fas fa-headset"></i>{{__('Departments')}}
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('services.index') }}" class="nav-link {{ (Request::segment(1) == 'services')?'active':''}}">
+                            <i class="fas fa-headset"></i>{{__('Services')}}
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('predefined-replies.index') }}" class="nav-link {{ (Request::segment(1) == 'predefined-replies')?'active':''}}">
+                            <i class="fas fa-headset"></i>{{__('Predefined Replies')}}
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="{{ route('goal.index') }}" class="nav-link {{ (Request::segment(1) == 'goal')?'active':''}}">
                             <i class="fas fa-bullseye"></i>{{__('Goal')}}
                         </a>

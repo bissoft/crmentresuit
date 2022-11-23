@@ -395,6 +395,20 @@ Route::resource('departments', 'DepartmentController')->middleware(
     ]
 );
 
+Route::resource('services', 'ServicesController')->middleware(
+    [
+        'auth',
+        'XSS',
+    ]
+);
+
+Route::resource('predefined-replies', 'PredefinedreplyController')->middleware(
+    [
+        'auth',
+        'XSS',
+    ]
+);
+
 
 
 
