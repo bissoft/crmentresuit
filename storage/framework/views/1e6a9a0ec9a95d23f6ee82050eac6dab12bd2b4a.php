@@ -10,7 +10,7 @@
     <div class="login-contain">
         <div class="login-inner-contain">
             <a class="navbar-brand" href="#">
-                <img src="<?php echo e($logo.'/logo.png'); ?>" class="navbar-brand-img big-logo" alt="logo">
+                <img src="<?php echo e(asset('app/assets/img/logov2.png')); ?>" class="navbar-brand-img big-logo" alt="logo">
             </a>
             <div class="login-form">
                 <ul class="login-menu">
@@ -80,7 +80,7 @@ unset($__errorArgs, $__bag); ?>
             <!--<h5 class="copyright-text">-->
             <!--    <?php echo e((Utility::getValByName('footer_text')) ? Utility::getValByName('footer_text') :  __('Copyright AccountGo')); ?> <?php echo e(date('Y')); ?>-->
             <!--</h5>-->
-            <div class="all-select">
+            <!-- <div class="all-select">
                 <a href="#" class="monthly-btn">
                     <span class="monthly-text py-0"><?php echo e(__('Change Language')); ?></span>
                     <select class="select-box" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);" id="language">
@@ -89,7 +89,7 @@ unset($__errorArgs, $__bag); ?>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </select>
                 </a>
-            </div>
+            </div> -->
         </div>
     </div>
 <?php $__env->stopSection(); ?>

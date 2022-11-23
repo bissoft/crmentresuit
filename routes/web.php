@@ -381,6 +381,22 @@ Route::resource('projects', 'ProjectController')->middleware(
     ]
 );
 
+Route::resource('tickets', 'TicketController')->middleware(
+    [
+        'auth',
+        'XSS',
+    ]
+);
+
+Route::resource('departments', 'DepartmentController')->middleware(
+    [
+        'auth',
+        'XSS',
+    ]
+);
+
+
+
 
 Route::get('productservice/index', 'ProductServiceController@index')->name('productservice.index');
 Route::resource('productservice', 'ProductServiceController')->middleware(

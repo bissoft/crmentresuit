@@ -305,6 +305,11 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a href="{{ route('tickets.index') }}" class="nav-link {{ (Request::segment(1) == 'tickets')?'active':''}}">
+                            <i class="fas fa-headset"></i>{{__('Support')}}
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="{{ route('goal.index') }}" class="nav-link {{ (Request::segment(1) == 'goal')?'active':''}}">
                             <i class="fas fa-bullseye"></i>{{__('Goal')}}
                         </a>

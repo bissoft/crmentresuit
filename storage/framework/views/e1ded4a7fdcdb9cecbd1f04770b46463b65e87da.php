@@ -8,7 +8,7 @@
     <!-- Sidenav header -->
     <div class="sidenav-header d-flex align-items-center">
         <a class="navbar-brand" href="<?php echo e(route('dashboard')); ?>">
-            <img src="<?php echo e($logo.'/'.(isset($company_logo) && !empty($company_logo)?$company_logo:'logo.png')); ?>" class="navbar-brand-img"/>
+            <img src="<?php echo e(asset('app/assets/img/logov2.png')); ?>" class="navbar-brand-img"/>
         </a>
         <div class="ml-auto">
             <div class="sidenav-toggler sidenav-toggler-dark d-md-none" data-action="sidenav-unpin" data-target="#sidenav-main">
@@ -49,6 +49,17 @@
                         </a>
                     </li>
                 <?php endif; ?> -->
+					
+					<?php if( Auth::user()->name == 'Admin'): ?>
+						   <li class="nav-item">
+                        <a href="<?php echo e(url('video-meeting')); ?>" class="nav-link <?php echo e((request()->segment(1) == 'video-meeting') ? 'active':''); ?>">
+                            <i class="fas fa-file"></i><?php echo e(__('Video Meeting')); ?>
+
+                        </a>
+                    </li>
+					<?php endif; ?>
+
+                
                 <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('manage customer invoice')): ?>
                     <li class="nav-item">
                         <a href="<?php echo e(route('customer.invoice')); ?>" class="nav-link <?php echo e((Request::route()->getName() == 'customer.invoice' || Request::route()->getName() == 'customer.invoice.show') ? ' active' : ''); ?> ">
@@ -320,6 +331,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a href="<?php echo e(route('tickets.index')); ?>" class="nav-link <?php echo e((Request::segment(1) == 'tickets')?'active':''); ?>">
+                            <i class="fas fa-headset"></i><?php echo e(__('Support')); ?>
+
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="<?php echo e(route('goal.index')); ?>" class="nav-link <?php echo e((Request::segment(1) == 'goal')?'active':''); ?>">
                             <i class="fas fa-bullseye"></i><?php echo e(__('Goal')); ?>
 
@@ -429,13 +446,19 @@
                     </li>
                 <?php endif; ?>
                 <?php if(Gate::check('manage company settings')): ?>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a href="<?php echo e(route('company.setting')); ?>" class="nav-link <?php echo e((Request::route()->getName() == 'systems.index') ? ' active' : ''); ?>">
                             <i class="fas fa-sliders-h"></i><?php echo e(__('Settings')); ?>
 
                         </a>
-                    </li>
+                    </li> -->
                 <?php endif; ?>
+                <li class="nav-item">
+                        
+                        <a href="<?php echo e(route('staff.documents', ['staff_id' => auth()->user()->id, 'category' => 'document'])); ?>" class="nav-link <?php echo e((Request::route()->getName() == 'staff.documents') ? ' active' : ''); ?>">
+                            <i class="fas fa-sliders-h"></i>Documents
+                        </a>
+                </li>
             </ul>
         </div>
     </div>
