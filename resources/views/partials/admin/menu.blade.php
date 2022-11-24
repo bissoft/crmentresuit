@@ -48,11 +48,32 @@
 					{{-- @can('manage customer proposal') --}}
 					@if ( Auth::user()->name == 'Admin')
 						   <li class="nav-item">
-                        <a href="{{url('video-meeting')}}" class="nav-link {{ (request()->segment(1) == 'video-meeting') ? 'active':''}}">
-                            <i class="fas fa-file"></i>{{__('Video Meeting')}}
+                                <a href="{{url('video-meeting')}}" class="nav-link {{ (request()->segment(1) == 'video-meeting') ? 'active':''}}">
+                                    <i class="fas fa-file"></i>{{__('Video Meeting')}}
+                                </a>
+                            </li>
+                            
+					@endif
+
+                    @if(\Auth::guard('customer')->check())
+                    <li class="nav-item">
+                        <a href="{{ route('subscription.plans') }}" class="nav-link {{ (Request::route()->getName() == 'plans.index' || Request::route()->getName() == 'plans.create' || Request::route()->getName() == 'plans.edit') ? ' active' : '' }}">
+                            <i class="fas fa-file"></i>{{__('Account Plans') }}
                         </a>
                     </li>
-					@endif
+                    @elseif(\Auth::guard('vender')->check())
+                    <li class="nav-item">
+                        <a href="{{ route('subscription.plans') }}" class="nav-link {{ (Request::route()->getName() == 'plans.index' || Request::route()->getName() == 'plans.create' || Request::route()->getName() == 'plans.edit') ? ' active' : '' }}">
+                            <i class="fas fa-file"></i>{{__('Account Plans') }}
+                        </a>
+                    </li>
+                    @else
+                    <li class="nav-item">
+                        <a href="{{ route('plans.index') }}" class="nav-link {{ (Request::route()->getName() == 'plans.index' || Request::route()->getName() == 'plans.create' || Request::route()->getName() == 'plans.edit') ? ' active' : '' }}">
+                            <i class="fas fa-file"></i>{{__('Account Plans') }}
+                        </a>
+                    </li>
+                    @endif
 
                 {{-- @endcan --}}
                 @can('manage customer invoice')
@@ -105,6 +126,7 @@
                             </a>
                         </li>
                     @endcan
+                    
                 @else
                     @if( Gate::check('manage user') || Gate::check('manage role'))
                         <li class="nav-item">

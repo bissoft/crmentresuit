@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\InterviewController;
+use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\VideoMeetingController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -423,11 +424,43 @@ Route::resource('ticketpriorities', 'TicketPriorityController')->middleware(
         'XSS',
     ]
 );
+
+
 Route::resource('ticketstatuses', 'TicketStatusController')->middleware(
     [
         'auth',
         'XSS',
     ]
+);
+
+Route::resource('plans', 'PlanController')->middleware(
+    [
+        'auth',
+        'XSS',
+    ]
+);
+
+Route::resource('plan_attributes', 'PlanAttributeController')->middleware(
+    [
+        'auth',
+        'XSS',
+    ]
+);
+
+Route::group(
+    [
+        'middleware' => [
+            'auth',
+            'XSS',
+        ],
+    ], function (){
+
+        Route::get('/subscription/plans/{type?}', 'SubscriptionController@retrievePlans')->name('subscription.plans');
+        Route::get('/subscribe/{id}', 'SubscriptionController@showSubscription')->name('subscribe');
+        Route::post('/subscribe', 'SubscriptionController@processSubscription')->name('process.subscription');
+        Route::get('/subscribed/users', 'SubscriptionController@subscribedUsers')->name('subscribed.users');
+
+    }
 );
 
 

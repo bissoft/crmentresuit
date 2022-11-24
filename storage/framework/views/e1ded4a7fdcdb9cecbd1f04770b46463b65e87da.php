@@ -52,12 +52,36 @@
 					
 					<?php if( Auth::user()->name == 'Admin'): ?>
 						   <li class="nav-item">
-                        <a href="<?php echo e(url('video-meeting')); ?>" class="nav-link <?php echo e((request()->segment(1) == 'video-meeting') ? 'active':''); ?>">
-                            <i class="fas fa-file"></i><?php echo e(__('Video Meeting')); ?>
+                                <a href="<?php echo e(url('video-meeting')); ?>" class="nav-link <?php echo e((request()->segment(1) == 'video-meeting') ? 'active':''); ?>">
+                                    <i class="fas fa-file"></i><?php echo e(__('Video Meeting')); ?>
+
+                                </a>
+                            </li>
+                            
+					<?php endif; ?>
+
+                    <?php if(\Auth::guard('customer')->check()): ?>
+                    <li class="nav-item">
+                        <a href="<?php echo e(route('subscription.plans')); ?>" class="nav-link <?php echo e((Request::route()->getName() == 'plans.index' || Request::route()->getName() == 'plans.create' || Request::route()->getName() == 'plans.edit') ? ' active' : ''); ?>">
+                            <i class="fas fa-file"></i><?php echo e(__('Account Plans')); ?>
 
                         </a>
                     </li>
-					<?php endif; ?>
+                    <?php elseif(\Auth::guard('vender')->check()): ?>
+                    <li class="nav-item">
+                        <a href="<?php echo e(route('subscription.plans')); ?>" class="nav-link <?php echo e((Request::route()->getName() == 'plans.index' || Request::route()->getName() == 'plans.create' || Request::route()->getName() == 'plans.edit') ? ' active' : ''); ?>">
+                            <i class="fas fa-file"></i><?php echo e(__('Account Plans')); ?>
+
+                        </a>
+                    </li>
+                    <?php else: ?>
+                    <li class="nav-item">
+                        <a href="<?php echo e(route('plans.index')); ?>" class="nav-link <?php echo e((Request::route()->getName() == 'plans.index' || Request::route()->getName() == 'plans.create' || Request::route()->getName() == 'plans.edit') ? ' active' : ''); ?>">
+                            <i class="fas fa-file"></i><?php echo e(__('Account Plans')); ?>
+
+                        </a>
+                    </li>
+                    <?php endif; ?>
 
                 
                 <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('manage customer invoice')): ?>
@@ -117,6 +141,7 @@
                             </a>
                         </li>
                     <?php endif; ?>
+                    
                 <?php else: ?>
                     <?php if( Gate::check('manage user') || Gate::check('manage role')): ?>
                         <li class="nav-item">
