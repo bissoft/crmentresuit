@@ -163,6 +163,23 @@
                             <i class="fas fa-ticket-alt"></i>{{__('Book Schedule')}}
                         </a>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link {{ (Request::segment(1) == 'contract-types' || Request::segment(1) == 'contracts'  )?' active':'collapsed'}}" href="#navbar-expense" data-toggle="collapse" role="button" aria-expanded="{{ (Request::segment(1) == 'contract-types' || Request::segment(1) == 'contracts'  )?'true':'false'}}" aria-controls="navbar-expense">
+                            <i class="fas fa-money-bill-wave-alt"></i>{{__('Contracts')}}
+                            <i class="fas fa-sort-up"></i>
+                        </a>
+                        <div class="collapse {{ (Request::segment(1) == 'contract-types' || Request::segment(1) == 'contracts'  )?'show':''}}" id="navbar-expense">
+                            <ul class="nav flex-column submenu-ul">
+                                <li class="nav-item {{ (Request::route()->getName() == 'contracts.index' || Request::route()->getName() == 'contracts.create' || Request::route()->getName() == 'contracts.edit' || Request::route()->getName() == 'contracts.show') ? ' active' : '' }}">
+                                    <a href="{{ route('contracts.index') }}" class="nav-link">{{ __('Contracts') }}</a>
+                                </li>
+                                <li class="nav-item {{ (Request::route()->getName() == 'contract-types.index' || Request::route()->getName() == 'contract-types.create' || Request::route()->getName() == 'contract-types.edit' || Request::route()->getName() == 'contract-types.show') ? ' active' : '' }}">
+                                    <a href="{{ route('contract-types.index') }}" class="nav-link">{{ __('Contract Types') }}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
                 {{-- @endif --}}
 
                 @if(Gate::check('manage product & service'))

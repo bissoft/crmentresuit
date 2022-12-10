@@ -181,6 +181,24 @@
 
                         </a>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link <?php echo e((Request::segment(1) == 'contract-types' || Request::segment(1) == 'contracts'  )?' active':'collapsed'); ?>" href="#navbar-expense" data-toggle="collapse" role="button" aria-expanded="<?php echo e((Request::segment(1) == 'contract-types' || Request::segment(1) == 'contracts'  )?'true':'false'); ?>" aria-controls="navbar-expense">
+                            <i class="fas fa-money-bill-wave-alt"></i><?php echo e(__('Contracts')); ?>
+
+                            <i class="fas fa-sort-up"></i>
+                        </a>
+                        <div class="collapse <?php echo e((Request::segment(1) == 'contract-types' || Request::segment(1) == 'contracts'  )?'show':''); ?>" id="navbar-expense">
+                            <ul class="nav flex-column submenu-ul">
+                                <li class="nav-item <?php echo e((Request::route()->getName() == 'contracts.index' || Request::route()->getName() == 'contracts.create' || Request::route()->getName() == 'contracts.edit' || Request::route()->getName() == 'contracts.show') ? ' active' : ''); ?>">
+                                    <a href="<?php echo e(route('contracts.index')); ?>" class="nav-link"><?php echo e(__('Contracts')); ?></a>
+                                </li>
+                                <li class="nav-item <?php echo e((Request::route()->getName() == 'contract-types.index' || Request::route()->getName() == 'contract-types.create' || Request::route()->getName() == 'contract-types.edit' || Request::route()->getName() == 'contract-types.show') ? ' active' : ''); ?>">
+                                    <a href="<?php echo e(route('contract-types.index')); ?>" class="nav-link"><?php echo e(__('Contract Types')); ?></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
                 
 
                 <?php if(Gate::check('manage product & service')): ?>

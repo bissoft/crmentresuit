@@ -852,6 +852,21 @@ Route::post(
                                 ]
 );
 
+Route::resource('contracts', 'ContractController')->middleware(
+    [
+        'auth',
+        'XSS',
+    ]
+);
+
+
+Route::resource('contract-types', 'ContractTypeController')->middleware(
+    [
+        'auth',
+        'XSS',
+    ]
+);
+
 Route::resource('goal', 'GoalController')->middleware(
     [
         'auth',
