@@ -165,6 +165,26 @@
                     </li>
 
                     <li class="nav-item">
+                        <a class="nav-link {{ (Request::segment(1) == 'lead-sources' || Request::segment(1) == 'lead-status' || Request::segment(1) == 'leads'  )?' active':'collapsed'}}" href="#navbar-expense" data-toggle="collapse" role="button" aria-expanded="{{ (Request::segment(1) == 'lead-sources' || Request::segment(1) == 'lead-status'   || Request::segment(1) == 'leads'  )?'true':'false'}}" aria-controls="navbar-expense">
+                            <i class="fas fa-money-bill-wave-alt"></i>{{__('Leads')}}
+                            <i class="fas fa-sort-up"></i>
+                        </a>
+                        <div class="collapse {{ (Request::segment(1) == 'lead-sources' || Request::segment(1) == 'lead-status' || Request::segment(1) == 'leads'  )?'show':''}}" id="navbar-expense">
+                            <ul class="nav flex-column submenu-ul">
+                                <li class="nav-item {{ (Request::route()->getName() == 'lead-status.index' || Request::route()->getName() == 'lead-status.create' || Request::route()->getName() == 'lead-status.edit' || Request::route()->getName() == 'lead-status.show') ? ' active' : '' }}">
+                                    <a href="{{ route('lead-status.index') }}" class="nav-link">{{ __('Lead Status') }}</a>
+                                </li>
+                                <li class="nav-item {{ (Request::route()->getName() == 'lead-sources.index' || Request::route()->getName() == 'lead-sources.create' || Request::route()->getName() == 'lead-sources.edit' || Request::route()->getName() == 'lead-sources.show') ? ' active' : '' }}">
+                                    <a href="{{ route('lead-sources.index') }}" class="nav-link">{{ __('Lead Sources') }}</a>
+                                </li>
+                                <li class="nav-item {{ (Request::route()->getName() == 'leads.index' || Request::route()->getName() == 'leads.create' || Request::route()->getName() == 'leads.edit' || Request::route()->getName() == 'leads.show') ? ' active' : '' }}">
+                                    <a href="{{ route('leads.index') }}" class="nav-link">{{ __('Leads') }}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
                         <a class="nav-link {{ (Request::segment(1) == 'contract-types' || Request::segment(1) == 'contracts'  )?' active':'collapsed'}}" href="#navbar-expense" data-toggle="collapse" role="button" aria-expanded="{{ (Request::segment(1) == 'contract-types' || Request::segment(1) == 'contracts'  )?'true':'false'}}" aria-controls="navbar-expense">
                             <i class="fas fa-money-bill-wave-alt"></i>{{__('Contracts')}}
                             <i class="fas fa-sort-up"></i>

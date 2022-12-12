@@ -859,6 +859,26 @@ Route::resource('contracts', 'ContractController')->middleware(
     ]
 );
 
+Route::resource('leads', 'LeadController')->middleware(
+    [
+        'auth',
+        'XSS',
+    ]
+);
+
+Route::resource('lead-sources', 'LeadSourceController')->middleware(
+    [
+        'auth',
+        'XSS',
+    ]
+);
+Route::resource('lead-status', 'LeadStatusController')->middleware(
+    [
+        'auth',
+        'XSS',
+    ]
+);
+
 
 Route::resource('contract-types', 'ContractTypeController')->middleware(
     [
