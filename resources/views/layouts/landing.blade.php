@@ -6,9 +6,11 @@
         <div class="row gx-lg-8 gx-xl-12 gy-10 mb-5 align-items-center">
             <div class="col-md-10 offset-md-1 offset-lg-0 col-lg-5 text-center text-lg-start order-2 order-lg-0"
                 data-cues="slideInDown" data-group="page-title" data-delay="600">
-                <h1 class="display-1 mb-5 mx-md-n5 mx-lg-0">Creative. Smart. Awesome.</h1>
-                <p class="lead fs-lg mb-7">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                    eiusmod tempor incididunt ut labore et dolore</p>
+                <h1 class="display-1 mb-5 mx-md-n5 mx-lg-0">EntreSuite CRM</h1>
+                <p class="lead fs-lg mb-7">The all in one workflow platform, created by an Entrepreneur for
+                    Entrepreneurs. EntreSuite is everything you need to run your day to day operations seamlessly. We've
+                    identified the key functions of small businesses and combined these functions in one place to cut
+                    costs and save time.</p>
                 <div class="d-flex justify-content-center justify-content-lg-start" data-cues="slideInDown"
                     data-group="page-title-buttons" data-delay="900">
                     <span><a class="btn btn-primary rounded me-2">See Projects</a></span>
@@ -35,9 +37,7 @@
                     <div class="card-body">
                         <img src="app/assets/img/icons/lineal/browser.svg"
                             class="svg-inject icon-svg icon-svg-md text-yellow mb-3" alt="" />
-                        <h4>lorem plusam </h4>
-                        <p class="mb-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+                        <p class="mb-2">Whether you're a road warrior, Subcontractor, or in the office, EntreSuite can help you stay on top of your day</p>
                         <a href="#" class="more hover link-yellow">Learn More</a>
                     </div>
                     <!--/.card-body -->
@@ -50,9 +50,7 @@
                     <div class="card-body">
                         <img src="app/assets/img/icons/lineal/chat-2.svg"
                             class="svg-inject icon-svg icon-svg-md text-green mb-3" alt="" />
-                        <h4>Lorem ipsum dolor </h4>
-                        <p class="mb-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+                        <p class="mb-2">Contracts, eSignatures, workflows, marketing campaigns, calendars & scheduling and so much more.</p>
                         <a href="#" class="more hover link-green">Learn More</a>
                     </div>
                     <!--/.card-body -->
@@ -65,9 +63,7 @@
                     <div class="card-body">
                         <img src="app/assets/img/icons/lineal/id-card.svg"
                             class="svg-inject icon-svg icon-svg-md text-orange mb-3" alt="" />
-                        <h4>Lorem ipsum dolor </h4>
-                        <p class="mb-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+                        <p class="mb-2">30 Days money back guarantee</p>
                         <a href="#" class="more hover link-orange">Learn More</a>
                     </div>
                     <!--/.card-body -->
@@ -80,9 +76,7 @@
                     <div class="card-body">
                         <img src="app/assets/img/icons/lineal/gift.svg"
                             class="svg-inject icon-svg icon-svg-md text-blue mb-3" alt="" />
-                        <h4>Lorem ipsum dolor </h4>
-                        <p class="mb-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+                        <p class="mb-2">Sign up today and if you’re not 100% satisfied, just cancel before your first 30 days and we will refund you. It's that simple! We want you to be happy with us!</p>
                         <a href="#" class="more hover link-blue">Learn More</a>
                     </div>
                     <!--/.card-body -->

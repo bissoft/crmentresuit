@@ -6,9 +6,11 @@
         <div class="row gx-lg-8 gx-xl-12 gy-10 mb-5 align-items-center">
             <div class="col-md-10 offset-md-1 offset-lg-0 col-lg-5 text-center text-lg-start order-2 order-lg-0"
                 data-cues="slideInDown" data-group="page-title" data-delay="600">
-                <h1 class="display-1 mb-5 mx-md-n5 mx-lg-0">Creative. Smart. Awesome.</h1>
-                <p class="lead fs-lg mb-7">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                    eiusmod tempor incididunt ut labore et dolore</p>
+                <h1 class="display-1 mb-5 mx-md-n5 mx-lg-0">EntreSuite CRM</h1>
+                <p class="lead fs-lg mb-7">The all in one workflow platform, created by an Entrepreneur for
+                    Entrepreneurs. EntreSuite is everything you need to run your day to day operations seamlessly. We've
+                    identified the key functions of small businesses and combined these functions in one place to cut
+                    costs and save time.</p>
                 <div class="d-flex justify-content-center justify-content-lg-start" data-cues="slideInDown"
                     data-group="page-title-buttons" data-delay="900">
                     <span><a class="btn btn-primary rounded me-2">See Projects</a></span>
