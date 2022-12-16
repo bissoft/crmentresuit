@@ -1,14 +1,15 @@
-@extends('layouts.admin')
-@section('page-title')
-    {{__('Settings')}}
-@endsection
-@php
+
+<?php $__env->startSection('page-title'); ?>
+    <?php echo e(__('Settings')); ?>
+
+<?php $__env->stopSection(); ?>
+<?php
     $logo=asset(Storage::url('uploads/logo/'));
     $company_logo=Utility::getValByName('company_logo');
     $company_favicon=Utility::getValByName('company_favicon');
  $lang=\App\Utility::getValByName('default_language');
-@endphp
-@push('script-page')
+?>
+<?php $__env->startPush('script-page'); ?>
     <script>
         function myFunction() {
       // Get the text field
@@ -25,8 +26,8 @@
       alert("Copied the text: " + copyText.value);
     }
     </script>
-@endpush
-@section('content')
+<?php $__env->stopPush(); ?>
+<?php $__env->startSection('content'); ?>
     <div class="row">
         <div class="col-lg-12">
             <section class="nav-tabs">
@@ -34,13 +35,13 @@
                     <div class="row">
                         <ul class="nav nav-tabs my-4">
                             <li>
-                                <a data-toggle="tab" href="#business-setting" class="active">{{__('Referrals')}}</a>
+                                <a data-toggle="tab" href="#business-setting" class="active"><?php echo e(__('Referrals')); ?></a>
                             </li>
                             <li class="annual-billing">
-                                <a data-toggle="tab" href="#system-setting" class="">{{__('Referrer')}} </a>
+                                <a data-toggle="tab" href="#system-setting" class=""><?php echo e(__('Referrer')); ?> </a>
                             </li>
                             <li class="annual-billing">
-                                <a data-toggle="tab" href="#company-setting" class="">{{__('My Referral Link')}} </a>
+                                <a data-toggle="tab" href="#company-setting" class=""><?php echo e(__('My Referral Link')); ?> </a>
                             </li>
                             
                         </ul>
@@ -53,7 +54,7 @@
                         <div class="col-md-12">
                             <div class="row justify-content-between align-items-center">
                                 <div class="col-md-6 col-sm-6 mb-3 mb-md-0">
-                                    <h4 class="h4 font-weight-400 float-left pb-2">{{__('Referrals')}}</h4>
+                                    <h4 class="h4 font-weight-400 float-left pb-2"><?php echo e(__('Referrals')); ?></h4>
                                 </div>
                             </div>
                             <div class="card bg-none">
@@ -66,19 +67,19 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @if (isset($referrals) and $referrals->count())
-                                            @foreach ($referrals as $referral)
+                                            <?php if(isset($referrals) and $referrals->count()): ?>
+                                            <?php $__currentLoopData = $referrals; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $referral): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                             <tr>
-                                                <td>{{$loop->iteration}}</td>
-                                                <td>{{$referral->name}}</td>
+                                                <td><?php echo e($loop->iteration); ?></td>
+                                                <td><?php echo e($referral->name); ?></td>
                                             </tr>
-                                            @endforeach
-                                            @else
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                            <?php else: ?>
                                             <tr>
                                                 <td colspan="2" class="fw-bold text-center bg-primary text-wrap">No
                                                     Referrals Found</td>
                                             </tr>
-                                            @endif
+                                            <?php endif; ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -92,7 +93,7 @@
                         <div class="col-md-12">
                             <div class="row justify-content-between align-items-center">
                                 <div class="col-md-6 col-sm-6 mb-3 mb-md-0">
-                                    <h4 class="h4 font-weight-400 float-left pb-2">{{__('Referrer')}}</h4>
+                                    <h4 class="h4 font-weight-400 float-left pb-2"><?php echo e(__('Referrer')); ?></h4>
                                 </div>
                             </div>
                             <div class="card bg-none">
@@ -106,17 +107,17 @@
                                         </thead>
                                         <tbody>
                                             
-                                            @if (isset($referrer))
+                                            <?php if(isset($referrer)): ?>
                                             <tr>
                                                 <td>1</td>
-                                                <td>{{$referrer->name ?? ''}}</td>
+                                                <td><?php echo e($referrer->name ?? ''); ?></td>
                                             </tr>
-                                            @else
+                                            <?php else: ?>
                                             <tr>
                                                 <td colspan="2" class="fw-bold text-center bg-primary text-wrap">No Referrer
                                                     Found</td>
                                             </tr>
-                                            @endif
+                                            <?php endif; ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -127,12 +128,12 @@
                         <div class="col-md-12">
                             <div class="row justify-content-between align-items-center">
                                 <div class="col-md-6 col-sm-6 mb-3 mb-md-0">
-                                    <h4 class="h4 font-weight-400 float-left pb-2">{{__('My Referral Link')}}</h4>
+                                    <h4 class="h4 font-weight-400 float-left pb-2"><?php echo e(__('My Referral Link')); ?></h4>
                                 </div>
                             </div>
                             <div class="card bg-none">
                                 <div class="input-group mb-3">
-                                    <input type="text" value="{{$link}}" class="form-control"
+                                    <input type="text" value="<?php echo e($link); ?>" class="form-control"
                                         placeholder="Share this referral link" aria-label="Share this referral link"
                                         aria-describedby="button-addon2" id="myInput">
                                     <button class="btn btn-labeled btn-success" type="button" id="button-addon2" onclick="myFunction()">
@@ -147,4 +148,6 @@
             </section>
         </div>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.admin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\ItSolzTechOkara\crmentresuit\resources\views/referral/index.blade.php ENDPATH**/ ?>

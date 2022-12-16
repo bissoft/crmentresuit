@@ -65,7 +65,7 @@
 			
         <div class="card-body">
 			<div class="">
-            <h4>Video Interviews</h4>
+            <h4>Video Meeting</h4>
         </div>
             <div class="table-responsive">
                 <table class=" table table-bordered table-striped table-hover datatable datatable-User"  id="table-1">

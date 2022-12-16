@@ -55,6 +55,24 @@
                             
 					@endif
 
+                    @if ( Auth::user()->name == 'Admin')
+                    <li class="nav-item">
+                        <a href="{{ route('plans.index') }}" class="nav-link {{ (Request::route()->getName() == 'plans.index' || Request::route()->getName() == 'plans.create' || Request::route()->getName() == 'plans.edit') ? ' active' : '' }}">
+                            <i class="fas fa-file"></i>{{__('Account Plans') }}
+                        </a>
+                    </li>
+
+                    @else
+
+                    <li class="nav-item">
+                        <a href="{{ route('subscription.plans') }}" class="nav-link {{ (Request::route()->getName() == 'plans.index' || Request::route()->getName() == 'plans.create' || Request::route()->getName() == 'plans.edit') ? ' active' : '' }}">
+                            <i class="fas fa-file"></i>{{__('Account Plans') }}
+                        </a>
+                    </li>
+
+                    @endif
+
+                    {{-- 
                     @if(\Auth::guard('customer')->check())
                     <li class="nav-item">
                         <a href="{{ route('subscription.plans') }}" class="nav-link {{ (Request::route()->getName() == 'plans.index' || Request::route()->getName() == 'plans.create' || Request::route()->getName() == 'plans.edit') ? ' active' : '' }}">
@@ -74,6 +92,8 @@
                         </a>
                     </li>
                     @endif
+
+                    --}}
 
                 {{-- @endcan --}}
                 @can('manage customer invoice')
