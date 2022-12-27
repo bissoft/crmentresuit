@@ -118,5 +118,4 @@ class ChatController extends Controller
         
         //Mail::to($receiver->email)->send(new NewMessage($details));
     }
-
-}
+} 
