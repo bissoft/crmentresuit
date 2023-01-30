@@ -3,7 +3,7 @@
     {{__('Balance Sheet')}}
 @endsection
 @push('script-page')
-    <script type="text/javascript" src="{{ asset('js/html2pdf.bundle.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url('js/html2pdf.bundle.min.js') }}"></script>
     <script>
         var filename = $('#filename').val();
 

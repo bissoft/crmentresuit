@@ -9,21 +9,38 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>{{(Utility::getValByName('title_text')) ? Utility::getValByName('title_text') : config('app.name', 'MYAccount')}} - @yield('page-title')</title>
-    <link rel="icon" href="{{$logo.'/'.(isset($company_favicon) && !empty($company_favicon)?$company_favicon:'favicon.png')}}" type="image" sizes="16x16">
+    @auth
 
-    <link rel="stylesheet" href="{{ asset('assets/libs/@fortawesome/fontawesome-free/css/all.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/libs/animate.css/animate.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/libs/bootstrap-timepicker/css/bootstrap-timepicker.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/libs/bootstrap-daterangepicker/daterangepicker.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/libs/select2/dist/css/select2.min.css') }}">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="base-url" content="{{ url('/') }}">
+    <meta name="user-id" content="{{ Auth::id() }}">
+    @php
+        $user = auth()->user();
+    @endphp
+    @if (!isset($user->app_name) or $user->app_name=="")
+    <title>{{(Utility::getValByName('title_text')) ? Utility::getValByName('title_text') : config('app.name', 'MYAccount')}} - @yield('page-title')</title>
+    @else
+    <title>{{ $user->app_name }}</title>
+    @endif
+    @endauth
+
+    @guest
+    <title>{{(Utility::getValByName('title_text')) ? Utility::getValByName('title_text') : config('app.name', 'MYAccount')}} - @yield('page-title')</title>
+    @endguest
+    <link rel="shortcut icon" href="{{ url('public/favicon.png') }}">
+
+    <link rel="stylesheet" href="{{  url('assets/libs/@fortawesome/fontawesome-free/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ url('assets/libs/animate.css/animate.min.css') }}">
+    <link rel="stylesheet" href="{{  url('assets/libs/bootstrap-timepicker/css/bootstrap-timepicker.css') }}">
+    <link rel="stylesheet" href="{{  url('assets/libs/bootstrap-daterangepicker/daterangepicker.css') }}">
+    <link rel="stylesheet" href="{{  url('assets/libs/select2/dist/css/select2.min.css') }}">
 
     @stack('css-page')
 
-    <link rel="stylesheet" href="{{ asset('assets/css/site.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/ac.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/datatables.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/stylesheet.css') }}">
+    <link rel="stylesheet" href="{{  url('assets/css/site.css') }}">
+    <link rel="stylesheet" href="{{  url('assets/css/ac.css') }}">
+    <link rel="stylesheet" href="{{  url('assets/css/datatables.min.css') }}">
+    <link rel="stylesheet" href="{{  url('assets/css/stylesheet.css') }}">
     @yield('styles')
 </head>
 
@@ -36,9 +53,9 @@
             <div class="page-title">
                 <div class="row justify-content-between align-items-center">
                     <div class="col-xl-4 col-lg-4 col-md-4 d-flex align-items-center justify-content-between justify-content-md-start mb-3 mb-md-0">
-                        <div class="d-inline-block">
+                        {{-- <div class="d-inline-block">
                             <h5 class="h4 d-inline-block font-weight-400 mb-0 ">@yield('page-title')</h5>
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="col-xl-8 col-lg-8 col-md-8 d-flex align-items-center justify-content-between justify-content-md-end">
                         @yield('action-button')
@@ -64,16 +81,16 @@
 </div>
 
 
-<script src="{{ asset('assets/js/site.core.js') }}"></script>
+<script src="{{  url('assets/js/site.core.js') }}"></script>
 
-<script src="{{ asset('assets/libs/progressbar.js/dist/progressbar.min.js') }}"></script>
-<script src="{{ asset('assets/libs/moment/min/moment.min.js') }}"></script>
-<script src="{{ asset('assets/libs/bootstrap-notify/bootstrap-notify.min.js') }}"></script>
-<script src="{{ asset('assets/libs/bootstrap-timepicker/js/bootstrap-timepicker.js') }}"></script>
-<script src="{{ asset('assets/libs/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
-<script src="{{ asset('assets/libs/select2/dist/js/select2.min.js') }}"></script>
-<script src="{{ asset('assets/libs/nicescroll/jquery.nicescroll.min.js')}} "></script>
-<script src="{{ asset('assets/libs/apexcharts/dist/apexcharts.min.js')}}"></script>
+<script src="{{  url('assets/libs/progressbar.js/dist/progressbar.min.js') }}"></script>
+<script src="{{  url('assets/libs/moment/min/moment.min.js') }}"></script>
+<script src="{{  url('assets/libs/bootstrap-notify/bootstrap-notify.min.js') }}"></script>
+<script src="{{  url('assets/libs/bootstrap-timepicker/js/bootstrap-timepicker.js') }}"></script>
+<script src="{{  url('assets/libs/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+<script src="{{  url('assets/libs/select2/dist/js/select2.min.js') }}"></script>
+<script src="{{  url('assets/libs/nicescroll/jquery.nicescroll.min.js')}} "></script>
+<script src="{{  url('assets/libs/apexcharts/dist/apexcharts.min.js')}}"></script>
 @yield('scripts')
 <script>moment.locale('en');</script>
 @stack('theme-script')
@@ -89,11 +106,11 @@
     }
 </script>
 
-<script src="{{ asset('assets/js/site.js') }}"></script>
-<script src="{{ asset('assets/js/datatables.min.js') }}"></script>
+<script src="{{  url('assets/js/site.js') }}"></script>
+<script src="{{  url('assets/js/datatables.min.js') }}"></script>
 
-<script src="{{ asset('assets/js/jscolor.js') }} "></script>
-<script src="{{ asset('assets/js/custom.js') }} "></script>
+<script src="{{  url('assets/js/jscolor.js') }} "></script>
+<script src="{{  url('assets/js/custom.js') }} "></script>
 <script>
     var date_picker_locale = {
         format: 'YYYY-MM-DD',

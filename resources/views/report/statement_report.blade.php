@@ -3,14 +3,14 @@
     {{__('Account Statement Summary')}}
 @endsection
 @push('script-page')
-    <script src="{{ asset('assets/js/jspdf.min.js') }} "></script>
-    <script type="text/javascript" src="{{ asset('js/html2pdf.bundle.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('assets/js/jszip.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('assets/js/pdfmake.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('assets/js/vfs_fonts.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('assets/js/dataTables.buttons.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('assets/js/buttons.html5.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('assets/js/buttons.print.min.js') }}"></script>
+    <script src="{{ url('assets/js/jspdf.min.js') }} "></script>
+    <script type="text/javascript" src="{{ url('js/html2pdf.bundle.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url('assets/js/jszip.js') }}"></script>
+    <script type="text/javascript" src="{{ url('assets/js/pdfmake.js') }}"></script>
+    <script type="text/javascript" src="{{ url('assets/js/vfs_fonts.js') }}"></script>
+    <script type="text/javascript" src="{{ url('assets/js/dataTables.buttons.js') }}"></script>
+    <script type="text/javascript" src="{{ url('assets/js/buttons.html5.js') }}"></script>
+    <script type="text/javascript" src="{{ url('assets/js/buttons.print.min.js') }}"></script>
     <script>
         var filename = $('#filename').val();
 

@@ -50,3 +50,23 @@
         <br>
     </form>
 </div>
+<script>
+    $(document).on('change', '#to-date', function () {
+        var from = $("#from-date").val();
+        var to = $("#to-date").val();
+
+        if(Date.parse(from) > Date.parse(to)){
+        alert("Invalid Date Range");
+        }
+    });
+
+    $(document).on('change', '#to', function () {
+        var from = $("#from").val();
+        var to = $("#to").val();
+
+        if(Date.parse(from) > Date.parse(to)){
+        alert("Invalid Date Range");
+        }
+    });
+
+</script>

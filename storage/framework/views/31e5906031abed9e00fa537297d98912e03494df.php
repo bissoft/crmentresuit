@@ -9,21 +9,38 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+    <?php if(auth()->guard()->check()): ?>
+
+    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
+    <meta name="base-url" content="<?php echo e(url('/')); ?>">
+    <meta name="user-id" content="<?php echo e(Auth::id()); ?>">
+    <?php
+        $user = auth()->user();
+    ?>
+    <?php if(!isset($user->app_name) or $user->app_name==""): ?>
     <title><?php echo e((Utility::getValByName('title_text')) ? Utility::getValByName('title_text') : config('app.name', 'MYAccount')); ?> - <?php echo $__env->yieldContent('page-title'); ?></title>
+    <?php else: ?>
+    <title><?php echo e($user->app_name); ?></title>
+    <?php endif; ?>
+    <?php endif; ?>
+
+    <?php if(auth()->guard()->guest()): ?>
+    <title><?php echo e((Utility::getValByName('title_text')) ? Utility::getValByName('title_text') : config('app.name', 'MYAccount')); ?> - <?php echo $__env->yieldContent('page-title'); ?></title>
+    <?php endif; ?>
     <link rel="icon" href="<?php echo e($logo.'/'.(isset($company_favicon) && !empty($company_favicon)?$company_favicon:'favicon.png')); ?>" type="image" sizes="16x16">
 
-    <link rel="stylesheet" href="<?php echo e(asset('assets/libs/@fortawesome/fontawesome-free/css/all.min.css')); ?>">
-    <link rel="stylesheet" href="<?php echo e(asset('assets/libs/animate.css/animate.min.css')); ?>">
-    <link rel="stylesheet" href="<?php echo e(asset('assets/libs/bootstrap-timepicker/css/bootstrap-timepicker.css')); ?>">
-    <link rel="stylesheet" href="<?php echo e(asset('assets/libs/bootstrap-daterangepicker/daterangepicker.css')); ?>">
-    <link rel="stylesheet" href="<?php echo e(asset('assets/libs/select2/dist/css/select2.min.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(url('assets/libs/@fortawesome/fontawesome-free/css/all.min.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(url('assets/libs/animate.css/animate.min.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(url('assets/libs/bootstrap-timepicker/css/bootstrap-timepicker.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(url('assets/libs/bootstrap-daterangepicker/daterangepicker.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(url('assets/libs/select2/dist/css/select2.min.css')); ?>">
 
     <?php echo $__env->yieldPushContent('css-page'); ?>
 
-    <link rel="stylesheet" href="<?php echo e(asset('assets/css/site.css')); ?>">
-    <link rel="stylesheet" href="<?php echo e(asset('assets/css/ac.css')); ?>">
-    <link rel="stylesheet" href="<?php echo e(asset('assets/css/datatables.min.css')); ?>">
-    <link rel="stylesheet" href="<?php echo e(asset('assets/css/stylesheet.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(url('assets/css/site.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(url('assets/css/ac.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(url('assets/css/datatables.min.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(url('assets/css/stylesheet.css')); ?>">
     <?php echo $__env->yieldContent('styles'); ?>
 </head>
 
@@ -36,9 +53,7 @@
             <div class="page-title">
                 <div class="row justify-content-between align-items-center">
                     <div class="col-xl-4 col-lg-4 col-md-4 d-flex align-items-center justify-content-between justify-content-md-start mb-3 mb-md-0">
-                        <div class="d-inline-block">
-                            <h5 class="h4 d-inline-block font-weight-400 mb-0 "><?php echo $__env->yieldContent('page-title'); ?></h5>
-                        </div>
+                        
                     </div>
                     <div class="col-xl-8 col-lg-8 col-md-8 d-flex align-items-center justify-content-between justify-content-md-end">
                         <?php echo $__env->yieldContent('action-button'); ?>
@@ -64,16 +79,16 @@
 </div>
 
 
-<script src="<?php echo e(asset('assets/js/site.core.js')); ?>"></script>
+<script src="<?php echo e(url('assets/js/site.core.js')); ?>"></script>
 
-<script src="<?php echo e(asset('assets/libs/progressbar.js/dist/progressbar.min.js')); ?>"></script>
-<script src="<?php echo e(asset('assets/libs/moment/min/moment.min.js')); ?>"></script>
-<script src="<?php echo e(asset('assets/libs/bootstrap-notify/bootstrap-notify.min.js')); ?>"></script>
-<script src="<?php echo e(asset('assets/libs/bootstrap-timepicker/js/bootstrap-timepicker.js')); ?>"></script>
-<script src="<?php echo e(asset('assets/libs/bootstrap-daterangepicker/daterangepicker.js')); ?>"></script>
-<script src="<?php echo e(asset('assets/libs/select2/dist/js/select2.min.js')); ?>"></script>
-<script src="<?php echo e(asset('assets/libs/nicescroll/jquery.nicescroll.min.js')); ?> "></script>
-<script src="<?php echo e(asset('assets/libs/apexcharts/dist/apexcharts.min.js')); ?>"></script>
+<script src="<?php echo e(url('assets/libs/progressbar.js/dist/progressbar.min.js')); ?>"></script>
+<script src="<?php echo e(url('assets/libs/moment/min/moment.min.js')); ?>"></script>
+<script src="<?php echo e(url('assets/libs/bootstrap-notify/bootstrap-notify.min.js')); ?>"></script>
+<script src="<?php echo e(url('assets/libs/bootstrap-timepicker/js/bootstrap-timepicker.js')); ?>"></script>
+<script src="<?php echo e(url('assets/libs/bootstrap-daterangepicker/daterangepicker.js')); ?>"></script>
+<script src="<?php echo e(url('assets/libs/select2/dist/js/select2.min.js')); ?>"></script>
+<script src="<?php echo e(url('assets/libs/nicescroll/jquery.nicescroll.min.js')); ?> "></script>
+<script src="<?php echo e(url('assets/libs/apexcharts/dist/apexcharts.min.js')); ?>"></script>
 <?php echo $__env->yieldContent('scripts'); ?>
 <script>moment.locale('en');</script>
 <?php echo $__env->yieldPushContent('theme-script'); ?>
@@ -89,11 +104,11 @@
     }
 </script>
 
-<script src="<?php echo e(asset('assets/js/site.js')); ?>"></script>
-<script src="<?php echo e(asset('assets/js/datatables.min.js')); ?>"></script>
+<script src="<?php echo e(url('assets/js/site.js')); ?>"></script>
+<script src="<?php echo e(url('assets/js/datatables.min.js')); ?>"></script>
 
-<script src="<?php echo e(asset('assets/js/jscolor.js')); ?> "></script>
-<script src="<?php echo e(asset('assets/js/custom.js')); ?> "></script>
+<script src="<?php echo e(url('assets/js/jscolor.js')); ?> "></script>
+<script src="<?php echo e(url('assets/js/custom.js')); ?> "></script>
 <script>
     var date_picker_locale = {
         format: 'YYYY-MM-DD',

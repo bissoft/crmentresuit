@@ -47,7 +47,7 @@
                         </div>
                     @endif
                     <div class="avatar-parent-child">
-                        <img src="{{(!empty($user->avatar))? asset(Storage::url("uploads/avatar/".$user->avatar)): asset(Storage::url("uploads/avatar/avatar.png"))}}" class="avatar rounded-circle avatar-xl">
+                        <img src="{{(!empty($user->avatar))? Storage::url("uploads/avatar/".$user->avatar): Storage::url("uploads/avatar/avatar.png")}}" class="avatar rounded-circle avatar-xl">
                     </div>
                     <h4 class="h4 mb-0 mt-2">{{ $user->name }}</h4>
                     @if($user->delete_status==0)

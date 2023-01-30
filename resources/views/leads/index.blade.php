@@ -16,6 +16,11 @@
 @section('content')
     <div class="row">
         <div class="col-md-12">
+            @if (Session::has('msg'))
+            <div class="alert alert-{{Session('type')}} alert-dismissible fade show" role="alert">
+                <strong>{!! Session('msg') !!}</strong>
+            </div>
+            @endif
             <div class="card">
                 <div class="card-body py-0">
                     <div class="table-responsive">
@@ -37,8 +42,9 @@
                                     <td>{{ $lead->id }}</td>
                                     <td>{{ $lead->name }}</td>
                                     <td>{{ $lead->source->name ?? '' }}</td>
-                                    <td style="background-color: {{$lead->status->color ?? ''}}" class="text-dark">{{$lead->status->name ?? ''}}</td>
                                     <td>{{ number_format($lead->estimate_budget) }}</td>
+                                    <td style="background-color: {{$lead->status->color ?? ''}}" class="text-dark">{{$lead->status->name ?? ''}}</td>
+                                    
                                     <td class="Action">
                                         <span>
                                             <a href="{{ route('leads.show',$lead->id) }}" class="edit-icon bg-success" data-toggle="tooltip" data-original-title="{{__('Attributes')}}">

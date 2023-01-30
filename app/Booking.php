@@ -11,6 +11,8 @@ class Booking extends Model
         'user_id',
         'title',
         'from_date',
+        'customer_id',
+        'vender_id',
         'to_date',
         'from',
         'to'

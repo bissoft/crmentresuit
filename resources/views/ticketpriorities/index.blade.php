@@ -20,6 +20,16 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
+                @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                    <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
                 @if (Session::has('msg'))
                 <div class="alert alert-{{Session('type')}} alert-dismissible fade show" role="alert">
                     <strong>{!! Session('msg') !!}</strong>

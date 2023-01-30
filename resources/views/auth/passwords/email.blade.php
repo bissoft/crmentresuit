@@ -9,7 +9,7 @@
     <div class="login-contain">
         <div class="login-inner-contain">
             <a class="navbar-brand" href="#">
-                <img src="{{$logo.'/logo.png'}}" class="navbar-brand-img big-logo" alt="logo">
+                <img src="{{ url('/public/app/assets/img/logov2.png') }}" class="navbar-brand-img big-logo" alt="logo">
             </a>
             <div class="login-form">
                 <div class="page-title"><h5><span>{{__('Forgot')}}</span> {{__('Password')}}</h5></div>
@@ -37,7 +37,7 @@
                 {{(Utility::getValByName('footer_text')) ? Utility::getValByName('footer_text') :  __('Copyright HRMGo') }} {{ date('Y') }}
             </h5>
 
-            <div class="all-select">
+            {{-- <div class="all-select">
                 <a href="#" class="monthly-btn">
                     <span class="monthly-text py-0">{{__('Change Language')}}</span>
                     <select class="select-box" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);" id="language">
@@ -46,7 +46,7 @@
                         @endforeach
                     </select>
                 </a>
-            </div>
+            </div> --}}
         </div>
     </div>
 @endsection

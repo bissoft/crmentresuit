@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Chat;
+use App\Customer;
 use App\Messages;
 use App\User;
 use Illuminate\Http\Request;
@@ -43,7 +44,19 @@ class ChatController extends Controller
     {
         $user_id = auth()->user()->id;
 
-        //dd($user_id);
+
+        $startChats = User::where('id',"!=",$user_id)->get();
+        foreach($startChats as $startChat){
+            $firstChat = Chat::where('user1_id', $user_id)->where('user2_id', $startChat->id)->first();
+            if (!isset($firstChat->id)) {
+                $chat = Chat::create([
+                    'user1_id' => $user_id,
+                    'user2_id' => $startChat->id,
+                ]);
+            }
+        }
+
+        //dd($startChats);
 
         // $chat = Chat::create([
         //     'user1_id' => $user_id,
@@ -118,4 +131,5 @@ class ChatController extends Controller
         
         //Mail::to($receiver->email)->send(new NewMessage($details));
     }
-} 
+
+}

@@ -49,10 +49,10 @@ class BookingController extends Controller
     {
         $this->validate($request, [
             'title' => 'required|string|max:255',
-            'from_date' => 'required',
-            'to_date' => 'required',
-            'from' => 'required',
-            'to' => 'required'
+            'from_date' => 'required|date',
+            'to_date' => 'required|date|after_or_equal:from_date',
+            'from' => 'date_format:H:i',
+            'to' => 'date_format:H:i|after:from',
         ]);
     
         Booking::create($request->all() + ['user_id' => auth()->id()]);

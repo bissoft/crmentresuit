@@ -19,8 +19,8 @@
             </div>
             <!-- /column -->
             <div class="col-lg-7" data-cue="slideInDown">
-                <figure><img class="w-auto" src="app/assets/img/illustrations/i6.png"
-                        srcset="./app/assets/img/illustrations/i6@2x.png 2x" alt="" /></figure>
+                <figure><img class="w-auto" src="<?php echo e(url('public/app/assets/img/illustrations/i6.png')); ?>"
+                        srcset=" <?php echo e(url('public/app/assets/img/illustrations/i6@2x.png 2x')); ?>" alt="" /></figure>
             </div>
             <!-- /column -->
         </div>
@@ -35,11 +35,9 @@
             <div class="col-md-6 col-xl-3">
                 <div class="card shadow-lg card-border-bottom border-soft-yellow">
                     <div class="card-body">
-                        <img src="app/assets/img/icons/lineal/browser.svg"
+                        <img src=" <?php echo e(url('public/app/assets/img/icons/lineal/browser.svg')); ?>"
                             class="svg-inject icon-svg icon-svg-md text-yellow mb-3" alt="" />
-                        <h4>lorem plusam </h4>
-                        <p class="mb-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+                        <p class="mb-2">Whether you're a road warrior, Subcontractor, or in the office, EntreSuite can help you stay on top of your day</p>
                         <a href="#" class="more hover link-yellow">Learn More</a>
                     </div>
                     <!--/.card-body -->
@@ -50,11 +48,9 @@
             <div class="col-md-6 col-xl-3">
                 <div class="card shadow-lg card-border-bottom border-soft-green">
                     <div class="card-body">
-                        <img src="app/assets/img/icons/lineal/chat-2.svg"
+                        <img src="<?php echo e(url('public/app/assets/img/icons/lineal/chat-2.svg')); ?>"
                             class="svg-inject icon-svg icon-svg-md text-green mb-3" alt="" />
-                        <h4>Lorem ipsum dolor </h4>
-                        <p class="mb-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+                        <p class="mb-2">Contracts, eSignatures, workflows, marketing campaigns, calendars & scheduling and so much more.</p>
                         <a href="#" class="more hover link-green">Learn More</a>
                     </div>
                     <!--/.card-body -->
@@ -65,11 +61,9 @@
             <div class="col-md-6 col-xl-3">
                 <div class="card shadow-lg card-border-bottom border-soft-orange">
                     <div class="card-body">
-                        <img src="app/assets/img/icons/lineal/id-card.svg"
+                        <img src="<?php echo e(url('public/app/assets/img/icons/lineal/id-card.svg')); ?>"
                             class="svg-inject icon-svg icon-svg-md text-orange mb-3" alt="" />
-                        <h4>Lorem ipsum dolor </h4>
-                        <p class="mb-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+                        <p class="mb-2">30 Days money back guarantee</p>
                         <a href="#" class="more hover link-orange">Learn More</a>
                     </div>
                     <!--/.card-body -->
@@ -80,11 +74,9 @@
             <div class="col-md-6 col-xl-3">
                 <div class="card shadow-lg card-border-bottom border-soft-blue">
                     <div class="card-body">
-                        <img src="app/assets/img/icons/lineal/gift.svg"
+                        <img src="<?php echo e(url('public/app/assets/img/icons/lineal/gift.svg')); ?>"
                             class="svg-inject icon-svg icon-svg-md text-blue mb-3" alt="" />
-                        <h4>Lorem ipsum dolor </h4>
-                        <p class="mb-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+                        <p class="mb-2">Sign up today and if you’re not 100% satisfied, just cancel before your first 30 days and we will refund you. It's that simple! We want you to be happy with us!</p>
                         <a href="#" class="more hover link-blue">Learn More</a>
                     </div>
                     <!--/.card-body -->
@@ -96,8 +88,8 @@
         <!--/.row -->
         <div class="row gx-lg-8 gx-xl-12 gy-10 mb-14 mb-md-17 align-items-center">
             <div class="col-lg-7">
-                <figure><img class="w-auto" src="app/assets/img/illustrations/i8.png"
-                        srcset="./app/assets/img/illustrations/i8@2x.png 2x" alt="" /></figure>
+                <figure><img class="w-auto" src="<?php echo e(url('public/app/assets/img/illustrations/i8.png')); ?>"
+                        srcset="<?php echo e(url('public/app/assets/img/illustrations/i8@2x.png 2x')); ?>" alt="" /></figure>
             </div>
             <!--/column -->
             <div class="col-lg-5">
@@ -141,8 +133,8 @@
         <!--/.row -->
         <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center">
             <div class="col-lg-7 order-lg-2">
-                <figure><img class="w-auto" src="app/assets/img/illustrations/i2.png"
-                        srcset="./app/assets/img/illustrations/i2@2x.png 2x" alt="" /></figure>
+                <figure><img class="w-auto" src=" <?php echo e(url('public/app/assets/img/illustrations/i2.png')); ?>"
+                        srcset=" <?php echo e(url('public/app/assets/img/illustrations/i2@2x.png 2x')); ?>" alt="" /></figure>
             </div>
             <!--/column -->
             <div class="col-lg-5">
@@ -233,7 +225,7 @@
                 <div class="col-md-6 col-xl-3">
                     <div class="card shadow-lg">
                         <div class="card-body">
-                            <img src="app/assets/img/icons/lineal/search-2.svg"
+                            <img src="<?php echo e(url('public/app/assets/img/icons/lineal/search-2.svg')); ?>"
                                 class="svg-inject icon-svg icon-svg-md text-yellow mb-3" alt="" />
                             <h4>lorem Services</h4>
                             <p class="mb-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
@@ -248,7 +240,7 @@
                 <div class="col-md-6 col-xl-3">
                     <div class="card shadow-lg">
                         <div class="card-body">
-                            <img src="app/assets/img/icons/lineal/browser.svg"
+                            <img src="<?php echo e(url('public/app/assets/img/icons/lineal/browser.svg')); ?>"
                                 class="svg-inject icon-svg icon-svg-md text-red mb-3" alt="" />
                             <h4>lorem Design</h4>
                             <p class="mb-2">Nulla vitae elit libero, a pharetra augue. Donec id elit non mi
@@ -263,7 +255,7 @@
                 <div class="col-md-6 col-xl-3">
                     <div class="card shadow-lg">
                         <div class="card-body">
-                            <img src="app/assets/img/icons/lineal/chat-2.svg"
+                            <img src="<?php echo e(url('public/app/assets/img/icons/lineal/chat-2.svg')); ?>"
                                 class="svg-inject icon-svg icon-svg-md text-green mb-3" alt="" />
                             <h4>lorem services </h4>
                             <p class="mb-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
@@ -278,7 +270,7 @@
                 <div class="col-md-6 col-xl-3">
                     <div class="card shadow-lg">
                         <div class="card-body">
-                            <img src="app/assets/img/icons/lineal/megaphone.svg"
+                            <img src="<?php echo e(url('public/app/assets/img/icons/lineal/megaphone.svg')); ?>"
                                 class="svg-inject icon-svg icon-svg-md text-blue mb-3" alt="" />
                             <h4>lorem servei </h4>
                             <p class="mb-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
@@ -302,8 +294,8 @@
     <div class="container py-16 py-md-18">
         <div class="row gx-lg-8 gx-xl-12 gy-10 mb-8 align-items-center">
             <div class="col-lg-7 order-lg-2">
-                <figure><img class="w-auto" src="app/assets/img/illustrations/i3.png"
-                        srcset="./app/assets/img/illustrations/i3@2x.png 2x" alt="" /></figure>
+                <figure><img class="w-auto" src="<?php echo e(url('public/app/assets/img/illustrations/i3.png')); ?>"
+                        srcset="<?php echo e(url('public/app/assets/img/illustrations/i3@2x.png 2x')); ?>" alt="" /></figure>
             </div>
             <!--/column -->
             <div class="col-lg-5">
@@ -404,8 +396,8 @@
         <!--/.row -->
         <div class="row gx-lg-8 gx-xl-12 gy-10 mb-lg-22 mb-xl-24 align-items-center">
             <div class="col-lg-7">
-                <figure><img class="w-auto" src="app/assets/img/illustrations/i6.png"
-                        srcset="./app/assets/img/illustrations/i6@2x.png 2x" alt="" /></figure>
+                <figure><img class="w-auto" src="<?php echo e(url('public/app/assets/img/illustrations/i6.png')); ?>"
+                        srcset="<?php echo e(url('public/app/assets/img/illustrations/i6@2x.png 2x')); ?>" alt="" /></figure>
             </div>
             <!--/column -->
             <div class="col-lg-5">
@@ -500,8 +492,8 @@
                     <div class="col-md-6 col-xl-3">
                         <div class="card shadow-lg">
                             <div class="card-body">
-                                <img class="rounded-circle w-15 mb-4" src="app/assets/img/avatars/te1.jpg"
-                                    srcset="./app/assets/img/avatars/te1@2x.jpg 2x" alt="" />
+                                <img class="rounded-circle w-15 mb-4" src="<?php echo e(url('public/app/assets/img/avatars/te1.jpg')); ?>"
+                                    srcset="<?php echo e(url('public/app/assets/img/avatars/te1@2x.jpg 2x')); ?>" alt="" />
                                 <h4 class="mb-1">Coriss Ambady</h4>
                                 <div class="meta mb-2">Financial Analyst</div>
                                 <p class="mb-2">Fermentum massa justo sit amet risus morbi leo.</p>
@@ -520,8 +512,8 @@
                     <div class="col-md-6 col-xl-3">
                         <div class="card shadow-lg">
                             <div class="card-body">
-                                <img class="rounded-circle w-15 mb-4" src="app/assets/img/avatars/te2.jpg"
-                                    srcset="./app/assets/img/avatars/te2@2x.jpg 2x" alt="" />
+                                <img class="rounded-circle w-15 mb-4" src="<?php echo e(url('public/app/assets/img/avatars/te2.jpg')); ?>"
+                                    srcset="<?php echo e(url('public/app/assets/img/avatars/te2@2x.jpg 2x')); ?>" alt="" />
                                 <h4 class="mb-1">Cory Zamora</h4>
                                 <div class="meta mb-2">Marketing Specialist</div>
                                 <p class="mb-2">Fermentum massa justo sit amet risus morbi leo.</p>
@@ -540,8 +532,8 @@
                     <div class="col-md-6 col-xl-3">
                         <div class="card shadow-lg">
                             <div class="card-body">
-                                <img class="rounded-circle w-15 mb-4" src="app/assets/img/avatars/te3.jpg"
-                                    srcset="./app/assets/img/avatars/te3@2x.jpg 2x" alt="" />
+                                <img class="rounded-circle w-15 mb-4" src="<?php echo e(url('public/app/assets/img/avatars/te3.jpg')); ?>"
+                                    srcset="<?php echo e(url('public/app/assets/img/avatars/te3@2x.jpg 2x')); ?>" alt="" />
                                 <h4 class="mb-1">Nikolas Brooten</h4>
                                 <div class="meta mb-2">Sales Manager</div>
                                 <p class="mb-2">Fermentum massa justo sit amet risus morbi leo.</p>
@@ -560,8 +552,8 @@
                     <div class="col-md-6 col-xl-3">
                         <div class="card shadow-lg">
                             <div class="card-body">
-                                <img class="rounded-circle w-15 mb-4" src="app/assets/img/avatars/te4.jpg"
-                                    srcset="./app/assets/img/avatars/te4@2x.jpg 2x" alt="" />
+                                <img class="rounded-circle w-15 mb-4" src="<?php echo e(url('public/app/assets/img/avatars/te4.jpg')); ?>"
+                                    srcset="<?php echo e(url('public/app/assets/img/avatars/te4@2x.jpg 2x')); ?>" alt="" />
                                 <h4 class="mb-1">Jackie Sanders</h4>
                                 <div class="meta mb-2">Investment Planner</div>
                                 <p class="mb-2">Fermentum massa justo sit amet risus morbi leo.</p>
@@ -601,21 +593,21 @@
             <div class="col-lg-8 mt-lg-2">
                 <div class="row align-items-center counter-wrapper gy-6 text-center">
                     <div class="col-md-4">
-                        <img src="app/assets/img/icons/lineal/check.svg"
+                        <img src="<?php echo e(url('public/app/assets/img/icons/lineal/check.svg')); ?>"
                             class="svg-inject icon-svg icon-svg-md text-primary mb-3" alt="" />
                         <h3 class="counter">7518</h3>
                         <p>Completed Projects</p>
                     </div>
                     <!--/column -->
                     <div class="col-md-4">
-                        <img src="app/assets/img/icons/lineal/user.svg"
+                        <img src="<?php echo e(url('public/app/assets/img/icons/lineal/user.svg')); ?>"
                             class="svg-inject icon-svg icon-svg-md text-primary mb-3" alt="" />
                         <h3 class="counter">3472</h3>
                         <p>Happy Customers</p>
                     </div>
                     <!--/column -->
                     <div class="col-md-4">
-                        <img src="app/assets/img/icons/lineal/briefcase-2.svg"
+                        <img src="<?php echo e(url('public/app/assets/img/icons/lineal/briefcase-2.svg')); ?>"
                             class="svg-inject icon-svg icon-svg-md text-primary mb-3" alt="" />
                         <h3 class="counter">2184</h3>
                         <p>Expert Employees</p>

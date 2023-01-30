@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Mail\SendEmailMarketing;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -32,6 +33,6 @@ class SendEmailMarketingJob implements ShouldQueue
     public function handle()
     {
         $email = new SendEmailMarketing($this->details);
-        Mail::to($this->details['email'])->send($email);
+        Mail::to($this->details['email'])->send($email); 
     }
 }

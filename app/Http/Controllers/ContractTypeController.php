@@ -37,7 +37,7 @@ class ContractTypeController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'name' => 'required',
+            'name' => 'required|unique:contract_types,name',
             'description' => 'nullable',
         ]);
 

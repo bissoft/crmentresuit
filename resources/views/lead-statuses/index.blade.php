@@ -18,6 +18,11 @@
 @section('content')
     <div class="row">
         <div class="col-md-12">
+            @if (Session::has('msg'))
+            <div class="alert alert-{{Session('type')}} alert-dismissible fade show" role="alert">
+                <strong>{!! Session('msg') !!}</strong>
+            </div>
+            @endif
             <div class="card">
                 <div class="card-body py-0">
                     <div class="table-responsive">
@@ -40,7 +45,7 @@
                                     <td class="Action">
                                         <span>
                                         @can('edit constant tax')
-                                                <a href="#" class="edit-icon" data-url="{{ route('lead-status.edit',$status->id) }}" data-ajax-popup="true" data-title="{{__('Edit Tax Rate')}}" data-toggle="tooltip" data-original-title="{{__('Edit')}}">
+                                                <a href="#" class="edit-icon" data-url="{{ route('lead-status.edit',$status->id) }}" data-ajax-popup="true" data-title="{{__('Edit Lead')}}" data-toggle="tooltip" data-original-title="{{__('Edit')}}">
                                                 <i class="fas fa-pencil-alt"></i>
                                             </a>
                                             @endcan

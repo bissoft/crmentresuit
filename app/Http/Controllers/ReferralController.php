@@ -12,7 +12,7 @@ class ReferralController extends Controller
     {
         $referrals = auth()->user()->referrals;
         $referrer = auth()->user()->referrer;
-        $link = config('app.url')."/?ref=". \Hashids::encode(auth()->user()->id);
+        $link = url("/?ref="). \Hashids::encode(auth()->user()->id);
         return view('referral.index',compact('referrals','referrer','link'));
     }
 }

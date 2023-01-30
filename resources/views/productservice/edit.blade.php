@@ -6,7 +6,7 @@
                 {{ Form::label('name', __('Name'),['class'=>'form-control-label']) }}
                 <div class="form-icon-user">
                     <span><i class="fas fa-address-card"></i></span>
-                    {{ Form::text('name', '', array('class' => 'form-control','required'=>'required')) }}
+                    {{ Form::text('name', null, array('class' => 'form-control','required'=>'required')) }}
                 </div>
             </div>
         </div>

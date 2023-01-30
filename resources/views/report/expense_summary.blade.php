@@ -4,7 +4,7 @@
 @endsection
 
 @push('theme-script')
-    <script src="{{ asset('assets/libs/apexcharts/dist/apexcharts.min.js') }}"></script>
+    <script src="{{ asset('url/libs/apexcharts/dist/apexcharts.min.js') }}"></script>
 @endpush
 @push('script-page')
     <script>

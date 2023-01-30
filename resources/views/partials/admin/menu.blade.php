@@ -8,7 +8,18 @@
     <!-- Sidenav header -->
     <div class="sidenav-header d-flex align-items-center">
         <a class="navbar-brand" href="{{ route('dashboard') }}">
-            <img src="{{ asset('app/assets/img/logov2.png') }}" class="navbar-brand-img"/>
+
+            @php
+                $user = auth()->user();
+            @endphp
+            @if (!isset($user->app_logo) or $user->app_logo=="")
+            <img src="{{'/'. asset('app/assets/img/logov2.png') }}" class="navbar-brand-img"/>
+            @else
+                @php
+                $image = url("/public/assets/images/".$user->app_logo);
+                @endphp
+                <img src="{{ $image}}" class="navbar-brand-img"/>
+            @endif
         </a>
         <div class="ml-auto">
             <div class="sidenav-toggler sidenav-toggler-dark d-md-none" data-action="sidenav-unpin" data-target="#sidenav-main">
@@ -45,15 +56,53 @@
                         </a>
                     </li>
                 @endcan -->
+
+                {{-- <li class="nav-item">
+                    <a href="{{ route('video_chat') }}" class="nav-link {{ (request()->segment(1) == 'video_chat') ? 'active':''}}">
+                        <i class="fas fa-file"></i>{{__('Startup Meetups')}}
+                    </a>
+                </li> --}}
 					{{-- @can('manage customer proposal') --}}
 					@if ( Auth::user()->name == 'Admin')
-						   <li class="nav-item">
+						   {{-- <li class="nav-item">
                                 <a href="{{url('video-meeting')}}" class="nav-link {{ (request()->segment(1) == 'video-meeting') ? 'active':''}}">
                                     <i class="fas fa-file"></i>{{__('Video Meeting')}}
                                 </a>
+                            </li> --}}
+
+                            {{-- <li class="nav-item">
+                                <a href="{{ route('join.video.session') }}" class="nav-link {{ (request()->segment(1) == 'join-video-session') ? 'active':''}}">
+                                    <i class="fas fa-file"></i>{{__('Startup Meetups')}}
+                                </a>
                             </li>
+                            <li class="nav-item">
+                                <a href="{{ route('record.video') }}" class="nav-link {{ (request()->segment(1) == 'video') ? 'active':''}}">
+                                    <i class="fas fa-file"></i>{{__('Startups Help')}}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('demo-video.index') }}" class="nav-link {{ (request()->segment(1) == 'demo-video') ? 'active':''}}">
+                                    <i class="fas fa-file"></i>{{__('Demo Videos')}}
+                                </a>
+                            </li> --}}
                             
 					@endif
+
+                    <li class="nav-item">
+                        <a href="{{ route('join.video.session') }}" class="nav-link {{ (request()->segment(1) == 'join-video-session') ? 'active':''}}">
+                            <i class="fas fa-file"></i>{{__('Startup Meetups')}}
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('record.video') }}" class="nav-link {{ (request()->segment(1) == 'video') ? 'active':''}}">
+                            <i class="fas fa-file"></i>{{__('Startups Help')}}
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('demo-video.index') }}" class="nav-link {{ (request()->segment(1) == 'demo-video') ? 'active':''}}">
+                            <i class="fas fa-file"></i>{{__('Demo Videos')}}
+                        </a>
+                    </li>
 
                     @if ( Auth::user()->name == 'Admin')
                     <li class="nav-item">
@@ -152,7 +201,7 @@
                         <li class="nav-item">
                             <a class="nav-link {{ (Request::segment(1) == 'users' || Request::segment(1) == 'roles' || Request::segment(1) == 'permissions' )?' active':'collapsed'}}" href="#navbar-staff" data-toggle="collapse" role="button" aria-expanded="{{ (Request::segment(1) == 'users' || Request::segment(1) == 'roles' || Request::segment(1) == 'permissions' )?'true':'false'}}" aria-controls="navbar-staff">
                                 <i class="fas fa-users"></i>{{__('Staff')}}
-                                <i class="fas fa-sort-up"></i>
+                               <i class="fa fa-angle-down" aria-hidden="true"></i>
                             </a>
                             <div class="collapse {{ (Request::segment(1) == 'users' || Request::segment(1) == 'roles' || Request::segment(1) == 'permissions')?'show':''}}" id="navbar-staff">
                                 <ul class="nav flex-column submenu-ul">
@@ -187,7 +236,7 @@
                     <li class="nav-item">
                         <a class="nav-link {{ (Request::segment(1) == 'lead-sources' || Request::segment(1) == 'lead-status' || Request::segment(1) == 'leads'  )?' active':'collapsed'}}" href="#navbar-expense" data-toggle="collapse" role="button" aria-expanded="{{ (Request::segment(1) == 'lead-sources' || Request::segment(1) == 'lead-status'   || Request::segment(1) == 'leads'  )?'true':'false'}}" aria-controls="navbar-expense">
                             <i class="fas fa-money-bill-wave-alt"></i>{{__('Leads')}}
-                            <i class="fas fa-sort-up"></i>
+                           <i class="fa fa-angle-down" aria-hidden="true"></i>
                         </a>
                         <div class="collapse {{ (Request::segment(1) == 'lead-sources' || Request::segment(1) == 'lead-status' || Request::segment(1) == 'leads'  )?'show':''}}" id="navbar-expense">
                             <ul class="nav flex-column submenu-ul">
@@ -207,7 +256,7 @@
                     <li class="nav-item">
                         <a class="nav-link {{ (Request::segment(1) == 'contract-types' || Request::segment(1) == 'contracts'  )?' active':'collapsed'}}" href="#navbar-expense" data-toggle="collapse" role="button" aria-expanded="{{ (Request::segment(1) == 'contract-types' || Request::segment(1) == 'contracts'  )?'true':'false'}}" aria-controls="navbar-expense">
                             <i class="fas fa-money-bill-wave-alt"></i>{{__('Contracts')}}
-                            <i class="fas fa-sort-up"></i>
+                            <i class="fa fa-angle-down" aria-hidden="true"></i>
                         </a>
                         <div class="collapse {{ (Request::segment(1) == 'contract-types' || Request::segment(1) == 'contracts'  )?'show':''}}" id="navbar-expense">
                             <ul class="nav flex-column submenu-ul">
@@ -264,7 +313,7 @@
                     <li class="nav-item">
                         <a class="nav-link {{ (Request::segment(1) == 'bank-account' || Request::segment(1) == 'transfer')?' active':'collapsed'}}" href="#navbar-banking" data-toggle="collapse" role="button" aria-expanded="{{ (Request::segment(1) == 'bank-account' || Request::segment(1) == 'transfer')?'true':'false'}}" aria-controls="navbar-banking">
                             <i class="fas fa-university"></i>{{__('Banking')}}
-                            <i class="fas fa-sort-up"></i>
+                           <i class="fa fa-angle-down" aria-hidden="true"></i>
                         </a>
                         <div class="collapse {{ (Request::segment(1) == 'bank-account' || Request::segment(1) == 'transfer')?'show':''}}" id="navbar-banking">
                             <ul class="nav flex-column submenu-ul">
@@ -287,7 +336,7 @@
                     <li class="nav-item">
                         <a class="nav-link {{ (Request::segment(1) == 'invoice' || Request::segment(1) == 'revenue' || Request::segment(1) == 'credit-note')?' active':'collapsed'}}" href="#navbar-income" data-toggle="collapse" role="button" aria-expanded="{{ (Request::segment(1) == 'invoice' || Request::segment(1) == 'revenue' || Request::segment(1) == 'credit-note')?'true':'false'}}" aria-controls="navbar-income">
                             <i class="fas fa-money-bill-alt"></i>{{__('Income')}}
-                            <i class="fas fa-sort-up"></i>
+                            <i class="fa fa-angle-down" aria-hidden="true"></i>
                         </a>
                         <div class="collapse {{ (Request::segment(1) == 'invoice' || Request::segment(1) == 'revenue' || Request::segment(1) == 'credit-note')?'show':''}}" id="navbar-income">
                             <ul class="nav flex-column submenu-ul">
@@ -315,7 +364,7 @@
                     <li class="nav-item">
                         <a class="nav-link {{ (Request::segment(1) == 'bill' || Request::segment(1) == 'payment' || Request::segment(1) == 'debit-note'  )?' active':'collapsed'}}" href="#navbar-expense" data-toggle="collapse" role="button" aria-expanded="{{ (Request::segment(1) == 'bill' || Request::segment(1) == 'payment' || Request::segment(1) == 'debit-note'  )?'true':'false'}}" aria-controls="navbar-expense">
                             <i class="fas fa-money-bill-wave-alt"></i>{{__('Expense')}}
-                            <i class="fas fa-sort-up"></i>
+                            <i class="fa fa-angle-down" aria-hidden="true"></i>
                         </a>
                         <div class="collapse {{ (Request::segment(1) == 'bill' || Request::segment(1) == 'payment' || Request::segment(1) == 'debit-note'  )?'show':''}}" id="navbar-expense">
                             <ul class="nav flex-column submenu-ul">
@@ -342,7 +391,7 @@
                     <li class="nav-item">
                         <a class="nav-link {{ (Request::segment(1) == 'chart-of-account' || Request::segment(1) == 'journal-entry' || Request::segment(2) == 'ledger' ||  Request::segment(2) == 'balance-sheet' ||  Request::segment(2) == 'trial-balance')?' active':'collapsed'}}" href="#navbar-double-entry" data-toggle="collapse" role="button" aria-expanded="{{ (Request::segment(1) == 'bill' )?'true':'false'}}" aria-controls="navbar-double-entry">
                             <i class="fas fa-balance-scale"></i>{{__('Double Entry')}}
-                            <i class="fas fa-sort-up"></i>
+                           <i class="fa fa-angle-down" aria-hidden="true"></i>
                         </a>
                         <div class="collapse {{ (Request::segment(1) == 'chart-of-account'  || Request::segment(1) == 'journal-entry' || Request::segment(2) == 'ledger' ||  Request::segment(2) == 'balance-sheet' ||  Request::segment(2) == 'trial-balance')?'show':''}}" id="navbar-double-entry">
                             <ul class="nav flex-column submenu-ul">
@@ -352,9 +401,9 @@
                                     </li>
                                 @endcan
                                 @can('manage journal entry')
-                                    <li class="nav-item {{ (Request::route()->getName() == 'journal-entry.index' || Request::route()->getName() == 'journal-entry.show') ? ' active' : '' }}">
+                                    {{-- <li class="nav-item {{ (Request::route()->getName() == 'journal-entry.index' || Request::route()->getName() == 'journal-entry.show') ? ' active' : '' }}">
                                         <a href="{{ route('journal-entry.index') }}" class="nav-link">{{ __('Journal Account') }}</a>
-                                    </li>
+                                    </li> --}}
                                 @endcan
                                 @can('ledger report')
                                     <li class="nav-item {{ (Request::route()->getName() == 'report.ledger' ) ? ' active' : '' }}">
@@ -391,7 +440,7 @@
                     <li class="nav-item">
                         <a class="nav-link {{ (Request::segment(1) == 'departments' || Request::segment(1) == 'services' || Request::segment(2) == 'redefined-replies' ||  Request::segment(2) == 'ticketpriorities' ||  Request::segment(2) == 'ticketstatuses')?' active':'collapsed'}}" href="#navbar-support-setting" data-toggle="collapse" role="button" aria-expanded="{{ (Request::segment(1) == 'bill' )?'true':'false'}}" aria-controls="navbar-support-setting">
                             <i class="fas fa-cog"></i>{{__('Support Settings')}}
-                            <i class="fas fa-sort-up"></i>
+                            <i class="fa fa-angle-down" aria-hidden="true"></i>
                         </a>
                         <div class="collapse {{ (Request::segment(1) == 'departments'  || Request::segment(1) == 'services' || Request::segment(2) == 'redefined-replies' ||  Request::segment(2) == 'ticketpriorities' ||  Request::segment(2) == 'ticketstatuses')?'show':''}}" id="navbar-support-setting">
                             <ul class="nav flex-column submenu-ul">
@@ -424,11 +473,11 @@
                             </ul>
                         </div>
                     </li>                    
-                    <li class="nav-item">
-                        <a href="{{ route('goal.index') }}" class="nav-link {{ (Request::segment(1) == 'goal')?'active':''}}">
-                            <i class="fas fa-bullseye"></i>{{__('Goal')}}
-                        </a>
-                    </li>
+                    <!--<li class="nav-item">-->
+                    <!--    <a href="{{ route('goal.index') }}" class="nav-link {{ (Request::segment(1) == 'goal')?'active':''}}">-->
+                    <!--        <i class="fas fa-bullseye"></i>{{__('Goal')}}-->
+                    <!--    </a>-->
+                    <!--</li>-->
                 @endif
                 <!-- @if(Gate::check('manage assets'))
                     <li class="nav-item">
@@ -441,7 +490,7 @@
                     <li class="nav-item">
                         <a class="nav-link {{ ((Request::segment(1) == 'report' || Request::segment(1) == 'transaction') &&  Request::segment(2) != 'ledger' &&  Request::segment(2) != 'balance-sheet' &&  Request::segment(2) != 'trial-balance')?' active':'collapsed'}}" href="#navbar-reports" data-toggle="collapse" role="button" aria-expanded="{{ (Request::segment(1) == 'report' || Request::segment(1) == 'transaction')?'true':'false'}}" aria-controls="navbar-reports">
                             <i class="fas fa-chart-area"></i>{{__('Report')}}
-                            <i class="fas fa-sort-up"></i>
+                            <i class="fa fa-angle-down" aria-hidden="true"></i>
                         </a>
                         <div class="collapse {{ ((Request::segment(1) == 'report' || Request::segment(1) == 'transaction') &&  Request::segment(2) != 'ledger' &&  Request::segment(2) != 'balance-sheet' &&  Request::segment(2) != 'trial-balance')?'show':''}}" id="navbar-reports">
                             <ul class="nav flex-column submenu-ul">
@@ -500,15 +549,15 @@
                         <a class="nav-link {{ (Request::segment(1) == 'taxes' || Request::segment(1) == 'product-category' || Request::segment(1) == 'product-unit' || Request::segment(1) == 'payment-method' || Request::segment(1) == 'custom-field' || Request::segment(1) == 'chart-of-account-type')?' active':'collapsed'}}" href="#navbar-constant" data-toggle="collapse" role="button" aria-expanded="{{ (Request::segment(1) == 'taxes' || Request::segment(1) == 'product-category' || Request::segment(1) == 'product-unit' || Request::segment(1) ==
                         'payment-method' || Request::segment(1) == 'custom-field' || Request::segment(1) == 'chart-of-account-type')?'true':'false'}}" aria-controls="navbar-constant">
                             <i class="fas fa-cog"></i>{{__('Constant')}}
-                            <i class="fas fa-sort-up"></i>
+                           <i class="fa fa-angle-down" aria-hidden="true"></i>
                         </a>
                         <div class="collapse {{ (Request::segment(1) == 'taxes' || Request::segment(1) == 'product-category' || Request::segment(1) == 'product-unit' || Request::segment(1) == 'payment-method' || Request::segment(1) == 'custom-field' || Request::segment(1) == 'chart-of-account-type')?'show':''}}" id="navbar-constant">
                             <ul class="nav flex-column submenu-ul">
-                                <!-- @can('manage constant tax')
+                                @can('manage constant tax')
                                     <li class="nav-item {{ (Request::route()->getName() == 'taxes.index' ) ? ' active' : '' }}">
                                         <a href="{{ route('taxes.index') }}" class="nav-link">{{ __('Taxes') }}</a>
                                     </li>
-                                @endcan -->
+                                @endcan
                                 @can('manage constant category')
                                     <li class="nav-item {{ (Request::route()->getName() == 'product-category.index' ) ? 'active' : '' }}">
                                         <a href="{{route('product-category.index')}}" class="nav-link">{{ __('Category') }}</a>
@@ -520,9 +569,9 @@
                                     </li>
                                 @endcan
                                 @can('manage constant custom field')
-                                    <li class="nav-item {{ (Request::route()->getName() == 'custom-field.index' ) ? 'active' : '' }}">
+                                    {{-- <li class="nav-item {{ (Request::route()->getName() == 'custom-field.index' ) ? 'active' : '' }}">
                                         <a href="{{route('custom-field.index')}}" class="nav-link">{{ __('Custom Field') }}</a>
-                                    </li>
+                                    </li> --}}
                                 @endcan
 
                             </ul>
@@ -536,12 +585,24 @@
                         </a>
                     </li> -->
                 @endif
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                         
                         <a href="{{route('staff.documents', ['staff_id' => auth()->user()->id, 'category' => 'document'])}}" class="nav-link {{ (Request::route()->getName() == 'staff.documents') ? ' active' : '' }}">
                             <i class="fas fa-sliders-h"></i>Documents
                         </a>
-                </li>
+                </li> -->
+                <li class="nav-item">
+                        
+                        <a href="{{route('intake.index')}}" class="nav-link {{ (Request::route()->getName() == 'intake.index') ? ' active' : '' }}">
+                            <i class="fas fa-sliders-h"></i>Intake Form
+                        </a>
+                </li> 
+                <li class="nav-item">
+                        
+                    <a href="{{route('app-customization')}}" class="nav-link {{ (Request::route()->getName() == 'app-customization') ? ' active' : '' }}">
+                        <i class="fas fa-cog"></i>Customization
+                    </a>
+            </li> 
             </ul>
         </div>
     </div>

@@ -15,7 +15,7 @@
 }
 
 @font-face {
-    font-family: 'Montserrat-Light';
+    font-family: 'Montserrat-Light';.nav.nav-tabs li a.active.nav.nav-tabs li a.active
     src: url('../fonts/Montserrat-Light.eot');
     src: url('../fonts/Montserrat-Light.eot?#iefix') format('embedded-opentype'), url('../fonts/Montserrat-Light.svg#Poppins-Regular') format('svg'), url('../fonts/Montserrat-Light.ttf') format('truetype'), url('../fonts/Montserrat-Light.woff') format('woff'), url('../fonts/Montserrat-Light.woff2') format('woff2');
     font-weight: normal;
@@ -329,7 +329,7 @@ table {
 }
 
 .navbar-nav .nav-link {
-    color: #a3afbb;
+    color: #4f4f4f;
 }
 
 ul.navbar-nav .dropdown-animate a {
@@ -1952,12 +1952,12 @@ p.price sub {
 }
 
 .server-plan a {
-    color: #0f5ef7;
+    color: rgb(40, 171, 226);
 }
 
 .nav.nav-tabs li a {
     font-weight: bold;
-    color: #0f5ef7;
+    color: rgb(40, 171, 226);
     text-decoration: none;
     padding: 10px 15px;
     display: inline-block;
@@ -1966,12 +1966,12 @@ p.price sub {
 }
 
 .nav.nav-tabs {
-    border: 1px solid #0f5ef7;
+    border: 1px solid rgb(40, 171, 226);
     border-radius: 10px;
 }
 
 .nav.nav-tabs li a.active {
-    background: #0f5ef7;
+    background: rgb(40, 171, 226);
     color: white;
 }
 
@@ -2082,7 +2082,7 @@ p.price sub {
 }
 
 ul.nav-tabs {
-    border: 1px solid #0f5ef7 !important;
+    border: 1px solid rgb(40, 171, 226) !important;
     border-radius: 10px;
 }
 
@@ -3247,6 +3247,8 @@ form .row .select-box {
 
     .left-card h4 {
         padding-top: 2px;
+        width: 100%;
+    display: flex;
     }
 
     .widget-calendar .fc-day-number {
@@ -3893,3 +3895,29 @@ form .row .select-box {
 .height-440 {
     height: 440px;
 }
+
+@media only screen and (max-width: 767px) {
+    .login-menu{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        left: 0px;
+        width: 100%;
+    }
+    .login-menu li a {
+
+        white-space: nowrap;
+    }
+    .blue-login a {
+        width: 127px;
+    }
+    .page-title{
+        display: flex;
+        justify-content: end;
+    }
+    .login-form h5 {
+        margin-right: 35px;
+    }
+
+  }

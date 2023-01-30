@@ -1,6 +1,7 @@
 <?php
     $users=\Auth::user();
-    $profile=asset(Storage::url('uploads/avatar/'));
+    $profile=Storage::url('uploads/avatar/');
+    
     $currantLang = $users->currentLanguage();
     $languages=Utility::languages();
 ?>
@@ -98,6 +99,7 @@
                     >
                         <div class="media media-pill align-items-center">
                       <span class="avatar rounded-circle">
+                          
                         <img src="<?php echo e((!empty($users->avatar)? $profile.'/'.$users->avatar : $profile.'/avatar.png')); ?>"/>
                       </span>
                             <div class="ml-2 d-none d-lg-block">
@@ -139,58 +141,10 @@
                     </div>
                 </li>
                 <?php if( Gate::check('create product & service') ||  Gate::check('create customer') ||  Gate::check('create vender')||  Gate::check('create proposal')||  Gate::check('create invoice')||  Gate::check('create bill') ||  Gate::check('create goal') ||  Gate::check('create bank account')): ?>
-                    <li class="nav-item">
-                        <div class="dropdown notification-icon">
-                            <button class="dropdown-toggle" type="button" id="dropdownBookmark" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-bookmark text-primary"></i>
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownBookmark">
-                                <?php if(Gate::check('create product & service')): ?>
-                                    <a class="dropdown-item" href="#" data-url="<?php echo e(route('productservice.create')); ?>" data-ajax-popup="true" data-title="<?php echo e(__('Create New Product')); ?>"><i class="fas fa-shopping-cart"></i><?php echo e(__('Create New Product')); ?></a>
-                                <?php endif; ?>
-                                <?php if(Gate::check('create customer')): ?>
-                                    <a class="dropdown-item" href="#" data-url="<?php echo e(route('customer.create')); ?>" data-ajax-popup="true" data-title="<?php echo e(__('Create New Customer')); ?>"><i class="fas fa-user"></i><?php echo e(__('Create New Customer')); ?></a>
-                                <?php endif; ?>
-                                <?php if(Gate::check('create vender')): ?>
-                                    <a class="dropdown-item" href="#" data-url="<?php echo e(route('vender.create')); ?>" data-ajax-popup="true" data-title="<?php echo e(__('Create New Vendor')); ?>"><i class="fas fa-sticky-note"></i><?php echo e(__('Create New Vendor')); ?></a>
-                                <?php endif; ?>
-                                <?php if(Gate::check('create proposal')): ?>
-                                    <a class="dropdown-item" href="<?php echo e(route('proposal.create',0)); ?>"><i class="fas fa-file"></i><?php echo e(__('Create New Proposal')); ?></a>
-                                <?php endif; ?>
-                                <?php if(Gate::check('create invoice')): ?>
-                                    <a class="dropdown-item" href="<?php echo e(route('invoice.create',0)); ?>"><i class="fas fa-money-bill-alt"></i><?php echo e(__('Create New Invoice')); ?></a>
-                                <?php endif; ?>
-                                <?php if(Gate::check('create bill')): ?>
-                                    <a class="dropdown-item" href="<?php echo e(route('bill.create',0)); ?>"><i class="fas fa-money-bill-wave-alt"></i><?php echo e(__('Create New Bill')); ?></a>
-                                <?php endif; ?>
-                                <?php if(Gate::check('create bank account')): ?>
-                                    <a class="dropdown-item" href="#" data-url="<?php echo e(route('bank-account.create')); ?>" data-ajax-popup="true" data-title="<?php echo e(__('Create New Account')); ?>"><i class="fas fa-university"></i><?php echo e(__('Create New Account')); ?></a>
-                                <?php endif; ?>
-                                <?php if(Gate::check('create goal')): ?>
-                                    <a class="dropdown-item" href="#" data-url="<?php echo e(route('goal.create')); ?>" data-ajax-popup="true" data-title="<?php echo e(__('Create New Goal')); ?>"><i class="fas fa-bullseye"></i><?php echo e(__('Create New Goal')); ?></a>
-                                <?php endif; ?>
-                            </div>
-                        </div>
-                    </li>
+                    
                 <?php endif; ?>
             </ul>
-            <ul class="navbar-nav ml-lg-auto align-items-lg-center">
-                <li class="nav-item">
-                    <div class="dropdown global-icon" data-toggle="tooltip" data-original-titla="<?php echo e(__('Choose Language')); ?>">
-                        <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-globe-europe"></i>
-                        </button>
-                        <div class="dropdown-menu  dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                            <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('Create Language')): ?>
-                                <a class="dropdown-item" href="<?php echo e(route('manage.language',[$currantLang])); ?>"><?php echo e(__('Create & Customize')); ?></a>
-                            <?php endif; ?>
-                            <?php $__currentLoopData = $languages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $language): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <a class="dropdown-item <?php if($language == $currantLang): ?> text-danger <?php endif; ?>" href="<?php echo e(route('change.language',$language)); ?>"><?php echo e(Str::upper($language)); ?></a>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        </div>
-                    </div>
-                </li>
-            </ul>
+           
         </div>
     </div>
 </nav>

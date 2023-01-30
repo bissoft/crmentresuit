@@ -9,8 +9,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="base-url" content="{{ url('/') }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
-    <link rel="stylesheet" href="{{asset('admin/assets/css/app.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('admin/assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{'/'.asset('admin/assets/css/app.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{'/'.asset('admin/assets/css/style.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.0.943/build/pdf.min.js"></script>
 
@@ -481,11 +481,11 @@
                 </div>
             </div>
 
-<script src="{{asset('admin/assets/js/jquery-3.5.1.slim.min.js')}}"></script>
-<script src="{{asset('admin/assets/js/bootstrap.min.js')}}"></script>
+<script src="{{'/'.asset('admin/assets/js/jquery-3.5.1.slim.min.js')}}"></script>
+<script src="{{'/'.asset('admin/assets/js/bootstrap.min.js')}}"></script>
 
-<script src="{{asset('admin/assets/js/jquery-1.12.4.js')}}"></script>
-<script src="{{asset('admin/assets/js/jquery-ui.js')}}"></script>
+<script src="{{'/'.asset('admin/assets/js/jquery-1.12.4.js')}}"></script>
+<script src="{{'/'.asset('admin/assets/js/jquery-ui.js')}}"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <script>
     $(document).ready(function () {
@@ -501,7 +501,7 @@
 <script>
     var pageNum = 1, pageRendering = false, pdfDoc = null, pdfDocFile = null, pageNumPending = null;
     document.getElementById('page_num').textContent = pageNum;
-    pdfjsLib.getDocument('{{asset("/assets/files/documents/".$document->file)}}').then(doc => {
+    pdfjsLib.getDocument('{{'/'.asset("/assets/files/documents/".$document->file)}}').then(doc => {
         pdfDocFile = doc;
         pdfDoc = doc._pdfInfo;
         $("#signatureTotalPages").val(doc._pdfInfo.numPages);

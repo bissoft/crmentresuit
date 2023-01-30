@@ -28,12 +28,12 @@
             <input type="text" name="contract_value" class="form-control">
         </div>
         <div class="form-group col-md-6">
-            <label for="start_date" class="form-control-label">Contract Value</label>
-            <input type="date" name="start_date" class="form-control">
+            <label for="start_date" class="form-control-label">Start Date</label>
+            <input type="date" name="start_date" id="from-date" class="form-control">
         </div>
         <div class="form-group col-md-6">
-            <label for="end_date" class="form-control-label">Contract Value</label>
-            <input type="date" name="end_date" class="form-control">
+            <label for="end_date" class="form-control-label">End  Date</label>
+            <input type="date" name="end_date" id="to-date" class="form-control">
         </div>
 
         <div class="form-group col-md-12">
@@ -47,3 +47,14 @@
     </div>
     {{ Form::close() }}
 </div>
+<script>
+    $(document).on('change', '#to-date', function () {
+        var from = $("#from-date").val();
+        var to = $("#to-date").val();
+
+        if(Date.parse(from) > Date.parse(to)){
+        alert("Invalid Date Range");
+        }
+    });
+
+</script>

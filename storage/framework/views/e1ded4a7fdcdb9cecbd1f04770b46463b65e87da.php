@@ -8,7 +8,18 @@
     <!-- Sidenav header -->
     <div class="sidenav-header d-flex align-items-center">
         <a class="navbar-brand" href="<?php echo e(route('dashboard')); ?>">
-            <img src="<?php echo e(asset('app/assets/img/logov2.png')); ?>" class="navbar-brand-img"/>
+
+            <?php
+                $user = auth()->user();
+            ?>
+            <?php if(!isset($user->app_logo) or $user->app_logo==""): ?>
+            <img src="<?php echo e('/'. asset('app/assets/img/logov2.png')); ?>" class="navbar-brand-img"/>
+            <?php else: ?>
+                <?php
+                $image = url("/public/assets/images/".$user->app_logo);
+                ?>
+                <img src="<?php echo e($image); ?>" class="navbar-brand-img"/>
+            <?php endif; ?>
         </a>
         <div class="ml-auto">
             <div class="sidenav-toggler sidenav-toggler-dark d-md-none" data-action="sidenav-unpin" data-target="#sidenav-main">
@@ -49,11 +60,27 @@
                         </a>
                     </li>
                 <?php endif; ?> -->
+
+                <li class="nav-item">
+                    <a href="<?php echo e(route('video_chat')); ?>" class="nav-link <?php echo e((request()->segment(1) == 'video_chat') ? 'active':''); ?>">
+                        <i class="fas fa-file"></i><?php echo e(__('Startup Meetups')); ?>
+
+                    </a>
+                </li>
 					
 					<?php if( Auth::user()->name == 'Admin'): ?>
-						   <li class="nav-item">
-                                <a href="<?php echo e(url('video-meeting')); ?>" class="nav-link <?php echo e((request()->segment(1) == 'video-meeting') ? 'active':''); ?>">
-                                    <i class="fas fa-file"></i><?php echo e(__('Video Meeting')); ?>
+						   
+
+                            
+                            <li class="nav-item">
+                                <a href="<?php echo e(route('record.video')); ?>" class="nav-link <?php echo e((request()->segment(1) == 'video') ? 'active':''); ?>">
+                                    <i class="fas fa-file"></i><?php echo e(__('Startups Help')); ?>
+
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="<?php echo e(route('demo-video.index')); ?>" class="nav-link <?php echo e((request()->segment(1) == 'demo-video') ? 'active':''); ?>">
+                                    <i class="fas fa-file"></i><?php echo e(__('Demo Videos')); ?>
 
                                 </a>
                             </li>
@@ -146,7 +173,7 @@
                             <a class="nav-link <?php echo e((Request::segment(1) == 'users' || Request::segment(1) == 'roles' || Request::segment(1) == 'permissions' )?' active':'collapsed'); ?>" href="#navbar-staff" data-toggle="collapse" role="button" aria-expanded="<?php echo e((Request::segment(1) == 'users' || Request::segment(1) == 'roles' || Request::segment(1) == 'permissions' )?'true':'false'); ?>" aria-controls="navbar-staff">
                                 <i class="fas fa-users"></i><?php echo e(__('Staff')); ?>
 
-                                <i class="fas fa-sort-up"></i>
+                               <i class="fa fa-angle-down" aria-hidden="true"></i>
                             </a>
                             <div class="collapse <?php echo e((Request::segment(1) == 'users' || Request::segment(1) == 'roles' || Request::segment(1) == 'permissions')?'show':''); ?>" id="navbar-staff">
                                 <ul class="nav flex-column submenu-ul">
@@ -184,7 +211,7 @@
                         <a class="nav-link <?php echo e((Request::segment(1) == 'lead-sources' || Request::segment(1) == 'lead-status' || Request::segment(1) == 'leads'  )?' active':'collapsed'); ?>" href="#navbar-expense" data-toggle="collapse" role="button" aria-expanded="<?php echo e((Request::segment(1) == 'lead-sources' || Request::segment(1) == 'lead-status'   || Request::segment(1) == 'leads'  )?'true':'false'); ?>" aria-controls="navbar-expense">
                             <i class="fas fa-money-bill-wave-alt"></i><?php echo e(__('Leads')); ?>
 
-                            <i class="fas fa-sort-up"></i>
+                           <i class="fa fa-angle-down" aria-hidden="true"></i>
                         </a>
                         <div class="collapse <?php echo e((Request::segment(1) == 'lead-sources' || Request::segment(1) == 'lead-status' || Request::segment(1) == 'leads'  )?'show':''); ?>" id="navbar-expense">
                             <ul class="nav flex-column submenu-ul">
@@ -205,7 +232,7 @@
                         <a class="nav-link <?php echo e((Request::segment(1) == 'contract-types' || Request::segment(1) == 'contracts'  )?' active':'collapsed'); ?>" href="#navbar-expense" data-toggle="collapse" role="button" aria-expanded="<?php echo e((Request::segment(1) == 'contract-types' || Request::segment(1) == 'contracts'  )?'true':'false'); ?>" aria-controls="navbar-expense">
                             <i class="fas fa-money-bill-wave-alt"></i><?php echo e(__('Contracts')); ?>
 
-                            <i class="fas fa-sort-up"></i>
+                            <i class="fa fa-angle-down" aria-hidden="true"></i>
                         </a>
                         <div class="collapse <?php echo e((Request::segment(1) == 'contract-types' || Request::segment(1) == 'contracts'  )?'show':''); ?>" id="navbar-expense">
                             <ul class="nav flex-column submenu-ul">
@@ -269,7 +296,7 @@
                         <a class="nav-link <?php echo e((Request::segment(1) == 'bank-account' || Request::segment(1) == 'transfer')?' active':'collapsed'); ?>" href="#navbar-banking" data-toggle="collapse" role="button" aria-expanded="<?php echo e((Request::segment(1) == 'bank-account' || Request::segment(1) == 'transfer')?'true':'false'); ?>" aria-controls="navbar-banking">
                             <i class="fas fa-university"></i><?php echo e(__('Banking')); ?>
 
-                            <i class="fas fa-sort-up"></i>
+                           <i class="fa fa-angle-down" aria-hidden="true"></i>
                         </a>
                         <div class="collapse <?php echo e((Request::segment(1) == 'bank-account' || Request::segment(1) == 'transfer')?'show':''); ?>" id="navbar-banking">
                             <ul class="nav flex-column submenu-ul">
@@ -293,7 +320,7 @@
                         <a class="nav-link <?php echo e((Request::segment(1) == 'invoice' || Request::segment(1) == 'revenue' || Request::segment(1) == 'credit-note')?' active':'collapsed'); ?>" href="#navbar-income" data-toggle="collapse" role="button" aria-expanded="<?php echo e((Request::segment(1) == 'invoice' || Request::segment(1) == 'revenue' || Request::segment(1) == 'credit-note')?'true':'false'); ?>" aria-controls="navbar-income">
                             <i class="fas fa-money-bill-alt"></i><?php echo e(__('Income')); ?>
 
-                            <i class="fas fa-sort-up"></i>
+                            <i class="fa fa-angle-down" aria-hidden="true"></i>
                         </a>
                         <div class="collapse <?php echo e((Request::segment(1) == 'invoice' || Request::segment(1) == 'revenue' || Request::segment(1) == 'credit-note')?'show':''); ?>" id="navbar-income">
                             <ul class="nav flex-column submenu-ul">
@@ -322,7 +349,7 @@
                         <a class="nav-link <?php echo e((Request::segment(1) == 'bill' || Request::segment(1) == 'payment' || Request::segment(1) == 'debit-note'  )?' active':'collapsed'); ?>" href="#navbar-expense" data-toggle="collapse" role="button" aria-expanded="<?php echo e((Request::segment(1) == 'bill' || Request::segment(1) == 'payment' || Request::segment(1) == 'debit-note'  )?'true':'false'); ?>" aria-controls="navbar-expense">
                             <i class="fas fa-money-bill-wave-alt"></i><?php echo e(__('Expense')); ?>
 
-                            <i class="fas fa-sort-up"></i>
+                            <i class="fa fa-angle-down" aria-hidden="true"></i>
                         </a>
                         <div class="collapse <?php echo e((Request::segment(1) == 'bill' || Request::segment(1) == 'payment' || Request::segment(1) == 'debit-note'  )?'show':''); ?>" id="navbar-expense">
                             <ul class="nav flex-column submenu-ul">
@@ -350,7 +377,7 @@
                         <a class="nav-link <?php echo e((Request::segment(1) == 'chart-of-account' || Request::segment(1) == 'journal-entry' || Request::segment(2) == 'ledger' ||  Request::segment(2) == 'balance-sheet' ||  Request::segment(2) == 'trial-balance')?' active':'collapsed'); ?>" href="#navbar-double-entry" data-toggle="collapse" role="button" aria-expanded="<?php echo e((Request::segment(1) == 'bill' )?'true':'false'); ?>" aria-controls="navbar-double-entry">
                             <i class="fas fa-balance-scale"></i><?php echo e(__('Double Entry')); ?>
 
-                            <i class="fas fa-sort-up"></i>
+                           <i class="fa fa-angle-down" aria-hidden="true"></i>
                         </a>
                         <div class="collapse <?php echo e((Request::segment(1) == 'chart-of-account'  || Request::segment(1) == 'journal-entry' || Request::segment(2) == 'ledger' ||  Request::segment(2) == 'balance-sheet' ||  Request::segment(2) == 'trial-balance')?'show':''); ?>" id="navbar-double-entry">
                             <ul class="nav flex-column submenu-ul">
@@ -402,7 +429,7 @@
                         <a class="nav-link <?php echo e((Request::segment(1) == 'departments' || Request::segment(1) == 'services' || Request::segment(2) == 'redefined-replies' ||  Request::segment(2) == 'ticketpriorities' ||  Request::segment(2) == 'ticketstatuses')?' active':'collapsed'); ?>" href="#navbar-support-setting" data-toggle="collapse" role="button" aria-expanded="<?php echo e((Request::segment(1) == 'bill' )?'true':'false'); ?>" aria-controls="navbar-support-setting">
                             <i class="fas fa-cog"></i><?php echo e(__('Support Settings')); ?>
 
-                            <i class="fas fa-sort-up"></i>
+                            <i class="fa fa-angle-down" aria-hidden="true"></i>
                         </a>
                         <div class="collapse <?php echo e((Request::segment(1) == 'departments'  || Request::segment(1) == 'services' || Request::segment(2) == 'redefined-replies' ||  Request::segment(2) == 'ticketpriorities' ||  Request::segment(2) == 'ticketstatuses')?'show':''); ?>" id="navbar-support-setting">
                             <ul class="nav flex-column submenu-ul">
@@ -440,12 +467,11 @@
                             </ul>
                         </div>
                     </li>                    
-                    <li class="nav-item">
-                        <a href="<?php echo e(route('goal.index')); ?>" class="nav-link <?php echo e((Request::segment(1) == 'goal')?'active':''); ?>">
-                            <i class="fas fa-bullseye"></i><?php echo e(__('Goal')); ?>
-
-                        </a>
-                    </li>
+                    <!--<li class="nav-item">-->
+                    <!--    <a href="<?php echo e(route('goal.index')); ?>" class="nav-link <?php echo e((Request::segment(1) == 'goal')?'active':''); ?>">-->
+                    <!--        <i class="fas fa-bullseye"></i><?php echo e(__('Goal')); ?>-->
+                    <!--    </a>-->
+                    <!--</li>-->
                 <?php endif; ?>
                 <!-- <?php if(Gate::check('manage assets')): ?>
                     <li class="nav-item">
@@ -460,7 +486,7 @@
                         <a class="nav-link <?php echo e(((Request::segment(1) == 'report' || Request::segment(1) == 'transaction') &&  Request::segment(2) != 'ledger' &&  Request::segment(2) != 'balance-sheet' &&  Request::segment(2) != 'trial-balance')?' active':'collapsed'); ?>" href="#navbar-reports" data-toggle="collapse" role="button" aria-expanded="<?php echo e((Request::segment(1) == 'report' || Request::segment(1) == 'transaction')?'true':'false'); ?>" aria-controls="navbar-reports">
                             <i class="fas fa-chart-area"></i><?php echo e(__('Report')); ?>
 
-                            <i class="fas fa-sort-up"></i>
+                            <i class="fa fa-angle-down" aria-hidden="true"></i>
                         </a>
                         <div class="collapse <?php echo e(((Request::segment(1) == 'report' || Request::segment(1) == 'transaction') &&  Request::segment(2) != 'ledger' &&  Request::segment(2) != 'balance-sheet' &&  Request::segment(2) != 'trial-balance')?'show':''); ?>" id="navbar-reports">
                             <ul class="nav flex-column submenu-ul">
@@ -520,15 +546,15 @@
                         'payment-method' || Request::segment(1) == 'custom-field' || Request::segment(1) == 'chart-of-account-type')?'true':'false'); ?>" aria-controls="navbar-constant">
                             <i class="fas fa-cog"></i><?php echo e(__('Constant')); ?>
 
-                            <i class="fas fa-sort-up"></i>
+                           <i class="fa fa-angle-down" aria-hidden="true"></i>
                         </a>
                         <div class="collapse <?php echo e((Request::segment(1) == 'taxes' || Request::segment(1) == 'product-category' || Request::segment(1) == 'product-unit' || Request::segment(1) == 'payment-method' || Request::segment(1) == 'custom-field' || Request::segment(1) == 'chart-of-account-type')?'show':''); ?>" id="navbar-constant">
                             <ul class="nav flex-column submenu-ul">
-                                <!-- <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('manage constant tax')): ?>
+                                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('manage constant tax')): ?>
                                     <li class="nav-item <?php echo e((Request::route()->getName() == 'taxes.index' ) ? ' active' : ''); ?>">
                                         <a href="<?php echo e(route('taxes.index')); ?>" class="nav-link"><?php echo e(__('Taxes')); ?></a>
                                     </li>
-                                <?php endif; ?> -->
+                                <?php endif; ?>
                                 <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('manage constant category')): ?>
                                     <li class="nav-item <?php echo e((Request::route()->getName() == 'product-category.index' ) ? 'active' : ''); ?>">
                                         <a href="<?php echo e(route('product-category.index')); ?>" class="nav-link"><?php echo e(__('Category')); ?></a>
@@ -540,9 +566,7 @@
                                     </li>
                                 <?php endif; ?>
                                 <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('manage constant custom field')): ?>
-                                    <li class="nav-item <?php echo e((Request::route()->getName() == 'custom-field.index' ) ? 'active' : ''); ?>">
-                                        <a href="<?php echo e(route('custom-field.index')); ?>" class="nav-link"><?php echo e(__('Custom Field')); ?></a>
-                                    </li>
+                                    
                                 <?php endif; ?>
 
                             </ul>
@@ -557,12 +581,24 @@
                         </a>
                     </li> -->
                 <?php endif; ?>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                         
                         <a href="<?php echo e(route('staff.documents', ['staff_id' => auth()->user()->id, 'category' => 'document'])); ?>" class="nav-link <?php echo e((Request::route()->getName() == 'staff.documents') ? ' active' : ''); ?>">
                             <i class="fas fa-sliders-h"></i>Documents
                         </a>
-                </li>
+                </li> -->
+                <li class="nav-item">
+                        
+                        <a href="<?php echo e(route('intake.index')); ?>" class="nav-link <?php echo e((Request::route()->getName() == 'intake.index') ? ' active' : ''); ?>">
+                            <i class="fas fa-sliders-h"></i>Intake Form
+                        </a>
+                </li> 
+                <li class="nav-item">
+                        
+                    <a href="<?php echo e(route('app-customization')); ?>" class="nav-link <?php echo e((Request::route()->getName() == 'app-customization') ? ' active' : ''); ?>">
+                        <i class="fas fa-cog"></i>Customization
+                    </a>
+            </li> 
             </ul>
         </div>
     </div>

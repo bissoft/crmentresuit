@@ -1,6 +1,6 @@
 @extends('layouts.auth')
 @php
-    $logo=asset(Storage::url('uploads/logo/'));
+    $logo=url(Storage::url('uploads/logo/'));
 @endphp
 @section('page-title')
     {{__('Customer Login')}}
@@ -9,7 +9,7 @@
     <div class="login-contain">
         <div class="login-inner-contain">
             <a class="navbar-brand" href="#">
-                <img src="{{$logo.'/logo.png'}}" class="navbar-brand-img big-logo" alt="logo">
+                <img src="{{ url('/public/app/assets/img/logov2.png') }}" class="navbar-brand-img big-logo" alt="logo">
             </a>
             <div class="login-form">
                 <ul class="login-menu">

@@ -63,6 +63,7 @@ class JournalEntryController extends Controller
             }
 
             $accounts = $request->accounts;
+            dd($accounts);
 
             $totalDebit  = 0;
             $totalCredit = 0;

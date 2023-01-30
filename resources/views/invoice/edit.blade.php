@@ -3,8 +3,8 @@
     {{__('Invoice Edit')}}
 @endsection
 @push('script-page')
-    <script src="{{asset('assets/js/jquery-ui.min.js')}}"></script>
-    <script src="{{asset('assets/js/jquery.repeater.min.js')}}"></script>
+    <script src="{{url('assets/js/jquery-ui.min.js')}}"></script>
+    <script src="{{url('assets/js/jquery.repeater.min.js')}}"></script>
     <script>
         var selector = "body";
         if ($(selector + " .repeater").length) {

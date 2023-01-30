@@ -71,7 +71,7 @@ class PlanController extends Controller
      */
     public function edit(Plan $plan)
     {
-        //
+        return view('plans.edit', compact('plan'));
     }
 
     /**
@@ -83,7 +83,17 @@ class PlanController extends Controller
      */
     public function update(Request $request, Plan $plan)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|string|max:255',
+            'price' => 'required',
+            'type' => 'required|string|max:255',
+            'stripe_plan_id' => 'required|string|max:255'
+        ]);
+    
+        $plan->update($request->all());
+    
+        return redirect()->route('plans.index')
+            ->with(['type'=>'success', 'msg'=>'Plan updated successfully']);
     }
 
     /**
@@ -94,6 +104,8 @@ class PlanController extends Controller
      */
     public function destroy(Plan $plan)
     {
-        //
+        $plan->delete();
+        return redirect()->route('plans.index')
+            ->with(['type'=>'success', 'msg'=>'Plan deleted successfully']);
     }
 }

@@ -4,12 +4,14 @@
 @endsection
 
 @section('action-button')
-    <div class="all-button-box row d-flex justify-content-end">
+    <div class="row d-flex justify-content-end">
         @can('create project')
-            <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-6">
+            <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-6 pt-lg-3 pt-xl-2">
+                <div class="all-button-box">
                 <a href="#" data-url="{{ route('projects.create') }}" data-size="xl" data-ajax-popup="true" data-title="{{__('Create New Project')}}" class="btn btn-xs btn-white btn-icon-only width-auto">
                     <i class="fa fa-plus"></i> {{__('Create')}}
                 </a>
+            </div>
             </div>
         @endcan
     </div>
@@ -53,8 +55,31 @@
                         <td>{{ $project->customer->name?? '' }}</td>
                         <td>{{ $project->start_date }}</td>
                         <td>{{ $project->dead_line }}</td>
-                        <td>{{ $project->billing_type_id }}</td>
-                        <td>{{ $project->status_id }}</td>
+                        <td>
+                            @if ($project->billing_type_id == 1)
+                            Fixed Rate
+                            @elseif($project->billing_type_id == 2)
+                            Project Hours
+                            @elseif($project->billing_type_id == 3)
+                            Task Hours
+                            @else
+                                
+                            @endif
+                        </td>
+                        <td>
+                            @if ($project->status_id == 1)
+                            Not Started
+                            @elseif($project->status_id == 2)
+                            In Progress
+                            @elseif($project->status_id == 3)
+                            On Hold
+                            @elseif($project->status_id == 4)
+                            Cancelled
+                            @elseif($project->status_id == 5)
+                            Finished
+                            @else
+                                
+                            @endif</td>
                         <td>
                             <a href="{{ route('projects.show',$project->id) }}" class="edit-icon bg-success" data-toggle="tooltip" data-original-title="{{__('View')}}">
                                 <i class="fas fa-eye"></i>

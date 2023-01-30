@@ -38,7 +38,7 @@ class TicketPriorityController extends Controller
     {
 
         $data = $request->validate([
-            'name' => 'required',
+            'name' => 'required|unique:ticket_priorities,name',
             'description' => 'nullable'
         ]);
 
@@ -82,7 +82,7 @@ class TicketPriorityController extends Controller
     {
 
         $data = $request->validate([
-            'name' => 'required',
+            'name' => 'required|unique:ticket_priorities,name,'.$id,
             'description' => 'nullable'
         ]);
 

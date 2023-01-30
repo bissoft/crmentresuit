@@ -9,7 +9,7 @@
                     <div class="white_card_body pt-5">
                         <div class="card bg-light">
                             <div class="card-body">
-                                <a href="{{ route('document.upload', $staff_id) }}" class="status_btn btn-primary">Upload Document</a>
+                                <a href="/upload/document/{{$staff_id}}" class="btn btn-sm mb-3 btn-primary">Upload Document</a>
                                 <div class="table-responsive ">
                                     @if($documents->count())
                                         <table class="table table-striped">

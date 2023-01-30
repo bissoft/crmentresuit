@@ -4,8 +4,9 @@
 
 <?php $__env->stopSection(); ?>
 <?php $__env->startPush('script-page'); ?>
+<?php if(\Auth::user()->can('show dashboard')): ?>
     <script>
-            <?php if(\Auth::user()->can('show dashboard')): ?>
+    
         var options = {
                 series: [
                     {
@@ -187,13 +188,15 @@
         var expenseCategory = new ApexCharts(document.querySelector("#expenseByCategory"), expenseCategories);
         expenseCategory.render();
 
-        <?php endif; ?>
+        
     </script>
+<?php endif; ?>    
 <?php $__env->stopPush(); ?>
 <?php $__env->startSection('content'); ?>
 
     <?php if(\Auth::user()->can('show dashboard')): ?>
         <?php if(\Auth::user()->type=='company'): ?>
+        
             <div class="row">
                 <!-- <?php if($constant['taxes'] <= 0): ?>
                     <div class="col-3">
@@ -225,6 +228,7 @@
                     </div>
                 <?php endif; ?>
             </div>
+            
         <?php endif; ?>
         <div class="row">
             <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
@@ -268,6 +272,37 @@
                 <img src="<?php echo e(asset('assets/img/dot-icon.png')); ?>" alt="" class="dotted-icon">
             </div>
         </div>
+        	
+		
+        <div class="row">
+            <div class="col-12">
+                <div>
+                    <h4 class="h4 font-weight-400 float-left">Cashflow</h4>
+                    <h6 class="last-day-text">Last <span>15 days</span></h6>
+                </div>
+                <div class="card bg-none">
+                    <div class="scrollbar-inner">
+                        <div id="cash-flow" class="chartjs-render-monitor" height="210"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+        <div class="row">
+            <div class="col-12">
+                <div>
+                    <h4 class="h4 font-weight-400 float-left">Income & Expense</h4>
+                    <h6 class="last-day-text"><?php echo e('Current Year'.' - '.$currentYear); ?></h6>
+                </div>
+                <div class="card bg-none">
+                    <div class="scrollbar-inner">
+                        <div id="incExpBarChart" height="250"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
         
     <?php else: ?>
         <div class="row">

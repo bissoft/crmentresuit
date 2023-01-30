@@ -10,7 +10,7 @@
                     <div class="invalid-feedback d-block name"></div>
                  </div>
                  <div class="form-group">
-                    <label>Descritpion <span class="required">*</span></label>
+                    <label>Descritpion </label>
                     <textarea name="description" class="form-control form-control-sm" id="" cols="30" rows="10">{{$ticketPriority->description}}</textarea>
                  </div>
             </div>

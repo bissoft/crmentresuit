@@ -47,3 +47,14 @@
     </div>
     {{ Form::close() }}
 </div>
+<script>
+    $(document).on('change', '#to-date', function () {
+        var from = $("#from-date").val();
+        var to = $("#to-date").val();
+
+        if(Date.parse(from) > Date.parse(to)){
+        alert("Invalid Date Range");
+        }
+    });
+
+</script>

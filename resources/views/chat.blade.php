@@ -1,6 +1,6 @@
 
 @section('styles')
-<link rel="stylesheet" href="{{ asset('dash-assets/css/chat.css') }}" />
+<link rel="stylesheet" href="{{ url('public/dash-assets/css/chat.css') }}" />
 @endsection
 @section('content')
 
@@ -31,7 +31,7 @@
                     <div class="user @if($chat_open->id == $chat->id) active @endif" data-chat_id="{{ $chat->id }}">
                         <div class="media">
                             <img class="mr-3"
-                                src="{{ ($chat->user1_id == auth()->user()->id ? $chat->user2->picture : $chat->user1->picture) ?? '/dash-assets/images/user/user9.jpg' }}"
+                                src="{{ ($chat->user1_id == auth()->user()->id ? $chat->user2->picture : $chat->user1->picture) ?? '/public/dash-assets/images/user/user9.jpg' }}"
                                 alt=" image">
                             @php $last_msg = $chat->last_msg ?? null @endphp
                             <div class="media-body">
@@ -76,7 +76,7 @@
                             <div class="message-type">
                                 <div class="media text-group me sent-msg d-none">
                                     <img class="mr-3"
-                                        src="{{ auth()->user()->picture ?? '/dash-assets/images/user/user10.jpg' }}"
+                                        src="{{ auth()->user()->picture ?? '/public/dash-assets/images/user/user10.jpg' }}"
                                         alt=" image">
                                     <div class="media-body">
                                         <h5 class="mt-0">
@@ -160,7 +160,7 @@
                                 <div class="card bg-light p-2 mt-3">
                                     <h5 class="text-dark font-weight-bold">About</h5>
                                     <div class=" text-center">
-                                        <img src="{{ @$chat_user->picture ?? '/dash-assets/images/user/user9.jpg' }}"
+                                        <img src="{{ @$chat_user->picture ?? '/public/dash-assets/images/user/user9.jpg' }}"
                                             width="">
                                         <h6 class="font-weight-bold">
                                             {{ @$chat_user->name }}</h6>

@@ -149,8 +149,9 @@
 .application .sidenav.show {
     z-index: 1130;
     height: 100%;
-    background: #e1e4ea;
+    background: #fff;
     border-radius: 0px;
+    box-shadow: 0px 0px 4px 2px #00000033;
 }
 
 .application .sidenav.show::before {
@@ -164,15 +165,15 @@
 .div-mega > ul.navbar-nav > li.nav-item > a {
     position: relative;
     width: 100%;
-    padding: 10px 15px 10px 60px;
-    color: #a2b0bb;
+    padding: 10px 15px 10px 42px;
+    color: #484444;
     font-size: 14px;
     border-radius: 4px;
 }
 
 .div-mega > ul.navbar-nav > li.nav-item > a:hover,
 .div-mega > ul.navbar-nav > li.nav-item > a.active {
-    background: #0f59ee;
+    background: rgb(40, 171, 226);;
     color: #fff;
 }
 
@@ -183,7 +184,7 @@
     bottom: 0;
     left: 0;
     width: 5px;
-    background: #0189ff;
+    background: rgb(255, 219, 105);;
     border-radius: 4px;
 }
 
@@ -198,15 +199,15 @@
     margin-top: 10px;
 }
 
-.div-mega > ul.navbar-nav > li.nav-item > a .fa-sort-up {
+.div-mega > ul.navbar-nav > li.nav-item > a i {
     position: absolute;
     right: 10px;
     top: 50%;
-    opacity: .3;
+    opacity: .5;
     transform: translateY(-50%) rotate(90deg);
 }
 
-.div-mega > ul.navbar-nav > li.nav-item > a[aria-expanded="true"] .fa-sort-up {
+.div-mega > ul.navbar-nav > li.nav-item > a[aria-expanded="true"] .fa-angle-down {
     transform: translateY(-50%) rotate(180deg);
 }
 
@@ -273,6 +274,21 @@
     background-color: #051c4b;
     border-radius: 8px;
     transition: 1s;
+}
+.card-box .left-card h4{
+    font-size: 16px;
+    margin-top: 11px;
+    
+}
+.card-box .left-card  .icon-box {
+    width: 50px;
+    height: 50px;
+    background: #0080ff78;
+    border-radius: 100%;
+    text-align: center;
+    color: white;
+    padding-top: 7px;
+    font-size: 20px;
 }
 
 /*End Custom Scrollbar*/

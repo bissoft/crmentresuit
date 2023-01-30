@@ -3,7 +3,7 @@
     {{__('Ledger Summary')}}
 @endsection
 @push('script-page')
-    <script type="text/javascript" src="{{ asset('js/html2pdf.bundle.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url('js/html2pdf.bundle.min.js') }}"></script>
     <script>
         var filename = $('#filename').val();
 
@@ -41,7 +41,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-md-3">
+        <div class="col-lg-4 col-md-4">
             <div class="all-select-box">
                 <div class="btn-box">
                     {{ Form::label('account', __('Account'),['class'=>'text-type']) }}

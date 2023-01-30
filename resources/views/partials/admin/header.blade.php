@@ -1,6 +1,7 @@
 @php
     $users=\Auth::user();
-    $profile=asset(Storage::url('uploads/avatar/'));
+    $profile=Storage::url('uploads/avatar/');
+    
     $currantLang = $users->currentLanguage();
     $languages=Utility::languages();
 @endphp
@@ -96,6 +97,7 @@
                     >
                         <div class="media media-pill align-items-center">
                       <span class="avatar rounded-circle">
+                          
                         <img src="{{(!empty($users->avatar)? $profile.'/'.$users->avatar : $profile.'/avatar.png')}}"/>
                       </span>
                             <div class="ml-2 d-none d-lg-block">
@@ -135,7 +137,7 @@
                     </div>
                 </li>
                 @if( Gate::check('create product & service') ||  Gate::check('create customer') ||  Gate::check('create vender')||  Gate::check('create proposal')||  Gate::check('create invoice')||  Gate::check('create bill') ||  Gate::check('create goal') ||  Gate::check('create bank account'))
-                    <li class="nav-item">
+                    {{--<li class="nav-item">
                         <div class="dropdown notification-icon">
                             <button class="dropdown-toggle" type="button" id="dropdownBookmark" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-bookmark text-primary"></i>
@@ -167,10 +169,10 @@
                                 @endif
                             </div>
                         </div>
-                    </li>
+                    </li>--}}
                 @endif
             </ul>
-            <ul class="navbar-nav ml-lg-auto align-items-lg-center">
+           {{-- <ul class="navbar-nav ml-lg-auto align-items-lg-center">
                 <li class="nav-item">
                     <div class="dropdown global-icon" data-toggle="tooltip" data-original-titla="{{__('Choose Language')}}">
                         <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -186,7 +188,7 @@
                         </div>
                     </div>
                 </li>
-            </ul>
+            </ul>--}}
         </div>
     </div>
 </nav>

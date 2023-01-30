@@ -10,6 +10,7 @@ class Emails extends Model
         'name',
         'email',
         'via',
+        'user_id',
         'is_sent'
     ];
 }

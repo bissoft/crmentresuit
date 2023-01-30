@@ -63,6 +63,8 @@
                                             <tr>
                                                 <th>#</th>
                                                 <th>Name</th>
+                                                <th>Email</th>
+                                                <th>Account Created At</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -71,11 +73,13 @@
                                             <tr>
                                                 <td>{{$loop->iteration}}</td>
                                                 <td>{{$referral->name}}</td>
+                                                <td>{{$referral->email}}</td>
+                                                <td>{{date('d M, Y H:i',strtotime($referral->created_at))}}</td>
                                             </tr>
                                             @endforeach
                                             @else
                                             <tr>
-                                                <td colspan="2" class="fw-bold text-center bg-primary text-wrap">No
+                                                <td colspan="4" class="fw-bold text-center bg-primary text-wrap">No
                                                     Referrals Found</td>
                                             </tr>
                                             @endif
@@ -102,6 +106,8 @@
                                             <tr>
                                                 <th>#</th>
                                                 <th>Name</th>
+                                                <th>Email</th>
+                                                <th>Account Created At</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -110,10 +116,12 @@
                                             <tr>
                                                 <td>1</td>
                                                 <td>{{$referrer->name ?? ''}}</td>
+                                                <td>{{$referrer->email}}</td>
+                                                <td>{{date('d M, Y H:i',strtotime($referrer->created_at))}}</td>
                                             </tr>
                                             @else
                                             <tr>
-                                                <td colspan="2" class="fw-bold text-center bg-primary text-wrap">No Referrer
+                                                <td colspan="4" class="fw-bold text-center bg-primary text-wrap">No Referrer
                                                     Found</td>
                                             </tr>
                                             @endif

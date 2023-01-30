@@ -35,18 +35,20 @@
 @elseif($message->sender)
     @if ($message->sender->id === auth()->user()->id)
     <div class="media text-group me">
-        <img class="mr-3" src="{{ $message->sender->picture ?? '/dash-assets/images/user/user10.jpg' }}" alt=" image">
-        <div class="media-body">
-            <h5 class="mt-0">{{ $message->sender->id == 1 ? config('app.name') . ' Support' : $message->sender->first_name . ' ' . $message->sender->last_name  }} <small>{{ $message->created_at }}</small></h5>
+        <img class="mr-3" src="{{ $message->sender->picture ?? '/public/dash-assets/images/user/user10.jpg' }}" alt=" image">
+        <div class="media-body cs-class">
+            <h5 class="mt-0 text-left">{{ $message->sender->id == 1 ? config('app.name') . ' Support' : $message->sender->name }} </h5>
             <p>{!! $message->text !!}</p>
+            <small class="time-chat">{{ $message->created_at }}</small>
         </div>
     </div>
     @else
     <div class="media">
-        <img class="mr-3" src="{{ $message->sender->picture ?? '/dash-assets/images/user/user9.jpg' }}" alt=" image">
-        <div class="media-body">
-            <h5 class="mt-0">{{ $message->sender->id == 1 ? config('app.name') . ' Support' : $message->sender->first_name . ' ' . $message->sender->last_name  }} <small>{{ $message->created_at }}</small></h5>
-            <p>{!! $message->text !!}</p>
+        <img class="mr-3" src="{{ $message->sender->picture ?? '/public/dash-assets/images/user/user9.jpg' }}" alt=" image">
+        <div class="media-body text-right cs-class">
+            <h5 class="mt-0 text-left">{{ $message->sender->id == 1 ? config('app.name') . ' Support' : $message->sender->name }} </h5>
+            <p class="text-left">{!! $message->text !!}</p>
+            <small class="time-chat rec-text-time">{{ $message->created_at }}</small>
         </div>
     </div>
     @endif

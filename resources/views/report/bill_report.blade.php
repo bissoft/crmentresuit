@@ -3,7 +3,7 @@
     {{__('Bill Summary')}}
 @endsection
 @push('theme-script')
-    <script src="{{ asset('assets/libs/apexcharts/dist/apexcharts.min.js') }}"></script>
+    <script src="{{ url('assets/libs/apexcharts/dist/apexcharts.min.js') }}"></script>
 @endpush
 @push('script-page')
     <script>

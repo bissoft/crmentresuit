@@ -4,30 +4,30 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <title><?php echo e((Utility::getValByName('title_text')) ? Utility::getValByName('title_text') : config('app.name', 'AccountGo')); ?> - <?php echo $__env->yieldContent('page-title'); ?></title>
-    <link rel="icon" href="<?php echo e(asset(Storage::url('uploads/logo')).'/favicon.png'); ?>" type="image" sizes="16x16">
+    <link rel="icon" href="<?php echo e(url(Storage::url('uploads/logo')).'/favicon.png'); ?>" type="image" sizes="16x16">
 
-    <script src="<?php echo e(asset('js/app.js')); ?>" defer></script>
+    <script src="<?php echo e(url('js/app.js')); ?>" defer></script>
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <link href="<?php echo e(asset('css/app.css')); ?>" rel="stylesheet">
+    <link href="<?php echo e(url('css/app.css')); ?>" rel="stylesheet">
 
     <!-- Font Awesome 5 -->
-    <link rel="stylesheet" href="<?php echo e(asset('assets/libs/@fortawesome/fontawesome-free/css/all.min.css')); ?>">
-    <link rel="stylesheet" href="<?php echo e(asset('assets/libs/select2/dist/css/select2.min.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(url('assets/libs/@fortawesome/fontawesome-free/css/all.min.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(url('assets/libs/select2/dist/css/select2.min.css')); ?>">
 
     <!-- Purpose CSS -->
-    <link rel="stylesheet" href="<?php echo e(asset('assets/css/site.css')); ?>">
-    <link rel="stylesheet" href="<?php echo e(asset('assets/css/ac.css')); ?>">
-    <link rel="stylesheet" href="<?php echo e(asset('assets/css/stylesheet.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(url('assets/css/site.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(url('assets/css/ac.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(url('assets/css/stylesheet.css')); ?>">
 </head>
 
 <body>
 <?php echo $__env->yieldContent('content'); ?>
 
 <!-- General JS Scripts -->
-<script src="<?php echo e(asset('assets/libs/jquery/dist/jquery.min.js')); ?>"></script>
-<script src="<?php echo e(asset('assets/libs/nicescroll/jquery.nicescroll.min.js')); ?> "></script>
-<script src="<?php echo e(asset('assets/libs/select2/dist/js/select2.min.js')); ?>"></script>
+<script src="<?php echo e(url('assets/libs/jquery/dist/jquery.min.js')); ?>"></script>
+<script src="<?php echo e(url('assets/libs/nicescroll/jquery.nicescroll.min.js')); ?> "></script>
+<script src="<?php echo e(url('assets/libs/select2/dist/js/select2.min.js')); ?>"></script>
 
 <script>
     var dataTabelLang = {
@@ -39,7 +39,7 @@
         search: "<?php echo e(__('Search:')); ?>"
     }
 </script>
-<script src="<?php echo e(asset('assets/js/custom.js')); ?>"></script>
+<script src="<?php echo e(url('assets/js/custom.js')); ?>"></script>
 </body>
 </html>
 <?php /**PATH C:\xampp\htdocs\ItSolzTechOkara\crmentresuit\resources\views/layouts/auth.blade.php ENDPATH**/ ?>

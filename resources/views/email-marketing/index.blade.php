@@ -32,7 +32,6 @@
                     <tr>
                         <th>#</th>
                         <th>Email</th>
-                        <th>Via</th>
                         <th>Date</th>
                         <th width="280px">Action</th>
                     </tr>
@@ -42,7 +41,6 @@
                     <tr>
                         <td>{{ $item->id }}</td> 
                         <td>{{ $item->email }}</td>
-                        <td>{{ $item->via }}</td>
                         <td>{{date("j F, Y, g:i a", strtotime($item->created_at))}}</td>
                         <td>
                           <a href="{{ route('emails.update',$item->id) }}" class="fa fa-edit fa-sm mr-2" title="Edit"></a>

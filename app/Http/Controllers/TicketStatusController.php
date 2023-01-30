@@ -37,7 +37,7 @@ class TicketStatusController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'name' => 'required',
+            'name' => 'required|unique:ticket_statuses,name',
             'description' => 'nullable'
         ]);
 
@@ -80,7 +80,7 @@ class TicketStatusController extends Controller
     {
 
         $data = $request->validate([
-            'name' => 'required',
+            'name' => 'required|unique:ticket_statuses,name,'.$id,
             'description' => 'nullable'
         ]);
 

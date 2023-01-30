@@ -27,7 +27,7 @@
                             <div class="all-select-box">
                                 <div class="btn-box">
                                     {{ Form::label('category', __('Category'),['class'=>'text-type']) }}
-                                    {{ Form::select('category', $category,null, array('class' => 'form-control select2','required'=>'required')) }}
+                                    {{ Form::select('category', $category,request('category'), array('class' => 'form-control select2','required'=>'required')) }}
                                 </div>
                             </div>
                         </div>

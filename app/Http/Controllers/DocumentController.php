@@ -167,7 +167,8 @@ class DocumentController extends Controller
                         'size' => $size,
                         'pages' => $totoalPages,
                         'created_by' => $request->user_id,
-                        'expiry' => $request->expiry
+                        'expiry' => $request->expiry,
+                        'contract_id' => $request->cid,
                     ]);
 
                     $user = User::where('id', $request->user_id)->first();
@@ -628,7 +629,7 @@ class DocumentController extends Controller
                         if ($item->type == 'signature') {
                             $item->width = (($item->width * 25.4) / 96);
                             $item->height = (($item->height * 25.4) / 96);
-                            $pdf->Image(base_path() . '/public/storage/images/signature/' . $templateResponse->signature, $item->left_distance, $item->top, $item->width, $item->height, 'png');
+                            $pdf->Image(base_path() . '/storage/app/public/images/signature/' . $templateResponse->signature, $item->left_distance, $item->top, $item->width, $item->height, 'png');
 //                    $pdf->Image('http://chart.googleapis.com/chart?cht=p3&chd=t:60,40&chs=250x100&chl=Hello|World',$item->top,$item->left_distance,90,0,'PNG');
                         }
                         if ($item->type == 'text') {
@@ -853,10 +854,10 @@ class DocumentController extends Controller
 
     public function uploadDocument($id)
     {
-        
+        $cid = 2;
         $user = User::with('documents')->where('id', $id)->first();
         
-        return view('document', compact('user'));
+        return view('document', compact('user','cid'));
     }
 
     
@@ -866,9 +867,19 @@ class DocumentController extends Controller
         $documents = Document::where('category', $request->category)
             ->where('created_by', $request->staff_id)
             ->get();
-
+        
         $staff_id = $request->staff_id;
-
         return view('staff.documents', compact('documents', 'staff_id'));
+    }
+    
+    public function contract($id)
+    {
+        $documents = Document::where('category', 'document')
+            ->where('created_by',auth()->user()->id)->where('contract_id',$id)
+            ->get();
+        
+        $staff_id = auth()->user()->id;
+        $contact_id=$id;
+        return view('staff.documents', compact('documents', 'staff_id','contact_id'));
     }
 }

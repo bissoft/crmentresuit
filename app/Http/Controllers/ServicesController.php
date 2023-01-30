@@ -37,7 +37,7 @@ class ServicesController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'name' => 'required'
+            'name' => 'required|unique:services,name'
         ]);
 
         Services::create($data);

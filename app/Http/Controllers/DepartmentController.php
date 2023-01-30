@@ -38,7 +38,7 @@ class DepartmentController extends Controller
     {
         $data = $request->validate([
             'name' => 'required',
-            'email' => 'required'
+            'email' => 'required|unique:departments,email'
         ]);
 
         Department::create($data);

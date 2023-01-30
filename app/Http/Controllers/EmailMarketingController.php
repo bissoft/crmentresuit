@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Emails;
+use App\Mail\SendEmailMarketing;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class EmailMarketingController extends Controller
 {
@@ -17,7 +19,7 @@ class EmailMarketingController extends Controller
             $email = Emails::where("id",$request->get('delete'))->delete();
             return redirect()->route('emails.index')->with(["type"=>"danger","msg"=>"Emails record is deleted Successfully"]);
         }
-        $emails = Emails::orderBy("id","desc")->get();
+        $emails = Emails::where("user_id", auth()->user()->id)->orderBy("id","desc")->get();
         return view('email-marketing.index',compact('emails'));
     }
 
@@ -29,13 +31,15 @@ class EmailMarketingController extends Controller
 
             $request->validate([
                 'Name' => ['required', 'string', 'max:255'],
-                'email' => ['required', 'string', 'email', 'max:255', 'unique:emails'],
+                'email' => ['required', 'string', 'email', 'max:255']
             ]);
+        
             Emails::updateOrCreate(
                 [
                     'email' => $request->input('email')
                 ],
                 [
+                    'user_id' => auth()->user()->id,
                     'name' => $request->input('Name'),
                     'email' => $request->input('email'),
                     'via' => 'Admin'
@@ -89,7 +93,10 @@ class EmailMarketingController extends Controller
 			foreach ($emails as $email) {
                 $details['email'] = $email->email;
 
-                (new \App\Jobs\SendEmailMarketingJob($details));
+                $email = new SendEmailMarketing($details);
+                Mail::to($details['email'])->send($email); 
+
+                //(new \App\Jobs\SendEmailMarketingJob($details));
 
                 /*
 				$job = (new \App\Jobs\SendEmailMarketingJob($details))
@@ -121,8 +128,11 @@ class EmailMarketingController extends Controller
                 'subject' => $subject,
                 "content" => $email_content
             ];
-            (new \App\Jobs\SendEmailMarketingJob($details));
+            $email = new SendEmailMarketing($details);
+            Mail::to($details['email'])->send($email); 
             /*
+            (new \App\Jobs\SendEmailMarketingJob($details));
+            
             $job = (new \App\Jobs\SendEmailMarketingJob($details))
                 ->delay(now()->addSeconds(8)); 
             dispatch($job);

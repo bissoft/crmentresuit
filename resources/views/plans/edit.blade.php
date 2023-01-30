@@ -1,0 +1,36 @@
+<div class="card bg-none card-box">
+    {{ Form::model($plan, array('route' => array('plans.update', $plan->id), 'method' => 'PUT')) }}
+    <div class="row">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label class="form-label">Name</label>
+                <input type="text" class="form-control" name="name" value="{{ old('name') ?? $plan->name }}">
+            </div>
+            <div class="form-group col-md-6">
+                <label class="form-label">Price</label>
+                <input type="text" class="form-control" name="price" value="{{ old('price') ?? $plan->price }}">
+            </div>
+            <div class="form-group col-md-6">
+                <label class="form-label">Type</label>
+                <select class="form-control" name="type">
+                    @php
+                    $_type = old('type') ?? $plan->type;
+                    $types = ['monthly', 'yearly'];
+                    @endphp
+                    @foreach($types as $type)
+                    <option value="{{ $type }}" @if($_type==$type) selected @endif>{{ $type }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="form-label">Stripe Plan ID</label>
+                <input type="text" class="form-control" name="stripe_plan_id" value="{{ old('stripe_plan_id') ?? $plan->stripe_plan_id }}">
+            </div>
+        </div>
+        <div class="col-md-12">
+            <input type="submit" value="{{__('Update')}}" class="btn-create badge-blue">
+            <input type="button" value="{{__('Cancel')}}" class="btn-create bg-gray" data-dismiss="modal">
+        </div>
+    </div>
+    {{ Form::close() }}
+</div>

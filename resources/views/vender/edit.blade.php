@@ -81,7 +81,7 @@
                 {{Form::label('billing_zip',__('Zip Code'),array('class'=>'form-control-label')) }}
                 <div class="form-icon-user">
                     <span><i class="fas fa-crosshairs"></i></span>
-                    {{Form::text('billing_zip',null,array('class'=>'form-control','placeholder'=>__('Enter User Email')))}}
+                    {{Form::text('billing_zip',null,array('class'=>'form-control'))}}
                 </div>
             </div>
         </div>

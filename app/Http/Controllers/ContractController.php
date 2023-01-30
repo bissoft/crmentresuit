@@ -46,8 +46,8 @@ class ContractController extends Controller
             'contract_type' => 'required',
             'customer_id' => 'required',
             'contract_value' => 'required',
-            'start_date' => 'required',
-            'end_date' => 'required',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date|after_or_equal:start_date',
             'description' => 'required',
         ]);
 
@@ -94,8 +94,8 @@ class ContractController extends Controller
             'contract_type' => 'required',
             'customer_id' => 'required',
             'contract_value' => 'required',
-            'start_date' => 'required',
-            'end_date' => 'required',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date|after_or_equal:start_date',
             'description' => 'required',
         ]);
 

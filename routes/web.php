@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\InterviewController;
 use App\Http\Controllers\SubscriptionController;
+use App\Http\Controllers\VideoChatController;
 use App\Http\Controllers\VideoMeetingController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -21,6 +22,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('signature/{id}/{email}', 'DocumentController@customerSign')->name('customer.signature');
 //
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/intake', 'HomeController@intake')->name('intake');
+
+Route::match(['get','post'], '/app-customization', 'HomeController@appCustomization')->name('app-customization');
+
+Route::post('/intake/store', 'HomeController@store')->name('intake.store');
+Route::get('/intakes', 'HomeController@index')->name('intake.index')->middleware(
+    [
+        'auth',
+        'XSS',
+    ]
+);
 
 Auth::routes();
 
@@ -353,10 +365,30 @@ Route::match(['get','post'],'/emails/send/single/{id}', 'EmailMarketingControlle
 
 // Messages Route
 
-Route::get('/start-chat', 'ChatController@startChat')->name('startChat');
-Route::get('/chat/{id?}', 'ChatController@chat')->name('chat');
-Route::get('/refresh-msgs/{id}', 'ChatController@refreshMsgs')->name('refreshMsgs');
-Route::get('/send-msg', 'ChatController@sendMsg')->name('sendMsg');
+Route::get('/start-chat', 'ChatController@startChat')->name('startChat')->middleware(
+    [
+        'auth',
+        'XSS',
+    ]
+);
+Route::get('/chat/{id?}', 'ChatController@chat')->name('chat')->middleware(
+    [
+        'auth',
+        'XSS',
+    ]
+);
+Route::get('/refresh-msgs/{id}', 'ChatController@refreshMsgs')->name('refreshMsgs')->middleware(
+    [
+        'auth',
+        'XSS',
+    ]
+);
+Route::get('/send-msg', 'ChatController@sendMsg')->name('sendMsg')->middleware(
+    [
+        'auth',
+        'XSS',
+    ]
+);
 
 
 // Route::resource('booking', BookingController::class);
@@ -367,6 +399,32 @@ Route::resource('booking', 'BookingController')->middleware(
         'XSS',
     ]
 );
+
+Route::get('record/video', 'DemoVideoController@create')->name('record.video');
+Route::post('/save/video', 'DemoVideoController@store')->name('save.recorder');
+
+Route::group(['middleware' => ['auth','XSS']], function () {
+    Route::get('demo-video', 'DemoVideoController@index')->name('demo-video.index');
+    Route::get('demo-video/create', 'DemoVideoController@createDemoVideo')->name('demo-video.create');
+    Route::post('demo-video/store', 'DemoVideoController@storeDemoVideo')->name('demo-video.store');
+    Route::get('demo-video/edit/{id}', 'DemoVideoController@edit')->name('demo-video.edit');
+    Route::post('demo-video/update/{demoVideo}', 'DemoVideoController@update')->name('demo-video.update');
+    Route::get('demo-video/destroy/{demoVideo}', 'DemoVideoController@destroy')->name('demo-video.destroy');
+    Route::get('demo-video/{id}/remove', 'DemoVideoController@remove')->name('demo-video.remove');
+    Route::get('demo-video/trash', 'DemoVideoController@trash')->name('demo-video.trash');
+    Route::get('demo-video/recover/{id}', 'DemoVideoController@recoverDemoVideo')->name('demo-video.recover');
+
+    Route::group(['middleware' => 'auth'], function(){
+        Route::get('video_chat', [VideoChatController::class,'index'])->name('video_chat');
+        Route::post('auth/video_chat', [VideoChatController::class,'auth']);
+      });
+
+    Route::get('/join-video-session', "VideoRoomsController@index")->name('join.video.session');
+    Route::prefix('room')->group(function () {
+        Route::get('join/{roomName}', 'VideoRoomsController@joinRoom');
+        Route::post('create', 'VideoRoomsController@createRoom');
+    });
+});
 
 Route::get('/booking-schedule', 'BookingController@bookingSchedule')->name('bookingSchedule');
 
@@ -939,3 +997,7 @@ Route::group(
 
 }
 );
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

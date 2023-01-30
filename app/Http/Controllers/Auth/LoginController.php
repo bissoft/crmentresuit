@@ -137,7 +137,7 @@ class LoginController extends Controller
     }
 
     public function showLoginForm($lang = '')
-    {
+    {//dd('asd');
        
         if($lang == '')
         {

@@ -3,8 +3,9 @@
     {{__('Dashboard')}}
 @endsection
 @push('script-page')
+@if(\Auth::user()->can('show dashboard'))
     <script>
-            @if(\Auth::user()->can('show dashboard'))
+    
         var options = {
                 series: [
                     {
@@ -182,13 +183,15 @@
         var expenseCategory = new ApexCharts(document.querySelector("#expenseByCategory"), expenseCategories);
         expenseCategory.render();
 
-        @endif
+        
     </script>
+@endif    
 @endpush
 @section('content')
 
     @if(\Auth::user()->can('show dashboard'))
         @if(\Auth::user()->type=='company')
+        
             <div class="row">
                 <!-- @if($constant['taxes'] <= 0)
                     <div class="col-3">
@@ -220,6 +223,7 @@
                     </div>
                 @endif
             </div>
+            
         @endif
         <div class="row">
             <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
@@ -263,11 +267,13 @@
                 <img src="{{ asset('assets/img/dot-icon.png') }}" alt="" class="dotted-icon">
             </div>
         </div>
-        {{--<div class="row">
+        	
+		
+        <div class="row">
             <div class="col-12">
                 <div>
-                    <h4 class="h4 font-weight-400 float-left">{{__('Cashflow')}}</h4>
-                    <h6 class="last-day-text">{{__('Last')}} <span>{{__('15 days')}}</span></h6>
+                    <h4 class="h4 font-weight-400 float-left">Cashflow</h4>
+                    <h6 class="last-day-text">Last <span>15 days</span></h6>
                 </div>
                 <div class="card bg-none">
                     <div class="scrollbar-inner">
@@ -276,7 +282,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+       {{-- <div class="row">
             <div class="col-xl-4 col-lg-4 col-md-4">
                 <h4 class="h4 font-weight-400">{{__('Income Vs Expense')}}</h4>
                 <div class="card bg-none dashboard-box-1">
@@ -360,12 +366,12 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>--}}
         <div class="row">
             <div class="col-12">
                 <div>
-                    <h4 class="h4 font-weight-400 float-left">{{__('Income & Expense')}}</h4>
-                    <h6 class="last-day-text">{{__('Current Year').' - '.$currentYear}}</h6>
+                    <h4 class="h4 font-weight-400 float-left">Income & Expense</h4>
+                    <h6 class="last-day-text">{{'Current Year'.' - '.$currentYear}}</h6>
                 </div>
                 <div class="card bg-none">
                     <div class="scrollbar-inner">
@@ -375,7 +381,7 @@
             </div>
         </div>
 
-        <div class="row">
+        {{--<div class="row">
             <div class="col-lg-6 col-md-12 col-12 col-sm-12">
                 <div>
                     <h4 class="h4 font-weight-400 float-left">{{__('Income By Category')}}</h4>
@@ -828,6 +834,7 @@
                 </div>
             </div>
         </div>--}}
+        
     @else
         <div class="row">
             <div class="col-md-12 text-center">

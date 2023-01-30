@@ -69,8 +69,7 @@ class RegisterController extends Controller
                      'password' => [
                          'required',
                          'string',
-                         'min:8',
-                         
+                         'min:8'
                      ],
                  ]
         );
@@ -86,18 +85,16 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $cookie = Cookie::get('referral');
-
         $referred_by = $cookie ? \Hashids::decode($cookie)[0] : null;
-
         $user   = User::create(
             [
                 'name' => $data['name'],
                 'email' => $data['email'],
                 'password' => Hash::make($data['password']),
-                'referred_by' => $referred_by,
                 'type' => 'company',
                 'lang' => \App\Utility::getValByName('default_language'),
                 'created_by' => 1,
+                'referred_by' => $referred_by
             ]
         );
         $role_r = Role::findByName('company');
