@@ -26,6 +26,7 @@ use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
+use Stripe;
 
 class InvoiceController extends Controller
 {
@@ -932,4 +933,33 @@ class InvoiceController extends Controller
         return json_encode($items);
     }
 
+    public function stripePayment($id)
+    {
+        // dd(config('app.stripe_secret'));
+        $invoice = Invoice::findOrFail($id);
+
+        if ($invoice->stripe_payment_link) {
+            return redirect()->to($invoice->stripe_payment_link);
+        }
+
+        Stripe\Stripe::setApiKey('sk_test_51KICdw2HhTiqW70UvDnu72wuirpKmGMzrY3hrmlMfRomXZsbwBMHUxci3rJFyRwIgbI7cgOVTZ1ek2iUYlMU61GW005fKpGsXO');
+        $stripe = new \Stripe\StripeClient(
+            'sk_test_51KICdw2HhTiqW70UvDnu72wuirpKmGMzrY3hrmlMfRomXZsbwBMHUxci3rJFyRwIgbI7cgOVTZ1ek2iUYlMU61GW005fKpGsXO'
+        );
+        $product = $stripe->products->create([
+            'name' => 'Invoice ID: ' . $invoice->id,
+        ]);
+
+        $price = $stripe->prices->create(
+            ['currency' => 'usd', 'unit_amount' => $invoice->getDue(), 'product' => $product->id]
+        );
+
+        $link = $stripe->paymentLinks->create(
+            ['line_items' => [['price' => $price->id, 'quantity' => 1]]]
+        );
+
+        $invoice->update(['stripe_payment_link' => $link->url]);
+
+        return redirect()->to($link->url);
+    }
 }

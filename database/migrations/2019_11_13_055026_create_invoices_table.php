@@ -24,6 +24,7 @@ class CreateInvoicesTable extends Migration
             $table->integer('category_id');
             $table->text('ref_number')->nullable();
             $table->integer('status')->default('0');
+            $table->text('stripe_payment_link')->nullable();
             $table->integer('shipping_display')->default('1');
             $table->integer('discount_apply')->default('0');
             $table->integer('created_by')->default('0');

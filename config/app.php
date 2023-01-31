@@ -125,6 +125,9 @@ return [
 
     'cipher' => 'AES-256-CBC',
 
+    'stripe_key' => env('STRIPE_KEY'),
+    'stripe_secret' => env('STRIPE_SECRET'),
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers
