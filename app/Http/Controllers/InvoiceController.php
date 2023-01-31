@@ -935,16 +935,15 @@ class InvoiceController extends Controller
 
     public function stripePayment($id)
     {
-        // dd(config('app.stripe_secret'));
         $invoice = Invoice::findOrFail($id);
 
         if ($invoice->stripe_payment_link) {
             return redirect()->to($invoice->stripe_payment_link);
         }
 
-        Stripe\Stripe::setApiKey('sk_test_51KICdw2HhTiqW70UvDnu72wuirpKmGMzrY3hrmlMfRomXZsbwBMHUxci3rJFyRwIgbI7cgOVTZ1ek2iUYlMU61GW005fKpGsXO');
+        Stripe\Stripe::setApiKey(config('app.stripe_secret'));
         $stripe = new \Stripe\StripeClient(
-            'sk_test_51KICdw2HhTiqW70UvDnu72wuirpKmGMzrY3hrmlMfRomXZsbwBMHUxci3rJFyRwIgbI7cgOVTZ1ek2iUYlMU61GW005fKpGsXO'
+            config('app.stripe_secret')
         );
         $product = $stripe->products->create([
             'name' => 'Invoice ID: ' . $invoice->id,
