@@ -474,7 +474,11 @@
                             <tr>
                                 {{ Form::hidden('id',null, array('class' => 'form-control id')) }}
                                 <td width="25%">
-                                    {{ Form::select('item', $product_services,null, array('class' => 'form-control item select2','data-url'=>route('invoice.product'))) }}
+                                    <div class="form-group">
+                                        {{ Form::text('product_name',null, array('class' => 'form-control product_name','required'=>'required','placeholder'=>__('Product Name'),'required'=>'required')) }}
+                                        {{-- {{ Form::select('item', $product_services,null, array('class' => 'form-control item select2','data-url'=>route('invoice.product'))) }} --}}
+                                    </div>
+                                    
                                 </td>
                                 <td>
                                     <div class="form-group price-input">

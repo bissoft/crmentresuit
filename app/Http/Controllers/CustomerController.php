@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Customer;
 use App\CustomField;
+use App\Department;
+use App\Designation;
 use App\Mail\UserCreate;
+use App\Project;
 use App\Transaction;
 use App\User;
 use Auth;
@@ -45,7 +48,11 @@ class CustomerController extends Controller
         {
             $customFields = CustomField::where('created_by', '=', \Auth::user()->creatorId())->where('module', '=', 'customer')->get();
 
-            return view('customer.create', compact('customFields'));
+            $roles = Role::orderBy('id','desc')->get();
+            $departments = Department::orderBy('id','desc')->get();
+            $designations = Designation::orderBy('id','desc')->get();
+
+            return view('customer.create', compact('customFields','roles','departments','designations'));
         }
         else
         {
@@ -58,7 +65,6 @@ class CustomerController extends Controller
     {
         if(\Auth::user()->can('create customer'))
         {
-
             $rules = [
                 'name' => 'required',
                 'contact' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/',
@@ -84,6 +90,11 @@ class CustomerController extends Controller
             $customer->customer_id     = $this->customerNumber();
             $customer->name            = $request->name;
             $customer->contact         = $request->contact;
+            $customer->gender         = $request->gender;
+            $customer->role         = $request->role;
+            $customer->departments         = $request->departments;
+            $customer->designation         = $request->designation;
+            $customer->office_shift         = $request->office_shift;
             $customer->email           = $request->email;
             $customer->password        = Hash::make($request->password);
             $customer->created_by      = \Auth::user()->creatorId();
@@ -134,8 +145,9 @@ class CustomerController extends Controller
 
     public function show(Customer $customer)
     {
+        $projects = Project::where('customer_id',$customer->id)->get();
 
-        return view('customer.show', compact('customer'));
+        return view('customer.show', compact('customer','projects'));
     }
 
 
@@ -147,8 +159,11 @@ class CustomerController extends Controller
             $customer->customField = CustomField::getData($customer, 'customer');
 
             $customFields = CustomField::where('created_by', '=', \Auth::user()->creatorId())->where('module', '=', 'customer')->get();
+            $roles = Role::orderBy('id','desc')->get();
+            $departments = Department::orderBy('id','desc')->get();
+            $designations = Designation::orderBy('id','desc')->get();
 
-            return view('customer.edit', compact('customer', 'customFields'));
+            return view('customer.edit', compact('customer', 'customFields','roles','departments','designations'));
         }
         else
         {
@@ -185,6 +200,11 @@ class CustomerController extends Controller
             $customer->billing_state    = $request->billing_state;
             $customer->billing_city     = $request->billing_city;
             $customer->billing_phone    = $request->billing_phone;
+            $customer->gender           = $request->gender;
+            $customer->role             = $request->role;
+            $customer->departments      = $request->departments;
+            $customer->designation      = $request->designation;
+            $customer->office_shift     = $request->office_shift;
             $customer->billing_zip      = $request->billing_zip;
             $customer->billing_address  = $request->billing_address;
             $customer->shipping_name    = $request->shipping_name;
@@ -194,6 +214,29 @@ class CustomerController extends Controller
             $customer->shipping_phone   = $request->shipping_phone;
             $customer->shipping_zip     = $request->shipping_zip;
             $customer->shipping_address = $request->shipping_address;
+            if($request->hasFile('profile_picture'))
+            {
+                $filenameWithExt = $request->file('profile_picture')->getClientOriginalName();
+                $filename        = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+                $extension       = $request->file('profile_picture')->getClientOriginalExtension();
+                $fileNameToStore = $filename . '_' . time() . '.' . $extension;
+
+                $dir        = storage_path('uploads/avatar/');
+                $image_path = $dir . $data['profile_picture'];
+
+                if(File::exists($image_path))
+                {
+                    File::delete($image_path);
+                }
+
+                if(!file_exists($dir))
+                {
+                    mkdir($dir, 0777, true);
+                }
+
+                $path = $request->file('profile_picture')->storeAs('uploads/avatar/', $fileNameToStore);
+
+            }
             $customer->save();
 
             CustomField::saveData($customer, $request->customField);

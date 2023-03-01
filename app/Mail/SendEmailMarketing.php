@@ -31,7 +31,14 @@ class SendEmailMarketing extends Mailable
     public function build()
     {
         Log::info($this->details['content']);
-        return $this->subject($this->details['subject'])            
-            ->view('email.email-marketing',['content' => $this->details['content']]);
+        if ($this->details['type'] == 'booking') {
+            return $this->subject($this->details['subject'])            
+            ->view('email.email-marketings',['content' => $this->details['content']]);
+        } else {
+            return $this->subject($this->details['subject'])            
+            ->view('email.email-marketing',['content' => $this->details['content'],'title' => $this->details['title'],'company_name' => $this->details['company_name'],'user_name' => $this->details['user_name'],'logo' => $this->details['logo'],'author' => $this->details['author']]);
+        }
+        
+        
     }
 }

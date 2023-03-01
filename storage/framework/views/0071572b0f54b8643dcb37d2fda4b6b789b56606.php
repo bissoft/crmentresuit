@@ -12,7 +12,7 @@
 
 
     <!-- Styles -->
-    <link rel="shortcut icon" href="<?php echo e(asset('favicon.png')); ?>">
+    <link rel="shortcut icon" href="<?php echo e(url('public/favicon.png')); ?>">
     <link rel="stylesheet" href="<?php echo e('/'. asset('app/assets/css/plugins.css')); ?>">
     <link rel="stylesheet" href="<?php echo e('/'. asset('app/assets/css/style.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('app/assets/css/colors/yellow.css')); ?>">
@@ -44,21 +44,14 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Home</a>
                                 </li>
+                               
                                 <li class="nav-item">
-                                    <a class="nav-link" href="<?php echo e(route('subscription.plans')); ?>">Plans</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Blog</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">About us</a>
+                                    <a class="nav-link" href="/aboutus">About us</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Contact us</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/intake">InTake Form</a>
-                                </li>
+                              
                                 <?php if(auth()->guard()->guest()): ?>
                                 <?php if(Route::has('login')): ?>
                                 <li class="nav-item">
@@ -117,10 +110,10 @@
                     <div class="widget mb-8">
                         <h4 class="widget-title text-white mb-3">Contact Info</h4>
                         <address> Moonshine St. 14/05 <br /> Light City, London </address>
-                        <a href="cdn-cgi/l/email-protection.html#b5d3dcc7c6c19bd9d4c6c1f5d0d8d4dcd99bd6dad8"><span
+                        <a href=""><span
                                 class="__cf_email__"
-                                data-cfemail="b3daddd5dcf3d6ded2dadf9dd0dcde">[email&#160;protected]</span></a><br /> 00
-                        (123) 456 78 90
+                                >Contact Us</span></a><br /> 
+                        770-882-4207
                     </div>
                     <!-- /.widget -->
                     <div class="widget mb-8">
@@ -167,8 +160,10 @@
                     <div class="widget">
                         <img class="mb-4" src="<?php echo e(asset('app/assets/img/logo-dark.png')); ?>" srcset="<?php echo e(asset('app/assets/img/logov2.png')); ?>" width="200"
                             alt="" />
-                        <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore</p>
+                        <p class="mb-4">For support
+Hours: Mondays-Fridays 9am – 8pm (est)
+Saturdays: 10am – 6pm (est)
+</p>
                         <nav class="nav social ">
                             <a href="#"><i class="uil uil-twitter"></i></a>
                             <a href="#"><i class="uil uil-facebook-f"></i></a>
@@ -183,25 +178,30 @@
                 <!-- /column -->
                 <div class="col-md-4 col-lg-3">
                     <div class="widget">
-                        <h4 class="widget-title  mb-3">Get in Touch</h4>
-                        <address class="pe-xl-15 pe-xxl-17">lorem St. 14/05 Light City, , United Kingdom</address>
-                        <a href="cdn-cgi/l/email-protection.html#6c4f" class="link-body"><span class="__cf_email__"
-                                data-cfemail="167f78707956737b777f7a3875797b">[email&#160;protected]</span></a><br /> 00
-                        (123) 456 78 90
+                        <h4 class="widget-title  mb-3">For support</h4>
+                        <address class="pe-xl-15 pe-xxl-17">For support
+Email: Support@entresuitecrm.com
+Or Click the chat button to speak with one of our Customer Success Agents
+
+</address>
+                        <a href="" class="link-body"><span class="__cf_email__"
+>[Email]</span></a><br />Email: Support@entresuitecrm.com
+Or Click the chat button to speak with one of our Customer Success Agents
+
                     </div>
                     <!-- /.widget -->
                 </div>
                 <!-- /column -->
                 <div class="col-md-4 col-lg-3">
                     <div class="widget">
-                        <h4 class="widget-title  mb-3">Learn More</h4>
-                        <ul class="list-unstyled text-reset mb-0">
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Services</a></li>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Terms of Use</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                        </ul>
+                        <h4 class="widget-title  mb-3"> For customized pricing:</h4>
+                       
+Email: Quotes@entresuitecrm.com
+
+Mailing Address
+PO Box 668 
+Hoschton GA 30548
+
                     </div>
                     <!-- /.widget -->
                 </div>

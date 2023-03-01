@@ -44,21 +44,14 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Home</a>
                                 </li>
+                               
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('subscription.plans') }}">Plans</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Blog</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">About us</a>
+                                    <a class="nav-link" href="/aboutus">About us</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Contact us</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/intake">InTake Form</a>
-                                </li>
+                              
                                 @guest
                                 @if (Route::has('login'))
                                 <li class="nav-item">

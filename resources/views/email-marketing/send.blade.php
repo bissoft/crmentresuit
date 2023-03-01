@@ -34,25 +34,34 @@
                             </ul>
                         </div>
                         @endif
-                    <form action="" class="row g-3" method="post">
+                    <form action="" class="row g-3" method="post" enctype="multipart/form-data">
                         @csrf
-                        <div class="col-md-6">
-                            <label for="inputName" class="form-label">Select id from</label>
-                            <input type="number" class="form-control" min="1" name="id_from" value="{{ old('id_from') }}" placeholder="1">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="inputEmail" class="form-label">Select id to</label>
-                            <input type="number" class="form-control" min="1" name="id_to" value="{{ old('id_to') }}" placeholder="10">
-                        </div>
-
+                        
                         <div class="col-md-6">
                             <label for="subject" class="form-label">Subject</label>
-                            <input type="text" class="form-control" name="subject" value="{{ old('subject') }}" placeholder="Enter Subject">
+                            <input type="text" class="form-control" name="subject" value="{{ old('subject') }}" placeholder="Enter Subject" required>
                         </div>
 
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="subject" class="form-label mb-2">Upload Logo</label>
+                                <div class="form-group" style="border:1px solid #ccc;height:40px;padding:10px; text-align: center;border-color: #a3afbb;border-radius: 10px;">
+                                    <label style="display: block;">Logo:</label>
+                                    <input name="logo" type="file" required style="margin-top:25px;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="title" class="form-label">Title</label>
+                            <input type="text" class="form-control" name="title" value="{{ old('title') }}" placeholder="Enter title" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="company_name" class="form-label">Company Name</label>
+                            <input type="text" class="form-control" name="company_name" value="{{ old('company_name') }}" placeholder="Enter Company" required>
+                        </div>
                         <div class="col-md-12">
                             <label for="subject" class="form-label">Email Content</label>
-                            <textarea name="email_content" id="oneditor" class="form-control" cols="30" rows="10">{!! old('email_content') !!}</textarea>
+                            <textarea name="email_content" id="oneditor" class="form-control" cols="30" rows="10" required>{!! old('email_content') !!}</textarea>
                         </div>
 
 

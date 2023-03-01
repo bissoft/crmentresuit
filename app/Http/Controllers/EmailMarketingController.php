@@ -72,26 +72,43 @@ class EmailMarketingController extends Controller
     {
         if ($request->isMethod('post')) {
 
+
             $request->validate([
-                'id_from' =>  'required|integer',
-                'id_to' =>  'required|integer',
                 'subject' =>  'required|string',
+                'title' =>  'required|string',
+                'company_name' =>  'required|string',
                 'email_content' =>  'required|string'
             ]);
 
-            $id_from = $request->id_from;
-			$id_to = $request->id_to;
+            if($request->hasfile('logo')){
+                
+                $file = $request->file('logo');
+                $upload = 'public/img/';
+                $filename = time().$file->getClientOriginalName();
+                $path    = move_uploaded_file($file->getPathName(), $upload.$filename);
+                $fullpath = url($upload.$filename);
+            }
+
+            
             $subject = $request->subject;
+			$title = $request->title;
+			$company_name = $request->company_name;
 			$email_content = $request->email_content;
             $details = [
                 'id_from' => $request->id_from,
                 'id_to' => $request->id_to,
                 'subject' => $subject,
-                "content" => $email_content
+                'type' => "bulk",
+                'logo' => $fullpath,
+                'author' => auth()->user()->name,
+                'title' => $title,
+                'company_name' => $company_name,
+                "content" => $email_content,
             ];
-            $emails = Emails::whereBetween('id', [$id_from, $id_to])->get();
+            $emails = Emails::where('user_id', auth()->user()->id)->get();
 			foreach ($emails as $email) {
                 $details['email'] = $email->email;
+                $details['user_name'] = $email->name;
 
                 $email = new SendEmailMarketing($details);
                 Mail::to($details['email'])->send($email); 

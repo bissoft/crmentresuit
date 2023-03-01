@@ -500,7 +500,7 @@
 <script>
     var pageNum = 1, pageRendering = false, pdfDoc = null, pdfDocFile = null, pageNumPending = null;
     document.getElementById('page_num').textContent = pageNum;
-    pdfjsLib.getDocument('{{'/'.asset("/assets/files/documents/".$document->file)}}').then(doc => {
+    pdfjsLib.getDocument('{{ url("public/assets/files/documents/".$document->file)}}').then(doc => {
         pdfDocFile = doc;
         pdfDoc = doc._pdfInfo;
         $("#signatureTotalPages").val(doc._pdfInfo.numPages);

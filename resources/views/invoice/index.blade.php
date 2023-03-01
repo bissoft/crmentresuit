@@ -111,7 +111,7 @@
                                         @endif
                                     </td>
                                     <td>{{\Auth::user()->priceFormat($invoice->getDue())  }}</td>
-                                    <td>
+                                    <td data-id="{{$invoice->status}}">
                                         @if($invoice->status == 0)
                                             <span class="badge badge-pill badge-primary">{{ __(\App\Invoice::$statues[$invoice->status]) }}</span>
                                         @elseif($invoice->status == 1)

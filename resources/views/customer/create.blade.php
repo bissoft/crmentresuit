@@ -1,5 +1,5 @@
 <div class="card bg-none card-box">
-    {{Form::open(array('url'=>'customer','method'=>'post'))}}
+    {{Form::open(array('url'=>'customer','method'=>'post', 'enctype' => 'multipart/form-data'))}}
     <h5 class="sub-title">{{__('Basic Info')}}</h5>
     <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-6">
@@ -22,6 +22,16 @@
         </div>
         <div class="col-lg-4 col-md-4 col-sm-6">
             <div class="form-group">
+                {{Form::label('gender',__('Gender'),['class'=>'form-control-label'])}}
+                <select name="gender" class="form-control select2" id="gender" required>
+                    <option value="male">Male</option>
+                    <option value="female">Fe Male</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="form-group">
                 {{Form::label('email',__('Email'),['class'=>'form-control-label'])}}
                 <div class="form-icon-user">
                     <span><i class="fas fa-envelope"></i></span>
@@ -38,6 +48,56 @@
                 </div>
             </div>
         </div>
+        <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="form-group">
+                {{Form::label('office_shift',__('Office Shift'),['class'=>'form-control-label'])}}
+                <select name="office_shift" class="form-control select2" id="office_shift" required>
+                    <option value="morning-shift">Morning Shift</option>
+                    <option value="evenng-shift">Evening Shift</option>
+                    <option value="night-shift">Night Shift</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="form-group">
+                {{Form::label('role',__('Role'),['class'=>'form-control-label'])}}
+                <select name="role" class="form-control select2" id="role" required>
+                    @foreach ($roles as $item)
+                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="form-group">
+                {{Form::label('departments',__('Departments'),['class'=>'form-control-label'])}}
+                <select name="departments" class="form-control select2" id="departments" required>
+                    @foreach ($departments as $item)
+                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="form-group">
+                {{Form::label('designation',__('Designation'),['class'=>'form-control-label'])}}
+                <select name="designation" class="form-control select2" id="designation" required>
+                    @foreach ($designations as $item)
+                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                    @endforeach
+                    
+                </select>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="form-group">
+                <div class="form-group" style="border:1px solid #ccc;height: 150px;padding:10px; text-align: center;">
+                    <label style="display: block;">Profile Picture:</label>
+                    <input name="profile_picture" type="file">
+                </div>
+            </div>
+        </div>
+
         @if(!$customFields->isEmpty())
             <div class="col-lg-4 col-md-4 col-sm-6">
                 <div class="tab-pane fade show" id="tab-2" role="tabpanel">

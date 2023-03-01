@@ -95,7 +95,7 @@ class ChatController extends Controller
         $messages = $chat_id ? Messages::where('chat_id', $chat_id)->get() : [];
         $chat_open = Chat::find($chat_id);
         $role = auth()->user()->hasRole('Admin') ? 'admin' : 'user';
-
+       
         return view($role.'.chat', compact('chats', 'messages', 'chat_open'));
     }
 

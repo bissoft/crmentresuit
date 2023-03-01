@@ -7,7 +7,6 @@
     <div class="all-button-box row d-flex justify-content-end">
         @can('create goal')
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6">
-                <a href="{{route('staff.documents', ['staff_id' => auth()->user()->id, 'category' => 'document'])}}" class="btn btn-xs btn-white btn-icon-only width-auto">Documents</a>
                 <a href="#" data-url="{{ route('contracts.create') }}" data-ajax-popup="true" data-title="{{__('Create New Contract')}}" class="btn btn-xs btn-white btn-icon-only width-auto">
                     <i class="fas fa-plus"></i> {{__('Create')}}
                 </a>
@@ -62,6 +61,9 @@
                                 <td>{{$contract->start_date}}</td>
                                 <td>                                    
                                     
+                                    <a href="{{ route('contracts.show',$contract->id) }}" class="edit-icon bg-info" data-toggle="tooltip" data-original-title="Detail">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
 
                                     <a href="#" class="edit-icon" data-size="2xl" data-url="{{ route('contracts.edit',$contract->id) }}" data-ajax-popup="true" data-title="{{__('Edit')}}" data-toggle="tooltip" data-original-title="{{__('Edit')}}">
                                         <i class="fas fa-pencil-alt"></i>

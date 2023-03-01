@@ -29,8 +29,8 @@
                             <tr>
                                 <th> {{__('#')}}</th>
                                 <th> {{__('Name')}}</th>
-                                <th> {{__('Source')}}</th>
-                                <th> {{__('Budget')}}</th>
+                                <th> {{__('Email')}}</th>
+                                <th> {{__('Phone')}}</th>
                                 <th> {{__('Status')}}</th>
                                 <th> {{__('Action')}}</th>
                             </tr>
@@ -41,15 +41,22 @@
                                 <tr class="font-style">
                                     <td>{{ $lead->id }}</td>
                                     <td>{{ $lead->name }}</td>
-                                    <td>{{ $lead->source->name ?? '' }}</td>
-                                    <td>{{ number_format($lead->estimate_budget) }}</td>
+                                    <td>{{ $lead->email ?? '' }}</td>
+                                    <td>{{ $lead->phone }}</td>
                                     <td style="background-color: {{$lead->status->color ?? ''}}" class="text-dark">{{$lead->status->name ?? ''}}</td>
                                     
                                     <td class="Action">
                                         <span>
-                                            <a href="{{ route('leads.show',$lead->id) }}" class="edit-icon bg-success" data-toggle="tooltip" data-original-title="{{__('Attributes')}}">
+                                            <a href="{{ route('leads.show',$lead->id) }}" class="edit-icon bg-success" data-toggle="tooltip" data-original-title="{{__('Show Lead')}}">
                                                 <i class="fas fa-eye"></i>
                                             </a>
+                                            @if ($lead->is_customer != 1)
+                                            <a href="#" class="edit-icon " data-toggle="tooltip" data-original-title="{{__('Change To Customer')}}" data-confirm="{{__('Are You Sure?').'|'.__('This action can not be undone. Do you want to continue?')}}" data-confirm-yes="document.getElementById('change-to-customer-{{$lead->id}}').submit();">
+                                                <i class="fas fa-random"></i>
+                                            </a>
+                                            {!! Form::open(['method' => 'POST', 'route' => ['leadCustomer', $lead->id],'id'=>'change-to-customer-'.$lead->id]) !!}
+                                            {!! Form::close() !!}
+                                            @endif
                                             <a href="#" class="edit-icon" data-url="{{ route('leads.edit',$lead->id) }}" data-ajax-popup="true" data-title="{{__('Edit Lead')}}" data-toggle="tooltip" data-original-title="{{__('Edit')}}">
                                                 <i class="fas fa-pencil-alt"></i>
                                             </a>
@@ -69,4 +76,5 @@
             </div>
         </div>
     </div>
+    
 @endsection

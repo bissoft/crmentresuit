@@ -20,6 +20,56 @@
                 </div>
             </div>
         </div>
+        <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="form-group">
+                {{Form::label('gender',__('Gender'),['class'=>'form-control-label'])}}
+                <select name="gender" class="form-control select2" id="gender" required>
+                    <option value="male" @if ($customer->gender == 'male') selected @endif>Male</option>
+                    <option value="female" @if ($customer->gender == 'female') selected @endif >Fe Male</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="form-group">
+                {{Form::label('office_shift',__('Office Shift'),['class'=>'form-control-label'])}}
+                <select name="office_shift" class="form-control select2" id="office_shift" required>
+                    <option value="morning-shift" @if ($customer->office_shift == 'morning-shift') selected @endif>Morning Shift</option>
+                    <option value="evenng-shift" @if ($customer->office_shift == 'evenng-shift') selected @endif>Evening Shift</option>
+                    <option value="night-shift" @if ($customer->office_shift == 'night-shift') selected @endif>Night Shift</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="form-group">
+                {{Form::label('role',__('Role'),['class'=>'form-control-label'])}}
+                <select name="role" class="form-control select2" id="role" required>
+                    @foreach ($roles as $item)
+                    <option value="{{ $item->id }}" @if ($customer->role == $item->id) selected @endif >{{ $item->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="form-group">
+                {{Form::label('departments',__('Departments'),['class'=>'form-control-label'])}}
+                <select name="departments" class="form-control select2" id="departments" required>
+                    @foreach ($departments as $item)
+                    <option value="{{ $item->id }}" @if ($customer->departments == $item->id) selected @endif >{{ $item->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="form-group">
+                {{Form::label('designation',__('Designation'),['class'=>'form-control-label'])}}
+                <select name="designation" class="form-control select2" id="designation" required>
+                    @foreach ($designations as $item)
+                    <option value="{{ $item->id }}" @if ($customer->designations == $item->id) selected @endif>{{ $item->name }}</option>
+                    @endforeach
+                    
+                </select>
+            </div>
+        </div>
         @if(!$customFields->isEmpty())
             <div class="col-lg-4 col-md-4 col-sm-6">
                 <div class="tab-pane fade show" id="tab-2" role="tabpanel">

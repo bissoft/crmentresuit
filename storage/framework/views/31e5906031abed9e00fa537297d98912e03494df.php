@@ -27,7 +27,7 @@
     <?php if(auth()->guard()->guest()): ?>
     <title><?php echo e((Utility::getValByName('title_text')) ? Utility::getValByName('title_text') : config('app.name', 'MYAccount')); ?> - <?php echo $__env->yieldContent('page-title'); ?></title>
     <?php endif; ?>
-    <link rel="icon" href="<?php echo e($logo.'/'.(isset($company_favicon) && !empty($company_favicon)?$company_favicon:'favicon.png')); ?>" type="image" sizes="16x16">
+    <link rel="shortcut icon" href="<?php echo e(url('public/favicon.png')); ?>">
 
     <link rel="stylesheet" href="<?php echo e(url('assets/libs/@fortawesome/fontawesome-free/css/all.min.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(url('assets/libs/animate.css/animate.min.css')); ?>">

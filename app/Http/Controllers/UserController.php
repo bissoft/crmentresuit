@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\CustomField;
 use App\Mail\UserCreate;
+use App\Task;
 use App\User;
 use App\UserCompany;
 use Auth;
@@ -49,9 +50,10 @@ class UserController extends Controller
 
         $user  = \Auth::user();
         $roles = Role::where('created_by', '=', $user->creatorId())->get()->pluck('name', 'id');
+        $tasks = Task::where('user_id', '=', $user->creatorId())->get()->pluck('name', 'id');
         if(\Auth::user()->can('create user'))
         {
-            return view('user.create', compact('roles', 'customFields'));
+            return view('user.create', compact('roles', 'customFields', 'tasks'));
         }
         else
         {
@@ -71,6 +73,7 @@ class UserController extends Controller
                                    'email' => 'required|email|unique:users',
                                    'password' => 'required|min:6',
                                    'role' => 'required',
+                                   'task' => 'required',
                                ]
             );
             if($validator->fails())
@@ -91,6 +94,15 @@ class UserController extends Controller
             CustomField::saveData($user, $request->customField);
 
             $user->assignRole($role_r);
+
+            $tasksIds = $request->has('task') ? implode(",",$request->task) : "";
+
+            DB::table('users_task')->updateOrInsert(
+                ['customer_id' => $user->id],
+                [
+                    'task_ids' => $tasksIds
+                ]
+                );
 
             $user->password = $psw;
             $user->type     = $role_r->name;
@@ -120,13 +132,17 @@ class UserController extends Controller
 
         $user  = \Auth::user();
         $roles = Role::where('created_by', '=', $user->creatorId())->get()->pluck('name', 'id');
+        $tasks = Task::where('user_id', '=', $user->creatorId())->get()->pluck('name', 'id');
         if(\Auth::user()->can('edit user'))
         {
             $user              = User::findOrFail($id);
             $user->customField = CustomField::getData($user, 'user');
             $customFields      = CustomField::where('created_by', '=', \Auth::user()->creatorId())->where('module', '=', 'user')->get();
 
-            return view('user.edit', compact('user', 'roles', 'customFields'));
+            $selected_ids = DB::table('users_task')->where('customer_id',$user->id)->first();
+            $selected_ids = (isset($selected_ids->id)) ? explode(",",$selected_ids->task_ids): array();
+
+            return view('user.edit', compact('user', 'roles', 'customFields','tasks','selected_ids'));
         }
         else
         {
@@ -161,6 +177,7 @@ class UserController extends Controller
                 $input = $request->all();
                 $user->fill($input)->save();
                 CustomField::saveData($user, $request->customField);
+                
 
                 return redirect()->route('users.index')->with(
                     'success', 'User successfully updated.'
@@ -174,11 +191,13 @@ class UserController extends Controller
                                 'name' => 'required|max:120',
                                 'email' => 'required|email|unique:users,email,' . $id,
                                 'role' => 'required',
+                                'task' => 'required',
                             ]
                 );
 
                 $role          = Role::findById($request->role);
                 $input         = $request->all();
+                unset($input['task']);
                 $input['type'] = $role->name;
                 $user->fill($input)->save();
 
@@ -186,6 +205,15 @@ class UserController extends Controller
 
                 $roles[] = $request->role;
                 $user->roles()->sync($roles);
+
+                $tasksIds = $request->has('task') ? implode(",",$request->task) : "";
+                DB::table('users_task')->updateOrInsert(
+                    ['customer_id' => $user->id],
+                    [
+                        'task_ids' => $tasksIds
+                    ]
+                );
+
 
                 return redirect()->route('users.index')->with(
                     'success', 'User successfully updated.'

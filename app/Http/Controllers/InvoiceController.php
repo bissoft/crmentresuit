@@ -136,7 +136,6 @@ class InvoiceController extends Controller
                 return redirect()->back()->with('error', $messages->first());
             }
             $status = Invoice::$statues;
-
             $invoice                 = new Invoice();
             $invoice->invoice_id     = $this->invoiceNumber();
             $invoice->customer_id    = $request->customer_id;
@@ -155,7 +154,8 @@ class InvoiceController extends Controller
             {
                 $invoiceProduct              = new InvoiceProduct();
                 $invoiceProduct->invoice_id  = $invoice->id;
-                $invoiceProduct->product_id  = $products[$i]['item'];
+                //$invoiceProduct->product_id  = $products[$i]['item'];
+                $invoiceProduct->product_name  = $products[$i]['product_name'];
                 $invoiceProduct->quantity    = $products[$i]['quantity'];
                 $invoiceProduct->tax         = $products[$i]['tax'];
                 $invoiceProduct->discount    = isset($products[$i]['discount']) ? $products[$i]['discount'] : 0;
@@ -240,6 +240,7 @@ class InvoiceController extends Controller
                     }
 
                     $invoiceProduct->quantity    = $products[$i]['quantity'];
+                    $invoiceProduct->product_name  = $products[$i]['product_name'];
                     $invoiceProduct->tax         = $products[$i]['tax'];
                     $invoiceProduct->discount    = isset($products[$i]['discount']) ? $products[$i]['discount'] : 0;
                     $invoiceProduct->price       = $products[$i]['price'];
@@ -708,6 +709,7 @@ class InvoiceController extends Controller
                     $duplicateProduct             = new InvoiceProduct();
                     $duplicateProduct->invoice_id = $duplicateInvoice->id;
                     $duplicateProduct->product_id = $product->product_id;
+                    $duplicateProduct->product_name = $product->product_name;
                     $duplicateProduct->quantity   = $product->quantity;
                     $duplicateProduct->tax        = $product->tax;
                     $duplicateProduct->discount   = $product->discount;

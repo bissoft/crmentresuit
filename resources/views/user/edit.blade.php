@@ -33,6 +33,15 @@
                 </small>
                 @enderror
             </div>
+            <div class="form-group col-md-6">
+                {{ Form::label('task', __('User Tasks'),['class'=>'form-control-label']) }}
+                {!! Form::select('task[]', $tasks, $selected_ids,array('class' => 'form-control select2','required'=>'required', 'multiple'=>'multiple')) !!}
+                @error('task')
+                <small class="invalid-role" role="alert">
+                    <strong class="text-danger">{{ $message }}</strong>
+                </small>
+                @enderror
+            </div>
         @endif
         @if(!$customFields->isEmpty())
             <div class="col-md-6">

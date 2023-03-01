@@ -49,7 +49,7 @@
                             <input type="hidden" name="user_id" value="{{ $user->id }}">
                             @if($user->hasRole('admin'))
                             @endif
-                            <div class="form-group mb-4">
+                            <div class="form-group col-4 mb-4">
                                 <label class="form-label">Category</label>
                                 <select class="form-select" name="category" required>
                                     <!-- <option>Certificate</option> -->
@@ -57,11 +57,11 @@
                                 </select>
                             </div>
 
-                            <div class="form-group mb-4">
+                            <div class="form-group col-4 mb-4">
                                 <label class="form-label">Expiry Date</label>
                                 <input type="date" name="expiry" class="form-control">
                             </div>
-                            <div class="drop-zone">
+                            <div class="drop-zone col-12">
                                 <span class="drop-zone__prompt">Drop file here or click to upload</span>
                                 <input type="file" name="file" class="drop-zone__input">
                             </div>

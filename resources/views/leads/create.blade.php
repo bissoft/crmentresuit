@@ -1,18 +1,47 @@
 <div class="card bg-none card-box">
     {{ Form::open(array('url' => 'leads')) }}
     <div class="row">
-        <div class="form-group col-md-6">
-            {{ Form::label('name', __('Lead Name'),['class'=>'form-control-label']) }}
-            {{ Form::text('name', '', array('class' => 'form-control','required'=>'required')) }}
-            @error('name')
-            <small class="invalid-name" role="alert">
-                <strong class="text-danger">{{ $message }}</strong>
-            </small>
-            @enderror
+        <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="form-group">
+                {{Form::label('name',__('Name'),array('class'=>'form-control-label')) }}
+                <div class="form-icon-user">
+                    <span><i class="fas fa-address-card"></i></span>
+                    {{Form::text('name',null,array('class'=>'form-control','required'=>'required'))}}
+                </div>
+            </div>
         </div>
-        <div class="form-group col-md-6">
+        <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="form-group">
+                {{Form::label('contact',__('Contact'),['class'=>'form-control-label'])}}
+                <div class="form-icon-user">
+                    <span><i class="fas fa-mobile-alt"></i></span>
+                    {{Form::text('contact',null,array('class'=>'form-control','required'=>'required'))}}
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="form-group">
+                {{Form::label('gender',__('Gender'),['class'=>'form-control-label'])}}
+                <select name="gender" class="form-control select2" id="gender" required>
+                    <option value="male">Male</option>
+                    <option value="female">Fe Male</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="form-group">
+                {{Form::label('email',__('Email'),['class'=>'form-control-label'])}}
+                <div class="form-icon-user">
+                    <span><i class="fas fa-envelope"></i></span>
+                    {{Form::text('email',null,array('class'=>'form-control'))}}
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-4 col-sm-6">
             {{ Form::label('lead_soucre', __('Lead Source'),['class'=>'form-control-label']) }}
-            {{ Form::select('source_id', $sources, null, ['placeholder' => 'Pick a Lead Source...', 'class' => 'form-control']) }}
+            {{ Form::select('source_id', $sources, null, ['required'=>'required','placeholder' => 'Pick a Lead Source...', 'class' => 'form-control select2']) }}
             @error('source_id')
             <small class="invalid-name" role="alert">
                 <strong class="text-danger">{{ $message }}</strong>
@@ -20,7 +49,17 @@
             @enderror
         </div>
 
-        <div class="form-group col-md-6">
+        <div class="col-lg-4 col-md-4 col-sm-6">
+            {{ Form::label('Status', __('Status'),['class'=>'form-control-label']) }}
+            {{ Form::select('status_id', $statuses, null, ['required'=>'required','placeholder' => 'Pick a Lead Status...', 'class' => 'form-control select2']) }}
+            @error('status')
+            <small class="invalid-name" role="alert">
+                <strong class="text-danger">{{ $message }}</strong>
+            </small>
+            @enderror
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-6">
             {{ Form::label('Company Name', __('Company Name'),['class'=>'form-control-label']) }}
             {{ Form::text('company_name', '', array('class' => 'form-control','required'=>'required')) }}
             @error('company_name')
@@ -30,7 +69,7 @@
             @enderror
         </div>
 
-        <div class="form-group col-md-6">
+        <div class="col-lg-4 col-md-4 col-sm-6">
             {{ Form::label('Position', __('Position'),['class'=>'form-control-label']) }}
             {{ Form::text('position', '', array('class' => 'form-control','required'=>'required')) }}
             @error('position')
@@ -40,38 +79,10 @@
             @enderror
         </div>
 
-        <div class="form-group col-md-6">
-            {{ Form::label('Status', __('Status'),['class'=>'form-control-label']) }}
-            {{ Form::select('status_id', $statuses, null, ['placeholder' => 'Pick a Lead Status...', 'class' => 'form-control']) }}
-            @error('status')
-            <small class="invalid-name" role="alert">
-                <strong class="text-danger">{{ $message }}</strong>
-            </small>
-            @enderror
-        </div>
+        
 
-        <div class="form-group col-md-6">
-            {{ Form::label('Estimate Budget', __('Estimate Budget'),['class'=>'form-control-label']) }}
-            {{ Form::text('estimate_budget', '', array('class' => 'form-control','required'=>'required')) }}
-            @error('estimate_budget')
-            <small class="invalid-name" role="alert">
-                <strong class="text-danger">{{ $message }}</strong>
-            </small>
-            @enderror
-        </div>
-
-        <div class="form-group col-md-6">
-            {{ Form::label('member', __('Member'),['class'=>'form-control-label']) }}
-            {{ Form::select('member_id', $members, null, ['placeholder' => 'Pick a Lead Member...', 'class' => 'form-control']) }}
-            @error('member')
-            <small class="invalid-name" role="alert">
-                <strong class="text-danger">{{ $message }}</strong>
-            </small>
-            @enderror
-        </div>
-
-        <div class="form-group col-md-6">
-            {{ Form::label('phone', __('Phone'),['class'=>'form-control-label']) }}
+        <div class="col-lg-4 col-md-4 col-sm-6">
+            {{ Form::label('phone', __('Mobile Phone'),['class'=>'form-control-label']) }}
             {{ Form::text('phone', '', array('class' => 'form-control','required'=>'required')) }}
             @error('phone')
             <small class="invalid-name" role="alert">
@@ -79,10 +90,19 @@
             </small>
             @enderror
         </div>
+        <div class="col-lg-4 col-md-4 col-sm-6">
+            {{ Form::label('land_line', __('Land line'),['class'=>'form-control-label']) }}
+            {{ Form::text('land_line', '', array('class' => 'form-control','required'=>'required')) }}
+            @error('land_line')
+            <small class="invalid-name" role="alert">
+                <strong class="text-danger">{{ $message }}</strong>
+            </small>
+            @enderror
+        </div>
 
-        <div class="form-group col-md-6">
+        <div class="col-lg-4 col-md-4 col-sm-6">
             {{ Form::label('website', __('Website'),['class'=>'form-control-label']) }}
-            {{ Form::text('website', '', array('class' => 'form-control','required'=>'required')) }}
+            {{ Form::text('website', '', array('class' => 'form-control')) }}
             @error('website')
             <small class="invalid-name" role="alert">
                 <strong class="text-danger">{{ $message }}</strong>
@@ -90,7 +110,7 @@
             @enderror
         </div>
 
-        <div class="form-group col-md-6">
+        <div class="col-lg-4 col-md-4 col-sm-6">
             {{ Form::label('country', __('country'),['class'=>'form-control-label']) }}
             {{ Form::text('country', '', array('class' => 'form-control','required'=>'required')) }}
             @error('country')
@@ -102,7 +122,7 @@
 
 
         <div class="form-group col-md-12">
-            {{ Form::label('description', __('Description'),['class'=>'form-control-label']) }}
+            {{ Form::label('Memo', __('Memo'),['class'=>'form-control-label']) }}
             {{ Form::textarea('description', '', array('class' => 'form-control','required'=>'required')) }}
             @error('description')
             <small class="invalid-rate" role="alert">
@@ -111,7 +131,7 @@
             @enderror
         </div>
         <div class="col-md-12 ">
-            <input type="submit" value="{{__('Create')}}" class="btn-create badge-blue">
+            <input type="submit" value="{{__('Save')}}" class="btn-create badge-blue">
             <input type="button" value="{{__('Cancel')}}" class="btn-create bg-gray" data-dismiss="modal">
         </div>
     </div>

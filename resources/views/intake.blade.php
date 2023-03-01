@@ -36,7 +36,15 @@
             <div class="row">
                 <div class="col-lg-8 col-md-6 col-12 mx-auto">
 
-
+                    @if(count($errors) > 0 )
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <ul class="p-0 m-0" style="list-style: none;">
+                                @foreach($errors->all() as $error)
+                                <li>{{$error}}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <div class="card    form_forder">
                         <div class="card-body p-5">
                             <div class="card-title text-center">
@@ -50,7 +58,7 @@
                                     <label for=" " class="form-label"> Upload logo</label>
                                     <div class="input-group">
                                         <input type="file" class="form-control" id="inputGroupFile04"
-                                            aria-describedby="inputGroupFileAddon04" aria-label="Upload" name="logo">
+                                            aria-describedby="inputGroupFileAddon04" aria-label="Upload" name="logo" required>
 
                                     </div>
                                 </div>
@@ -58,52 +66,52 @@
                                 <div class="col-md-6">
                                     <label for=" " class="form-label">Enter Client Name</label>
                                     <div class="input-group input-group-lg">
-                                        <input type="text" class="form-control " id=" " placeholder=" Client Name" name="name" />
+                                        <input type="text" value="{{old('name')}}" class="form-control " id=" " placeholder=" Client Name" name="name" required />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <label for=" " class="form-label">Enter Address</label>
                                     <div class="input-group input-group-lg">
-                                        <input type="text" class="form-control " id=" " placeholder="  Address" name="address"/>
+                                        <input type="text" class="form-control" value="{{ old('address') }}" id=" " placeholder="  Address" required name="address"/>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <label for=" " class="form-label">Enter Phone </label>
                                     <div class="input-group input-group-lg">
-                                        <input type="tel" class="form-control " id=" " placeholder="   Phone" name="phone"/>
+                                        <input type="tel" class="form-control " id=" " placeholder="Phone" value="{{old('phone')}}" required name="phone"/>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <label for=" " class="form-label">Enter Email </label>
                                     <div class="input-group input-group-lg">
-                                        <input type="tel" class="form-control " id=" " placeholder="   Email" name="email" />
+                                        <input type="tel" class="form-control " id=" " placeholder="Email" value="{{ old('email') }}" name="email" required />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <label for=" " class="form-label">Enter Date of Birth</label>
                                     <div class="input-group input-group-lg">
-                                        <input type="date" class="form-control " id=" " name="date_of_birth" placeholder="  Date of Birth" />
+                                        <input type="date" class="form-control" id="" value="{{ old('date_of_birth')}}" name="date_of_birth" placeholder="Date of Birth" required />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <label for=" " class="form-label">Enter Emergency Contact</label>
                                     <div class="input-group input-group-lg">
                                         <input type="text" class="form-control " id=" "
-                                            placeholder="  Emergency Contact" name="emergency"/>
+                                            placeholder="  Emergency Contact" value="{{ old('emergency') }}" name="emergency" />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <label for=" " class="form-label">Mailing Address (if different)</label>
                                     <div class="input-group input-group-lg">
                                         <input type="text" class="form-control " id=" "
-                                            placeholder="  Emergency Contact" name="contact"/>
+                                            placeholder="  Emergency Contact" value="{{ old('contact') }}" name="contact"/>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <label for=" " class="form-label"> How may we help you today ?</label>
                                     <div class="input-group input-group-lg">
                                         <textarea class="form-control" name="help" id="exampleFormControlTextarea1"
-                                            rows="3"></textarea>
+                                            rows="3">{{old('help')}}</textarea>
                                     </div>
                                 </div>
                         </div>

@@ -713,9 +713,9 @@
 
     $('#resizeSignatureBox').draggable({
         drag: function (event, ui) {
-            // console.log(ui)
-            // console.log("top = " + ui.position.top);
-            // console.log("left = " + ui.position.left);
+            console.log(ui)
+            console.log("top = " + ui.position.top);
+            console.log("left = " + ui.position.left);
             $("#signatureTop").val(ui.position.top);
             $("#signatureLeft").val(ui.position.left);
         }
@@ -734,6 +734,7 @@
     });
 
     function hideSignature() {
+        console.log('here');
         $('#resizeSignatureBox').hide();
     }
 

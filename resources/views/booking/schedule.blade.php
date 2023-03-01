@@ -12,7 +12,7 @@
     <div class="all-button-box row d-flex justify-content-end">
         @can('create project')
             <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-6">
-                <a href="#" data-url="{{ route('booking.create') }}" data-size="xl" data-ajax-popup="true" data-title="{{__('Create New Project')}}" class="btn btn-xs btn-white btn-icon-only width-auto">
+                <a href="#" data-url="{{ route('booking.create') }}" data-size="xl" data-ajax-popup="true" data-title="{{__('Create New Schedule')}}" class="btn btn-xs btn-white btn-icon-only width-auto">
                     <i class="fa fa-plus"></i> {{__('Create')}}
                 </a>
             </div>
@@ -36,7 +36,6 @@
 @endsection
 
 @section('scripts')
-=
 <script src='/public/dash-assets/plugins/calender_js/demo/main.js'></script>
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", function () {
@@ -55,7 +54,7 @@
                 center: 'title',
                 right: 'dayGridMonth,timeGridWeek,timeGridDay'
             },
-            themeSystem: 'darkly',
+            themeSystem: 'boostrap5',
             //Random default events
             events: [
                 @foreach($bookings as $booking) {
@@ -71,7 +70,7 @@
             ],
 
             eventClick: function (info) {
-                //window.location.href = '/staff/shifts/' + info.event.id;
+                window.location.href = '/booking/' + info.event.id;
                 // change the border color just for fun
                 info.el.style.borderColor = 'red';
             }

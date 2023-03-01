@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Customer;
 use App\Project;
 use App\User;
+use App\Vender;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -26,8 +28,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        $customers = User::all();
-        $users = User::all();
+        $customers = Customer::all();
+        $users = Vender::all();
         return view("projects.create",compact('customers','users'));
     }
 
@@ -81,8 +83,8 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        $customers = User::all();
-        $users = User::all();
+        $customers = Customer::all();
+        $users = Vender::all();
         return view("projects.edit",compact('project','customers','users'));
     }
 

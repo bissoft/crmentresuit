@@ -18,7 +18,13 @@ class Lead extends Model
         'phone',
         'website',
         'country',
-        'description'
+        'description',
+        'gender',
+        'email',
+        'land_line',
+        'contact',
+        'email',
+        'is_customer'
     ];
 
     public function source()
@@ -33,6 +39,6 @@ class Lead extends Model
 
     public function member()
     {
-        return $this->belongsTo(User::class,'member_id');
+        return $this->belongsTo(Customer::class,'member_id');
     }
 }

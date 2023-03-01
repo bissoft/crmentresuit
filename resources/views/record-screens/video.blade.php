@@ -9,7 +9,7 @@
     </style>
 @endsection
 @section('content')
-    <div class="col-10 col-md-11 py-4 px-md-5">
+    <div class="col-12 col-md-11 py-4 px-md-5 video-record-sec">
         <div class="d-flex flex-wrap justify-content-between">
             <h5 class="dashbord-title position-relative">Screen Recorder</h5>
         </div>

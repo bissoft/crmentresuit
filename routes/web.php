@@ -21,12 +21,17 @@ use Illuminate\Support\Facades\Route;
 //signature
 Route::get('signature/{id}/{email}', 'DocumentController@customerSign')->name('customer.signature');
 //
+
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/aboutus', 'HomeController@aboutus')->name('aboutus');
 Route::get('/intake', 'HomeController@intake')->name('intake');
 
 Route::match(['get','post'], '/app-customization', 'HomeController@appCustomization')->name('app-customization');
 
 Route::post('/intake/store', 'HomeController@store')->name('intake.store');
+Route::get('/intake/show/{id}', 'HomeController@showIntake')->name('intake.show');
+Route::delete('/intakes/{id}', 'HomeController@deleteIntake')->name('intake.destroy');
+Route::match(['get','post'],'/intakes/{id}', 'HomeController@editIntake')->name('intake.edit');
 Route::get('/intakes', 'HomeController@index')->name('intake.index')->middleware(
     [
         'auth',
@@ -270,8 +275,14 @@ Route::prefix('vender')->as('vender.')->group(
     }
 );
 
+Route::resource('tasks', 'TaskController')->middleware(
+    [
+        'auth',
+        'XSS',
+    ]
+);
 
-  Route::get('/', 'DashboardController@index')->name('dashboard')->middleware(['XSS',]);
+Route::get('/', 'DashboardController@index')->name('dashboard')->middleware(['XSS',]);
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard')->middleware(
     [
@@ -394,6 +405,18 @@ Route::get('/send-msg', 'ChatController@sendMsg')->name('sendMsg')->middleware(
 // Route::resource('booking', BookingController::class);
 
 Route::resource('booking', 'BookingController')->middleware(
+    [
+        'auth',
+        'XSS',
+    ]
+);
+Route::resource('designations', 'DesignationController')->middleware(
+    [
+        'auth',
+        'XSS',
+    ]
+);
+Route::resource('docments', 'DocmentsController')->middleware(
     [
         'auth',
         'XSS',
@@ -923,7 +946,18 @@ Route::resource('leads', 'LeadController')->middleware(
         'XSS',
     ]
 );
-
+Route::post('/leads/customer/{id}', 'LeadController@leadCustomer')->name('leadCustomer')->middleware(
+    [
+        'auth',
+        'XSS',
+    ]
+);
+Route::match(['get','post'],'/leads/campaign/{id}', 'LeadController@leadCampaign')->name('leadCampaign')->middleware(
+    [
+        'auth',
+        'XSS',
+    ]
+);
 Route::resource('lead-sources', 'LeadSourceController')->middleware(
     [
         'auth',

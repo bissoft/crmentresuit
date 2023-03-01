@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\SendEmailMarketing;
 use App\Models\Document;
 use App\Models\DocumentUser;
 use App\Models\DocumentUserElement;
@@ -25,7 +26,7 @@ class DocumentController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except('checkDocumentAttachFile', 'documentUserResponseStore', 'downloadFile','customerSign');
+        $this->middleware('auth')->except('checkDocumentAttachFile', 'documentUserResponseStore', 'downloadFile','customerSign','getDocumentElements','addDocumentUserElement','documentSignature');
     }
 
     public function index()
@@ -156,6 +157,7 @@ class DocumentController extends Controller
                     $image->move($destinationPath, $fileName);
                     $type = "Pdf";
                     $path = $destinationPath . '/' . $fileName;
+                    $link = url('public/assets/files/documents/'.$fileName);
                     $totoalPages = $this->countPages($path);
                     $document = Document::create([
                         'name' => $name,
@@ -180,6 +182,16 @@ class DocumentController extends Controller
                         'cc' => $request->cc,
                         'created_by' => $request->user_id,
                     ]);
+
+                    $html = "You have recieved document click on link to open <a href='$link'>Click To Open</a>";
+ 
+                    $details = [
+                        'email' => $user->email,
+                        'subject' => "Document Recieved",
+                        "content" => $html
+                    ];
+                    $email = new SendEmailMarketing($details);
+                    Mail::to($details['email'])->send($email); 
 
                     $message = "Document Successfully Added";
                 // }
@@ -279,7 +291,6 @@ class DocumentController extends Controller
     public function modifyDocument($id)
     {
         $document = Document::where('id', $id)->first();
-//        dd($document);
         $users = DocumentUser::where('document_id', $id)->get();
         return view('documents.modify', compact('id', 'document', 'users'));
     }

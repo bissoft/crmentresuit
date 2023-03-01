@@ -37,6 +37,11 @@ class Customer extends Authenticatable
         'shipping_phone',
         'shipping_zip',
         'shipping_address',
+        'office_shift',
+        'role',
+        'departments',
+        'designation',
+        'gender'
     ];
 
     protected $hidden = [

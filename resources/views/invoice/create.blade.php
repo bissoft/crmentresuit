@@ -392,7 +392,10 @@
                             <tbody class="ui-sortable" data-repeater-item>
                             <tr>
                                 <td width="25%">
-                                    {{ Form::select('item', $product_services,'', array('class' => 'form-control select2 item','data-url'=>route('proposal.product'),'required'=>'required')) }}
+                                    <div class="form-group">
+                                    {{ Form::text('product_name','', array('class' => 'form-control product_name','required'=>'required','placeholder'=>__('Product Name'),'required'=>'required')) }}
+                                    {{-- {{ Form::select('item', $product_services,'', array('class' => 'form-control select2 item','data-url'=>route('proposal.product'),'required'=>'required')) }} --}}
+                                    </div>
                                 </td>
                                 <td>
                                     <div class="form-group price-input">

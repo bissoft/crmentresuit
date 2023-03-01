@@ -97,9 +97,9 @@
                     <div class="all-button-box mx-2">
                         <a href="{{ route('proposal.resent',$proposal->id) }}" class="btn btn-xs btn-white btn-icon-only width-auto">{{__('Resend Proposal')}}</a>
                     </div>
-                    <div class="all-button-box">
+                    {{-- <div class="all-button-box">
                         <a href="{{ route('proposal.pdf', Crypt::encrypt($proposal->id))}}" class="btn btn-xs btn-white btn-icon-only width-auto" target="_blank">{{__('Download')}}</a>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         @endif
@@ -226,7 +226,8 @@
                                                 @endphp
                                                 <tr>
                                                     <td>{{$key+1}}</td>
-                                                    <td>{{!empty($iteam->product)?$iteam->product->name:''}}</td>
+                                                    {{-- <td>{{!empty($iteam->product)?$iteam->product->name:''}}</td> --}}
+                                                    <td>{{ $iteam->product_name }}</td>
                                                     <td>{{$iteam->quantity}}</td>
                                                     <td>{{\Auth::user()->priceFormat($iteam->price)}}</td>
                                                     <td>

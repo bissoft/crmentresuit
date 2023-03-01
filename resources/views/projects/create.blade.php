@@ -76,16 +76,7 @@
                     </select>
                     <div class="invalid-feedback d-block"></div>
                 </div>
-                {{-- <div class="form-group mb-3">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="calculate_progress_through_tasks"
-                            name="calculate_progress_through_tasks" value="1">
-                        <label class="form-check-label" for="calculate_progress_through_tasks">Calculate progress
-                            through
-                            tasks</label>
-                        <div class="invalid-feedback d-block"></div>
-                    </div>
-                </div> --}}
+                
                 <div class="form-group mb-3 ">
                     <label for="progress" style="margin-bottom: 15px!important;">
                         Progress <span id="progress_rate">0</span>%

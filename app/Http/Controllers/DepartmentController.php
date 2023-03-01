@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Customer;
 use App\Department;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,8 @@ class DepartmentController extends Controller
     public function index()
     {
         $departments = Department::all();
-        return view('departments.index',compact('departments'));
+        $heads = Customer::get()->pluck('name', 'id');
+        return view('departments.index',compact('departments','heads'));
     }
 
     /**
@@ -25,7 +27,8 @@ class DepartmentController extends Controller
      */
     public function create()
     {
-        return view('departments.create');
+        $heads = Customer::get();
+        return view('departments.create', compact('heads'));
     }
 
     /**
@@ -38,9 +41,10 @@ class DepartmentController extends Controller
     {
         $data = $request->validate([
             'name' => 'required',
+            'head_id' => 'required',
             'email' => 'required|unique:departments,email'
         ]);
-
+ 
         Department::create($data);
 
         return redirect()->route('departments.index')
@@ -66,7 +70,8 @@ class DepartmentController extends Controller
      */
     public function edit(Department $department)
     {
-        return view('departments.edit',compact('department'));
+        $heads = Customer::get();
+        return view('departments.edit',compact('department','heads'));
     }
 
     /**
@@ -80,6 +85,7 @@ class DepartmentController extends Controller
     {
         $data = $request->validate([
             'name' => 'required',
+            'head_id' => 'required',
             'email' => 'required'
         ]);
 

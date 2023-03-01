@@ -16,10 +16,74 @@ class HomeController extends Controller
         return view('intake.index',compact('intake'));
     }
 
+    public function deleteIntake(Request $request, $id)
+    {
+        $intake = Intake::find($id);
+        $intake->delete();
+        return redirect()->route('intake.index')
+            ->with(['type'=>'danger', 'msg'=>'Intake deleted successfully']);
+    }
+
     public function intake(){
         
         return view('intake');
     }
+
+    public function editIntake(Request $request , $id){
+        if ($request->isMethod('post')) {
+
+            $validation = $request->validate(
+                [
+                    'logo' => 'nullable',
+                    'name' => 'required|max:255',
+                    'address' => 'required',
+                    'phone' => 'required',
+                    'email' => 'required',
+                    'date_of_birth' => 'required',
+                    
+                ]
+            );
+
+            $product = Intake::find($request->input('intake_id'));
+            $product->name = $request->name;
+            $product->address = $request->address;
+            $product->phone = $request->phone;
+            $product->email = $request->email;
+            $product->date_of_birth = $request->date_of_birth;
+    
+            $product->emergency = $request->emergency??'';
+            $product->contact = $request->contact??'';
+            $product->help = $request->help??'';
+            
+            if($request->hasfile('logo')){
+                
+                $file = $request->file('logo');
+                $upload = 'public/img/';
+                $filename = time().$file->getClientOriginalName();
+                $path    = move_uploaded_file($file->getPathName(), $upload.$filename);
+                $product->logo=$upload.$filename;
+            }
+    
+            $product->update();
+            return redirect()->route('intake.index')
+            ->with(['type'=>'success', 'msg'=>'Intake updated successfully']);
+
+        }
+        $intake = Intake::find($id);
+        return view('intake.edit',compact('intake'));
+    }
+
+    public function showIntake($id)
+    {
+        $intake = Intake::find($id);
+        return view('intake.show',compact('intake'));
+    }
+	
+    public function aboutus(){
+        
+        return view('aboutus');
+    }
+
 
     public function appCustomization(Request $request)
     {
@@ -88,8 +152,12 @@ class HomeController extends Controller
             $path    = move_uploaded_file($file->getPathName(), $upload.$filename);
             $product->logo=$upload.$filename;
         }
-
         $product->save();
+        
+        if ($request->user()->id == 1) {
+            return redirect()->route('intake.index')
+            ->with(['type'=>'success', 'msg'=>'Intake form created successfully']);
+        } 
         return redirect('/')->with('success','Data Submitted!');
 
     }

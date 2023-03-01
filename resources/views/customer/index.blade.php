@@ -43,7 +43,9 @@
                             <tr>
                                 <th>#</th>
                                 <th> {{__('Name')}}</th>
+                                <th> {{__('Designation')}}</th>
                                 <th> {{__('Contact')}}</th>
+                                <th> {{__('Country')}}</th>
                                 <th> {{__('Email')}}</th>
                                 <th> {{__('Balance')}}</th>
                                 <th>{{__('Action')}}</th>
@@ -65,7 +67,9 @@
                                         @endcan
                                     </td>
                                     <td class="font-style">{{$customer['name']}}</td>
+                                    <td>Designation</td>
                                     <td>{{$customer['contact']}}</td>
+                                    <td>Country</td>
                                     <td>{{$customer['email']}}</td>
                                     <td>{{\Auth::user()->priceFormat($customer['balance'])}}</td>
                                     <td class="Action">

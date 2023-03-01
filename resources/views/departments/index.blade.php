@@ -42,6 +42,7 @@
                             <thead>
                             <tr role="row">
                                 <th>{{__('Name')}}</th>
+                                <th>{{__('Department Head')}}</th>
                                 <th>{{__('Email')}}</th>
                             </tr>
                             </thead>
@@ -50,6 +51,7 @@
                                 @foreach ($departments as $department)
                                     <tr>
                                         <td>{{ $department->name }}</td>
+                                        <td>{{ $department->head->name ?? "" }}</td>
                                         <td>{{ $department->email }}</td>
                                         <td>
                                            

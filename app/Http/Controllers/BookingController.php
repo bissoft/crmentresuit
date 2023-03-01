@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Booking;
+use App\Mail\SendEmailMarketing;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class BookingController extends Controller
 {
@@ -47,18 +49,40 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
+        $data = $this->validate($request, [
             'title' => 'required|string|max:255',
             'from_date' => 'required|date',
             'to_date' => 'required|date|after_or_equal:from_date',
             'from' => 'date_format:H:i',
             'to' => 'date_format:H:i|after:from',
+            'meeting_link' => 'nullable',
+            'invite_email' => 'nullable',
+            'email_addresses' => 'nullable'
         ]);
+
+
+        $data['user_id'] = auth()->id();
     
-        Booking::create($request->all() + ['user_id' => auth()->id()]);
-    
+        Booking::create($data);
+
+        if (!empty($request->input('meeting_link')) && !empty($request->input('email_addresses'))) {
+
+            $multipleEmails = explode (",", $request->input('email_addresses')); 
+            $details = [
+                'type' => 'booking',
+                'subject' => $request->input('title'),
+                "content" => nl2br($request->input('invite_email'))
+            ];
+           
+            foreach ($multipleEmails as $item) {
+                $email = new SendEmailMarketing($details);
+                Mail::to($item)->send($email); 
+
+            }           
+        }
+        
         return redirect()->route('booking.index')
-            ->with(["type"=>"success","msg"=>"Booking added successfully"]);
+            ->with(["type"=>"success","msg"=>"Schedule Added successfully"]);
     }
 
     /**
@@ -69,7 +93,7 @@ class BookingController extends Controller
      */
     public function show(Booking $booking)
     {
-        //
+        return view('booking.show', compact('booking'));
     }
 
     /**
@@ -98,13 +122,17 @@ class BookingController extends Controller
             'from_date' => 'required',
             'to_date' => 'required',
             'from' => 'required',
-            'to' => 'required'
+            'to' => 'required',
+            'meeting_link' => 'nullable',
+            'invite_email' => 'nullable',
+            'email_addresses' => 'nullable'
         ]);
+        $data['user_id'] = auth()->id();
 
-        $booking->update($request->all());
+        $booking->update($data);
     
         return redirect()->route('booking.index')
-            ->with(["type"=>"success","msg"=>"Booking updated successfully"]);
+            ->with(["type"=>"success","msg"=>"Schedule updated successfully"]);
     }
 
     /**
@@ -117,6 +145,6 @@ class BookingController extends Controller
     {
         $booking->delete();
         return redirect()->route('booking.index')
-            ->with(["type"=>"danger","msg"=>"Booking deleted successfully"]);
+            ->with(["type"=>"danger","msg"=>"Schedule deleted successfully"]);
     }
 }

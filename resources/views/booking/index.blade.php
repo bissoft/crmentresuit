@@ -5,13 +5,11 @@
 
 @section('action-button')
     <div class="row d-flex justify-content-end">
-        @can('create project')
             <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-6 pt-lg-3 pt-xl-2">
-                <a href="#" data-url="{{ route('booking.create') }}" data-size="xl" data-ajax-popup="true" data-title="{{__('Create New Schedule')}}" class="btn btn-xs btn-white btn-icon-only width-auto">
+                <a href="#" data-url="{{ route('booking.create') }}" data-size="xl" data-ajax-popup="true" data-title="{{__('Create New Meeting')}}" class="btn btn-xs btn-white btn-icon-only width-auto">
                     <i class="fa fa-plus"></i> {{__('Create')}}
                 </a>
             </div>
-        @endcan
     </div>
 @endsection
 

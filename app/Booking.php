@@ -13,7 +13,10 @@ class Booking extends Model
         'from_date',
         'customer_id',
         'vender_id',
+        'meeting_link',
+        'invite_email',
         'to_date',
+        'email_addresses',
         'from',
         'to'
     ];

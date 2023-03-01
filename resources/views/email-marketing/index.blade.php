@@ -45,7 +45,7 @@
                         <td>
                           <a href="{{ route('emails.update',$item->id) }}" class="fa fa-edit fa-sm mr-2" title="Edit"></a>
                           <a href="{{ route('emails.index') }}?delete={{ $item->id }}" class="fa fa-trash sconfirm mr-2 fa-sm" title="Delete"></a>
-                          <a href="{{ route('emails.send.single',$item->id) }}" class="fa fa-envelope fa-sm mr-2" title="Send Email"></a>
+                          {{-- <a href="{{ route('emails.send.single',$item->id) }}" class="fa fa-envelope fa-sm mr-2" title="Send Email"></a> --}}
                         </td>
                       </tr>
                     @endforeach

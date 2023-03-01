@@ -7,6 +7,7 @@
 <div class="page-content">
     <div class="text-end">
         <a class="btn btn-primary" href="{{ route('leads.index') }}"> Back</a>
+        <a class="btn btn-primary" href="{{ route('leadCampaign', $lead->id) }}">Send As Email Campaign</a>
     </div>
     <!--end row-->
     <div class="card radius-10 mt-5">
@@ -72,19 +73,10 @@
 
                     <tr>
                         <th>
-                            Estimate Budget:
+                            Email:
                         </th>
                         <td>
-                            {{ $lead->estimate_budget }}
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <th>
-                            Member:
-                        </th>
-                        <td>
-                            {{ $lead->member->name ?? '' }}
+                            {{ $lead->email }}
                         </td>
                     </tr>
 
