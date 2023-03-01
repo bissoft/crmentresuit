@@ -26,6 +26,7 @@ use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
+use Stripe;
 
 class InvoiceController extends Controller
 {
@@ -934,4 +935,32 @@ class InvoiceController extends Controller
         return json_encode($items);
     }
 
+    public function stripePayment($id)
+    {
+        $invoice = Invoice::findOrFail($id);
+
+        if ($invoice->stripe_payment_link) {
+            return redirect()->to($invoice->stripe_payment_link);
+        }
+
+        Stripe\Stripe::setApiKey(config('app.stripe_secret'));
+        $stripe = new \Stripe\StripeClient(
+            config('app.stripe_secret')
+        );
+        $product = $stripe->products->create([
+            'name' => 'Invoice ID: ' . $invoice->id,
+        ]);
+
+        $price = $stripe->prices->create(
+            ['currency' => 'usd', 'unit_amount' => $invoice->getDue(), 'product' => $product->id]
+        );
+
+        $link = $stripe->paymentLinks->create(
+            ['line_items' => [['price' => $price->id, 'quantity' => 1]]]
+        );
+
+        $invoice->update(['stripe_payment_link' => $link->url]);
+
+        return redirect()->to($link->url);
+    }
 }

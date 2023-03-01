@@ -711,6 +711,7 @@ Route::group(
 
     Route::resource('invoice', 'InvoiceController');
     Route::get('invoice/create/{cid}', 'InvoiceController@create')->name('invoice.create');
+    Route::get('invoice/{id}/stripe-payment', 'InvoiceController@stripePayment')->name('invoice.payment.stripe');
 }
 );
 

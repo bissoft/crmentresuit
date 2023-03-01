@@ -13,6 +13,7 @@ class Invoice extends Model
         'due_date',
         'ref_number',
         'status',
+        'stripe_payment_link',
         'category_id',
         'created_by',
     ];

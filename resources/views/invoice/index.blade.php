@@ -156,6 +156,10 @@
                                                 </a>
                                                     {!! Form::open(['method' => 'DELETE', 'route' => ['invoice.destroy', $invoice->id],'id'=>'delete-form-'.$invoice->id]) !!}
                                                     {!! Form::close() !!}
+
+                                                    <a href="{{ route('invoice.payment.stripe',$invoice->id) }}" class="edit-icon ml-1" data-toggle="tooltip" data-original-title="{{__('Stripe Payment Link')}}">
+                                                        <i class="fas fa-dollar-sign"></i>
+                                                    </a>
                                                 @endcan
                                             </span>
                                         </td>
