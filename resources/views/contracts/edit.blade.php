@@ -18,7 +18,7 @@
         <div class="form-group col-md-6">
             <label for="customer" class="form-control-label">Customer</label>
             <Select name="customer_id" class="form-control select2" required>
-                @foreach ($customers as $customer)
+                @foreach ($lead as $customer)
                 <option value="{{$customer->id}}" @if($contract->customer_id == $customer->id) selected @endif>{{$customer->name}}</option>
                 @endforeach
             </Select>

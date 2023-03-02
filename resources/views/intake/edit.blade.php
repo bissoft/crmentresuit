@@ -9,23 +9,44 @@
     <!--favicon-->
     <!-- <link rel="icon" href=" " type="image/png" /> -->
     <!--plugins-->
-    <link href="/public/dash-assets/plugins/simplebar/css/simplebar.css" rel="stylesheet" />
-    <link href="/public/dash-assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" />
-    <link href="/public/dash-assets/plugins/metismenu/css/metisMenu.min.css" rel="stylesheet" />
+    <link href="{{asset('dash-assets/plugins/simplebar/css/simplebar.css')}}" rel="stylesheet" />
+    <link href="{{asset('dash-assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css')}}" rel="stylesheet" />
+    <link href="{{asset('dash-assets/plugins/metismenu/css/metisMenu.min.css')}}" rel="stylesheet" />
     <!-- loader-->
-    <link href="/public/dash-assets/css/pace.min.css" rel="stylesheet" />
-    <script src="/public/dash-assets/js/pace.min.js"></script>
+    <link href="{{asset('dash-assets/css/pace.min.css')}}" rel="stylesheet" />
+    <script src="{{asset('dash-assets/js/pace.min.js')}}"></script>
     <!-- Bootstrap CSS -->
-    <link href="/public/dash-assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/public/dash-assets/css/bootstrap-extended.css" rel="stylesheet">
+    <link href="{{asset('dash-assets/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('dash-assets/css/bootstrap-extended.css')}}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&amp;display=swap" rel="stylesheet">
-    <link href="/public/dash-assets/css/app.css" rel="stylesheet">
-    <link href="/public/dash-assets/css/icons.css" rel="stylesheet">
+    <link href="{{asset('dash-assets/css/app.css')}}" rel="stylesheet">
+    <link href="{{asset('dash-assets/css/icons.css')}}" rel="stylesheet">
     <!-- Theme Style CSS -->
-    <link rel="stylesheet" href="/public/dash-assets/css/dark-theme.css" />
-    <link rel="stylesheet" href="/public/dash-assets/css/semi-dark.css" />
-    <link rel="stylesheet" href="/public/dash-assets/css/header-colors.css" />
+    <link rel="stylesheet" href="{{asset('dash-assets/css/dark-theme.css')}}" />
+    <link rel="stylesheet" href="{{asset('dash-assets/css/semi-dark.css')}}" />
+    <link rel="stylesheet" href="{{asset('dash-assets/css/header-colors.css')}}" />
     <title>EntreSuite CRM</title>
+    <style>
+        .clear-data2 {
+            position: absolute;
+            right: 0px;
+            padding: 1px;
+            background-color: #C00;
+            color: #FFF;
+            cursor: pointer;
+            top: 0;
+            font-weight: 900;
+            width: 27px;
+            z-index: 8;
+            margin: auto;
+            text-align: center;
+            font-size: 16px;
+        }
+        .new-review{
+            position: relative;
+            margin-top:10px
+        }
+    </style>
 </head>
 
 <body>
@@ -116,6 +137,45 @@
                                     </div>
                                 </div>
                         </div>
+
+                        <div class="card">
+                            <div class="card-header card bg-success text-white">
+                                <b> Custom Fields </b>
+                            </div>
+                            <div class="card-body">
+                                <div class="green">
+                                    <div class="form-rows green-rows">
+                                        @php
+                                        // dd($intake->custom_field);
+                                        $res = (isset($intake) and $intake->custom_field !="" ) ? json_decode($intake->custom_field , true) : array();
+                                        $g_text = (count($res)==0) ? 0 : count($res) - 1;
+                                        for ($n=0; $n <=$g_text; $n++){ $custom_name=(isset($res[$n]["custom_name"])) ? $res[$n]["custom_name"]: "" ; $custom_value=(isset($res[$n]["custom_value"])) ? $res[$n]["custom_value"]: "" ; @endphp 
+                                        <div class="new-review border row">
+                                            <span class="clear-data2">x</span>
+                                            <div class="col-lg-12">
+                                                <p class="mx-auto text-center"><b> Custom Field {{ $n+1 }}</b></p>
+                                                <div class="form-group">
+                                                    <label>Custom Field Name</label> <span class="float-right infoSec"><i class="fa fa-info" data-toggle="tooltip" data-placement="center" title="For Urdu Text Use [[urdu]] Short Code at the end of string"></i></span>
+                                                    <input type="text" name="custom_name[]" placeholder="Name..." class="form-control" value="{{ $custom_name }}" />
+                                                    <div class="text-danger"> </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Custom Field value</label>
+                                                    <textarea rows="1" name="custom_value[]" class="form-control" placeholder="value..."> {{ $custom_value }} </textarea>
+                                                    <div class="text-danger"> </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @php } @endphp
+                                    </div>
+                                    <div style="text-align:right; margin-top:10px">
+                                        <a href="" class="btn btn-info add-green"><b>Add More</b></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
                         <div class="col-12">
                             <div class="d-grid">
                                 <button type="submit" class="btn theme_btn btn-lg px-5"> Submit</button>
@@ -136,14 +196,62 @@
     <!--end wrapper-->
 
     <!-- Bootstrap JS -->
-    <script src="/public/dash-assets/js/bootstrap.bundle.min.js"></script>
+    <script src="{{asset('dash-assets/js/bootstrap.bundle.min.js')}}"></script>
     <!--plugins-->
-    <script src="/public/dash-assets/js/jquery.min.js"></script>
-    <script src="/public/dash-assets/plugins/simplebar/js/simplebar.min.js"></script>
-    <script src="/public/dash-assets/plugins/metismenu/js/metisMenu.min.js"></script>
-    <script src="/public/dash-assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
+    <script src="{{asset('dash-assets/js/jquery.min.js')}}"></script>
+    <script src="{{asset('dash-assets/plugins/simplebar/js/simplebar.min.js')}}"></script>
+    <script src="{{asset('dash-assets/plugins/metismenu/js/metisMenu.min.js')}}"></script>
+    <script src="{{asset('dash-assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js')}}"></script>
     <!--app JS-->
-    <script src="/public/dash-assets/js/app.js"></script>
+    <script src="{{asset('dash-assets/js/app.js')}}"></script>
+
+    <script>
+        $(document).ready(function() {
+            var cloneg = '<div class="new-review border row">' +
+                '<span class="clear-data2">x</span>' +
+                '<p class="mx-auto text-center"><b> Custom Field <span class="no"></span> </b></p>' +
+                '<div class="col-lg-12">' +
+                    '<div class="form-group">' +
+                        '<label>Custom Field Name</label>' +
+                        '<input type="text" name="custom_name[]" placeholder="Name..." class="form-control" value=""/>' +
+                        '<div class="text-danger"> </div>' +
+                    '</div>' +
+                    '<div class="form-group">' +
+                        '<label>Custom field value</label>' +
+                        '<textarea rows="1" name="custom_value[]" class="form-control oneditor" placeholder="value..." ></textarea>' +
+                        '<div class="text-danger"> </div>' +
+                    '</div>' +
+                '</div>' +
+            '</div>'
+        $(".add-green").click(function(e) {
+            e.preventDefault();
+            var html_obj = cloneg;
+            var ln = $(".form-rows .row").length;
+            // $(html_obj).find("input").each(function() {
+            // $(this).attr("value", "");
+            // });
+            // $(html_obj).find("textarea").each(function() {
+            // $(this).text("");
+            // });
+            $(html_obj).find("img").remove();
+            $(".green .form-rows").append(html_obj);
+            var n = $(".green .form-rows").find(".new-review").length;
+            var el = $(".green .form-rows .new-review:nth-child(" + n + ")");
+            el.find(".no").text(n);
+            _full_Ed();
+            return false;
+            });
+
+
+          
+                $(document).on("click", ".clear-data2", function () {
+                    var v = window.confirm("Do you want to delete data?");
+                    if (v) {
+                        $(this).closest(".row").remove();
+                    }
+                });
+        });
+    </script>
 </body>
 
 </html>

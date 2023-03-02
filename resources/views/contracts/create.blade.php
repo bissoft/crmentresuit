@@ -2,10 +2,10 @@
     {{ Form::open(array('url' => 'contracts')) }}
     <div class="row">
         <div class="form-group col-md-6">
-            <label for="customer" class="form-control-label">Customer</label>
+            <label for="customer" class="form-control-label">Leads</label>
             <Select name="customer_id" class="form-control select2" required>
-                @foreach ($customers as $customer)
-                <option value="{{$customer->id}}">{{$customer->name}}</option>
+                @foreach ($lead as $lead)
+                    <option value="{{$lead->id}}">{{$lead->name}}</option>
                 @endforeach
             </Select>
         </div>

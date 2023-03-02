@@ -13,7 +13,7 @@
                 $user = auth()->user();
             @endphp
             @if (!isset($user->app_logo) or $user->app_logo=="")
-            <img src="{{'/'. asset('app/assets/img/logov2.png') }}" class="navbar-brand-img"/>
+            <img src="{{asset('app/assets/img/logov2.png') }}" class="navbar-brand-img"/>
             @else
                 @php
                 $image = url("/public/assets/images/".$user->app_logo);
@@ -372,11 +372,11 @@
                                         <a href="{{ route('bank-account.index') }}" class="nav-link">{{ __('Account') }}</a>
                                     </li>
                                 @endcan
-                                @can('manage transfer')
+                                {{-- @can('manage transfer')
                                     <li class="nav-item {{ (Request::route()->getName() == 'transfer.index' || Request::route()->getName() == 'transfer.create' || Request::route()->getName() == 'transfer.edit') ? ' active' : '' }}">
                                         <a href="{{route('transfer.index')}}" class="nav-link">{{ __('Transfer') }}</a>
                                     </li>
-                                @endcan
+                                @endcan --}}
                             </ul>
                         </div>
                     </li>

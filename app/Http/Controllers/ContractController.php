@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Contract;
 use App\ContractType;
+use App\Lead;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -30,7 +31,9 @@ class ContractController extends Controller
     {
         $types = ContractType::all();
         $customers = User::all();
-        return view("contracts.create",compact('types','customers'));
+        $lead = Lead::with('status')->get();
+       
+        return view("contracts.create",compact('lead','types','customers'));
     }
 
     /**
@@ -77,7 +80,8 @@ class ContractController extends Controller
     {
         $types = ContractType::all();
         $customers = User::all();
-        return view("contracts.edit",compact('contract','types','customers'));
+        $lead = Lead::with('status')->get();
+        return view("contracts.edit",compact('lead','contract','types','customers'));
     }
 
     /**

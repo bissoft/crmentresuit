@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Intake;
+use App\Lead;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -25,6 +26,7 @@ class HomeController extends Controller
     }
 
     public function intake(){
+        
         
         return view('intake');
     }
@@ -63,7 +65,27 @@ class HomeController extends Controller
                 $path    = move_uploaded_file($file->getPathName(), $upload.$filename);
                 $product->logo=$upload.$filename;
             }
+            
+            $custom_fields = "";
+            $custom_name = request('custom_name');
+            $custom_value    = request('custom_value');
     
+            $custom_field    = array();
+            if (is_array(request("custom_value"))) {
+                for ($a = 0; $a < count($custom_name); $a++) {
+                    if ($custom_value[$a] != "") {
+                        $custom_field[] = array(
+                            "custom_name" => $custom_name[$a],
+                            "custom_value"    => $custom_value[$a],
+                        );
+                    }
+                }
+                
+            }
+            
+            $custom_fields = json_encode($custom_field);
+            $product->custom_field = $custom_fields;
+
             $product->update();
             return redirect()->route('intake.index')
             ->with(['type'=>'success', 'msg'=>'Intake updated successfully']);
@@ -149,12 +171,33 @@ class HomeController extends Controller
             $file = $request->file('logo');
             $upload = 'public/img/';
             $filename = time().$file->getClientOriginalName();
-            $path    = move_uploaded_file($file->getPathName(), $upload.$filename);
+            $file-> move(public_path($upload), $filename);
+            // $path    = move_uploaded_file($file->getPathName(), $upload.$filename);
             $product->logo=$upload.$filename;
         }
+
+        $custom_fields = "";
+        $custom_name = request('custom_name');
+        $custom_value    = request('custom_value');
+
+        $custom_field    = array();
+        if (is_array(request("custom_value"))) {
+            for ($a = 0; $a < count($custom_name); $a++) {
+                if ($custom_value[$a] != "") {
+                    $custom_field[] = array(
+                        "custom_name" => $custom_name[$a],
+                        "custom_value"    => $custom_value[$a],
+                    );
+                }
+            }
+            
+        }
+        
+        $custom_fields = json_encode($custom_field);
+        $product->custom_field = $custom_fields;
         $product->save();
         
-        if ($request->user()->id == 1) {
+        if (Auth::user()->id == 1) {
             return redirect()->route('intake.index')
             ->with(['type'=>'success', 'msg'=>'Intake form created successfully']);
         } 

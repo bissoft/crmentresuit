@@ -12,13 +12,13 @@
 
 
     <!-- Styles -->
-    <link rel="shortcut icon" href="{{ url('public/favicon.png') }}">
-    <link rel="stylesheet" href="{{ '/'. asset('app/assets/css/plugins.css') }}">
-    <link rel="stylesheet" href="{{ '/'. asset('app/assets/css/style.css') }}">
+    <link rel="shortcut icon" href="{{ asset('favicon.png') }}">
+    <link rel="stylesheet" href="{{asset('app/assets/css/plugins.css') }}">
+    <link rel="stylesheet" href="{{asset('app/assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('app/assets/css/colors/yellow.css') }}">
 
     <!-- Fonts -->
-    <link rel="preload" href="{{ '/'. asset('app/assets/css/fonts/thicccboi.css') }}" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="{{asset('app/assets/css/fonts/thicccboi.css') }}" as="style" onload="this.rel='stylesheet'">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
     @yield('styles')
@@ -31,7 +31,7 @@
                 <div class="container flex-lg-row flex-nowrap align-items-center">
                     <div class="navbar-brand w-100">
                         <a href="{{ url('/') }}">
-                            <img src="{{ url('public/app/assets/img/logov2.png') }}" srcset="{{ url('public/app/assets/img/logov2.png') }}" width="200" alt="" />
+                            <img src="{{ asset('app/assets/img/logov2.png') }}" srcset="{{ asset('app/assets/img/logov2.png') }}" width="200" alt="" />
                         </a>
                     </div>
                     <div class="navbar-collapse offcanvas offcanvas-nav offcanvas-start">
