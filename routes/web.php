@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\ContractController;
+use App\Http\Controllers\GetFileController;
 use App\Http\Controllers\InterviewController;
+use App\Http\Controllers\LeadController;
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\VideoChatController;
 use App\Http\Controllers\VideoMeetingController;
@@ -332,6 +335,9 @@ Route::group(
             'XSS',
         ],
     ], function (){
+    Route::get('/contract/docs/{id}',[GetFileController::class, 'getFile'])->name('download.contract.file');
+    Route::get('get-lead/{id}',[ContractController::class,'get_lead'])->name('contract.leads.get');
+    Route::get('edit-lead/{id}',[ContractController::class,'edit_lead'])->name('contract.leads.edit');
     Route::get('change-language/{lang}', 'LanguageController@changeLanquage')->name('change.language');
     Route::get('manage-language/{lang}', 'LanguageController@manageLanguage')->name('manage.language');
     Route::post('store-language-data/{lang}', 'LanguageController@storeLanguageData')->name('store.language.data');

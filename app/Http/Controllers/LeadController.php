@@ -64,6 +64,8 @@ class LeadController extends Controller
             'country' => 'nullable',
             'description' => 'nullable'
         ]);
+
+        $data['sms'] = request('sms')? 1:0;
         Lead::create($data);
         return redirect()->route('leads.index')
             ->with(['type'=>'success', 'msg'=>'Lead added successfully']);
@@ -119,6 +121,7 @@ class LeadController extends Controller
             'country' => 'nullable',
             'description' => 'nullable'
         ]);
+        $data['sms'] = request('sms')? 1:0;
         $lead->update($data);
         return redirect()->route('leads.index')
             ->with(['type'=>'success', 'msg'=>'Lead updated successfully']);
@@ -224,4 +227,5 @@ class LeadController extends Controller
 
         return $latest->customer_id + 1;
     }
+
 }

@@ -91,6 +91,7 @@ class VenderController extends Controller
             $vender->billing_state    = $request->billing_state;
             $vender->billing_city     = $request->billing_city;
             $vender->billing_phone    = $request->billing_phone;
+            $vender->billing_landline    = $request->billing_landline;
             $vender->billing_zip      = $request->billing_zip;
             $vender->billing_address  = $request->billing_address;
             $vender->shipping_name    = $request->shipping_name;
@@ -98,6 +99,7 @@ class VenderController extends Controller
             $vender->shipping_state   = $request->shipping_state;
             $vender->shipping_city    = $request->shipping_city;
             $vender->shipping_phone   = $request->shipping_phone;
+            $vender->shipping_landline   = $request->shipping_landline;
             $vender->shipping_zip     = $request->shipping_zip;
             $vender->shipping_address = $request->shipping_address;
             $vender->lang             = !empty($default_language) ? $default_language->value : '';
@@ -183,6 +185,7 @@ class VenderController extends Controller
             $vender->billing_state    = $request->billing_state;
             $vender->billing_city     = $request->billing_city;
             $vender->billing_phone    = $request->billing_phone;
+            $vender->billing_landline = $request->billing_landline;
             $vender->billing_zip      = $request->billing_zip;
             $vender->billing_address  = $request->billing_address;
             $vender->shipping_name    = $request->shipping_name;
@@ -190,6 +193,7 @@ class VenderController extends Controller
             $vender->shipping_state   = $request->shipping_state;
             $vender->shipping_city    = $request->shipping_city;
             $vender->shipping_phone   = $request->shipping_phone;
+            $vender->shipping_landline= $request->shipping_landline;
             $vender->shipping_zip     = $request->shipping_zip;
             $vender->shipping_address = $request->shipping_address;
             $vender->save();

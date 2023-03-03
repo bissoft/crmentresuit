@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-6">
             <div class="form-group">
-                {{Form::label('name',__('Name'),array('class'=>'form-control-label')) }}
+                {{Form::label('name',__('Company Name'),array('class'=>'form-control-label')) }}
                 <div class="form-icon-user">
                     <span><i class="fas fa-address-card"></i></span>
                     {{Form::text('name',null,array('class'=>'form-control','required'=>'required'))}}
@@ -13,7 +13,7 @@
         </div>
         <div class="col-lg-4 col-md-4 col-sm-6">
             <div class="form-group">
-                {{Form::label('contact',__('Contact'),['class'=>'form-control-label'])}}
+                {{Form::label('contact',__('Contact Name'),['class'=>'form-control-label'])}}
                 <div class="form-icon-user">
                     <span><i class="fas fa-mobile-alt"></i></span>
                     {{Form::text('contact',null,array('class'=>'form-control','required'=>'required'))}}
@@ -22,7 +22,7 @@
         </div>
         <div class="col-lg-4 col-md-4 col-sm-6">
             <div class="form-group">
-                {{Form::label('email',__('Email'),['class'=>'form-control-label'])}}
+                {{Form::label('email',__('Email Address'),['class'=>'form-control-label'])}}
                 <div class="form-icon-user">
                     <span><i class="fas fa-envelope"></i></span>
                     {{Form::text('email',null,array('class'=>'form-control','required'=>'required'))}}
@@ -50,7 +50,7 @@
     <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-6">
             <div class="form-group">
-                {{Form::label('billing_name',__('Name'),array('class'=>'form-control-label')) }}
+                {{Form::label('billing_name',__('Company Name'),array('class'=>'form-control-label')) }}
                 <div class="form-icon-user">
                     <span><i class="fas fa-address-card"></i></span>
                     {{Form::text('billing_name',null,array('class'=>'form-control'))}}
@@ -87,10 +87,19 @@
 
         <div class="col-lg-4 col-md-4 col-sm-6">
             <div class="form-group">
-                {{Form::label('billing_phone',__('Phone'),array('class'=>'form-control-label')) }}
+                {{Form::label('billing_phone',__('Number Phone'),array('class'=>'form-control-label')) }}
                 <div class="form-icon-user">
                     <span><i class="fas fa-mobile-alt"></i></span>
                     {{Form::text('billing_phone',null,array('class'=>'form-control'))}}
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="form-group">
+                {{Form::label('billing_landline',__('Landline Number'),array('class'=>'form-control-label')) }}
+                <div class="form-icon-user">
+                    <span><i class="fas fa-mobile-alt"></i></span>
+                    {{Form::text('billing_landline',null,array('class'=>'form-control'))}}
                 </div>
             </div>
         </div>
@@ -121,7 +130,7 @@
         <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-6">
                 <div class="form-group">
-                    {{Form::label('shipping_name',__('Name'),array('class'=>'form-control-label')) }}
+                    {{Form::label('shipping_name',__('Company Name'),array('class'=>'form-control-label')) }}
                     <div class="form-icon-user">
                         <span><i class="fas fa-address-card"></i></span>
                         {{Form::text('shipping_name',null,array('class'=>'form-control'))}}
@@ -158,10 +167,19 @@
 
             <div class="col-lg-4 col-md-4 col-sm-6">
                 <div class="form-group">
-                    {{Form::label('shipping_phone',__('Phone'),array('class'=>'form-control-label')) }}
+                    {{Form::label('shipping_phone',__('Phone Number'),array('class'=>'form-control-label')) }}
                     <div class="form-icon-user">
                         <span><i class="fas fa-mobile-alt"></i></span>
                         {{Form::text('shipping_phone',null,array('class'=>'form-control'))}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="form-group">
+                    {{Form::label('shipping_landline',__('Landline Number'),array('class'=>'form-control-label')) }}
+                    <div class="form-icon-user">
+                        <span><i class="fas fa-mobile-alt"></i></span>
+                        {{Form::text('shipping_landline',null,array('class'=>'form-control'))}}
                     </div>
                 </div>
             </div>

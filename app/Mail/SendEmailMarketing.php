@@ -34,6 +34,9 @@ class SendEmailMarketing extends Mailable
         if ($this->details['type'] == 'booking') {
             return $this->subject($this->details['subject'])            
             ->view('email.email-marketings',['content' => $this->details['content']]);
+        }elseif($this->details['type'] == 'contract'){
+            return $this->subject($this->details['subject'])            
+            ->view('email.contract_mail',['content' => $this->details['content'],'subject'=>$this->details['subject'],'detail'=>$this->details['detail']]);
         } else {
             return $this->subject($this->details['subject'])            
             ->view('email.email-marketing',['content' => $this->details['content'],'title' => $this->details['title'],'company_name' => $this->details['company_name'],'user_name' => $this->details['user_name'],'logo' => $this->details['logo'],'author' => $this->details['author']]);

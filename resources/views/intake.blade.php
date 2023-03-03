@@ -154,7 +154,7 @@
                                                 <div class="col-lg-12">
                                                     <p class="mx-auto text-center"><b> Custom Field {{ $n+1 }}</b></p>
                                                     <div class="form-group">
-                                                        <label>Custom Field Name</label> <span class="float-right infoSec"><i class="fa fa-info" data-toggle="tooltip" data-placement="center" title="For Urdu Text Use [[urdu]] Short Code at the end of string"></i></span>
+                                                        <label>Custom Field Name</label>
                                                         <input type="text" name="custom_name[]" placeholder="Name..." class="form-control" value="{{ $custom_name }}" />
                                                         <div class="text-danger"> </div>
                                                     </div>

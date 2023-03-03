@@ -14,7 +14,9 @@ class Contract extends Model
         'contract_value',
         'start_date',
         'end_date',
-        'description'
+        'description',
+        'contract_docs',
+        'email'
     ];
 
     public function customer()

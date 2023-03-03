@@ -3921,3 +3921,9 @@ form .row .select-box {
     }
 
   }
+  .uploade_docs{
+    border: 1px solid #a3afbb !important;
+    opacity: 1 !important;
+    position: relative !important;
+    
+  }

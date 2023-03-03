@@ -234,15 +234,16 @@
                         </a>
                         <div class="collapse {{ (Request::segment(1) == 'lead-sources' || Request::segment(1) == 'lead-status' || Request::segment(1) == 'leads'  )?'show':''}}" id="navbar-leads">
                             <ul class="nav flex-column submenu-ul">
+                                <li class="nav-item {{ (Request::route()->getName() == 'leads.index' || Request::route()->getName() == 'leads.create' || Request::route()->getName() == 'leads.edit' || Request::route()->getName() == 'leads.show') ? ' active' : '' }}">
+                                    <a href="{{ route('leads.index') }}" class="nav-link">{{ __('Leads') }}</a>
+                                </li>
                                 <li class="nav-item {{ (Request::route()->getName() == 'lead-status.index' || Request::route()->getName() == 'lead-status.create' || Request::route()->getName() == 'lead-status.edit' || Request::route()->getName() == 'lead-status.show') ? ' active' : '' }}">
                                     <a href="{{ route('lead-status.index') }}" class="nav-link">{{ __('Lead Status') }}</a>
                                 </li>
                                 <li class="nav-item {{ (Request::route()->getName() == 'lead-sources.index' || Request::route()->getName() == 'lead-sources.create' || Request::route()->getName() == 'lead-sources.edit' || Request::route()->getName() == 'lead-sources.show') ? ' active' : '' }}">
                                     <a href="{{ route('lead-sources.index') }}" class="nav-link">{{ __('Lead Sources') }}</a>
                                 </li>
-                                <li class="nav-item {{ (Request::route()->getName() == 'leads.index' || Request::route()->getName() == 'leads.create' || Request::route()->getName() == 'leads.edit' || Request::route()->getName() == 'leads.show') ? ' active' : '' }}">
-                                    <a href="{{ route('leads.index') }}" class="nav-link">{{ __('Leads') }}</a>
-                                </li>
+                               
                             </ul>
                         </div>
                     </li>
