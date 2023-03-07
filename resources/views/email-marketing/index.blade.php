@@ -45,6 +45,12 @@
                         <td>
                           <a href="{{ route('emails.update',$item->id) }}" class="fa fa-edit fa-sm mr-2" title="Edit"></a>
                           <a href="{{ route('emails.index') }}?delete={{ $item->id }}" class="fa fa-trash sconfirm mr-2 fa-sm" title="Delete"></a>
+                          {{-- <td class="action d-flex "> --}}
+                            <a href="{{ route('campaign.campaign-pause', [ 'id' => $user->id] )}}">@if(!empty(App\Models\Schedule::where('campaign_id',$user->id)->get()->first()->campaign_enable_disable))@if((App\Models\Schedule::where('campaign_id',$user->id)->get()->first()->campaign_enable_disable) == 1)<img class="mr-3" src="{{asset('dash-assets/images/Union.svg')}}" alt="">@else<img class="mr-3" src="{{asset('dash-assets/images/play123.png')}}" width="15px" height="15px" alt="">@endif @else <img class="mr-3" src="{{asset('dash-assets/images/play123.png')}}" width="15px" height="15px" alt="">@endif</a>
+                            <a href="{{route('campaign.analytics',['id'=>$user->id])}}"><i class="fa-sm fa fa-cog"></i></a>
+                            <a class=" ml-3 text-danger mr-2" href={{"delete/".$user['id']}}><i class="fa fa-trash sconfirm mr-2 fa-sm"></i></a>
+                            {{-- <span>....</span> --}}
+                        {{-- </td> --}}
                           {{-- <a href="{{ route('emails.send.single',$item->id) }}" class="fa fa-envelope fa-sm mr-2" title="Send Email"></a> --}}
                         </td>
                       </tr>

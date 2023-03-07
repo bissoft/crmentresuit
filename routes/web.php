@@ -1,5 +1,7 @@
 <?php
 
+use App\Blog;
+use App\Http\Controllers\BlogsController;
 use App\Http\Controllers\ContractController;
 use App\Http\Controllers\GetFileController;
 use App\Http\Controllers\InterviewController;
@@ -7,6 +9,7 @@ use App\Http\Controllers\LeadController;
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\VideoChatController;
 use App\Http\Controllers\VideoMeetingController;
+use App\Models\Campaign;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -27,6 +30,8 @@ Route::get('signature/{id}/{email}', 'DocumentController@customerSign')->name('c
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/aboutus', 'HomeController@aboutus')->name('aboutus');
+
+Route::get('/contactus', 'HomeController@contactus')->name('contactus');
 Route::get('/intake', 'HomeController@intake')->name('intake');
 
 Route::match(['get','post'], '/app-customization', 'HomeController@appCustomization')->name('app-customization');
@@ -335,6 +340,18 @@ Route::group(
             'XSS',
         ],
     ], function (){
+    // Campaign Email 
+    Route::match(['get','post'],'campaign-status',[CampaignController::class,'campaignStatus'])->name('campaign.campaign-pause');
+    Route::match(['get','post'],'analytics', [CampaignController::class, 'analytics'])->name('campaign.analytics');
+
+        // blogs 
+
+
+
+    Route::match(['get','post'],'blog-list',[BlogsController::class,'blog_list'])->name('blogs.index');
+    Route::match(['get','post'],'blog-create',[BlogsController::class,'blog_create'])->name('blogs.create');
+
+
     Route::get('/contract/docs/{id}',[GetFileController::class, 'getFile'])->name('download.contract.file');
     Route::get('get-lead/{id}',[ContractController::class,'get_lead'])->name('contract.leads.get');
     Route::get('edit-lead/{id}',[ContractController::class,'edit_lead'])->name('contract.leads.edit');
@@ -1042,3 +1059,5 @@ Route::group(
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('blogs-list', [BlogsController::class,'blogList'])->name('blog.list');
+Route::get('/{slug}', [BlogsController::class,'blogDetail'])->name('blog.detail');

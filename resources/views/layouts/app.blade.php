@@ -42,14 +42,17 @@
                         <div class="offcanvas-body ms-lg-auto d-flex flex-column h-100">
                             <ul class="navbar-nav align-items-center">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Home</a>
+                                    <a class="nav-link" href="{{url('/')}}">Home</a>
                                 </li>
-                               
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/blogs-list">Blogs</a>
+                                </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="/aboutus">About us</a>
                                 </li>
+                               
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Contact us</a>
+                                    <a class="nav-link" href="/contactus">Contact us</a>
                                 </li>
                               
                                 @guest
@@ -196,11 +199,11 @@ Or Click the chat button to speak with one of our Customer Success Agents
                     <div class="widget">
                         <h4 class="widget-title  mb-3"> For customized pricing:</h4>
                        
-Email: Quotes@entresuitecrm.com
+                    Email: Quotes@entresuitecrm.com
 
-Mailing Address
-PO Box 668 
-Hoschton GA 30548
+                    Mailing Address
+                    PO Box 668 
+                    Hoschton GA 30548
 
                     </div>
                     <!-- /.widget -->

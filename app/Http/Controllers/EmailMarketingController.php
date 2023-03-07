@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Emails;
 use App\Mail\SendEmailMarketing;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
 class EmailMarketingController extends Controller
@@ -20,7 +22,9 @@ class EmailMarketingController extends Controller
             return redirect()->route('emails.index')->with(["type"=>"danger","msg"=>"Emails record is deleted Successfully"]);
         }
         $emails = Emails::where("user_id", auth()->user()->id)->orderBy("id","desc")->get();
-        return view('email-marketing.index',compact('emails'));
+        $user= User::where('id',Auth::user()->id)->first();
+       
+        return view('email-marketing.index',compact('user','emails'));
     }
 
 

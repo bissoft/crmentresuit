@@ -19,8 +19,8 @@
             </div>
             <!-- /column -->
             <div class="col-lg-7" data-cue="slideInDown">
-                <figure><img class="w-auto" src="{{ asset('app/assets/img/illustrations/i6.png') }}"
-                        srcset=" {{ asset('app/assets/img/illustrations/i6.png') }}" alt="" /></figure>
+                <figure><img class="w-auto" src="{{ asset('assets/img/li-1.jpg') }}"
+                        srcset=" {{ asset('assets/img/li-1.jpg') }}" alt="" /></figure>
             </div>
             <!-- /column -->
         </div>
@@ -91,8 +91,8 @@
         <!--/.row -->
         <div class="row gx-lg-8 gx-xl-12 gy-10 mb-14 mb-md-17 align-items-center">
             <div class="col-lg-7">
-                <figure><img class="w-auto" src="{{ asset('app/assets/img/illustrations/i8.png') }}"
-                        srcset="{{ asset('app/assets/img/illustrations/i8.png') }}" alt="" /></figure>
+                <figure><img class="w-auto" src="{{ asset('assets/img/li-2.jpg') }}"
+                        srcset="{{ asset('assets/img/li-2.jpg') }}" alt="" /></figure>
             </div>
             <!--/column -->
             <div class="col-lg-5">
@@ -215,8 +215,8 @@
         <!--/.row -->
         <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center">
             <div class="col-lg-7 order-lg-2">
-                <figure><img class="w-auto" src=" {{ asset('app/assets/img/illustrations/i2.png') }}"
-                        srcset=" {{ asset('app/assets/img/illustrations/i2.png') }}" alt="" /></figure>
+                <figure><img class="w-auto" src=" {{ asset('assets/img/li-3.jpg') }}"
+                        srcset=" {{ asset('assets/img/li-3.jpg') }}" alt="" /></figure>
             </div>
             <!--/column -->
             <div class="col-lg-5">
@@ -375,15 +375,15 @@
     </div>
     
     <!-- /.container -->
-</section>
+</section> 
  --}}
 <!-- /section -->
 <section class="wrapper bg-gradient-reverse-primary">
     <div class="container py-16 py-md-18">
         <div class="row gx-lg-8 gx-xl-12 gy-10 mb-8 align-items-center">
             <div class="col-lg-7 order-lg-2">
-                <figure><img class="w-auto" src="{{ asset('app/assets/img/illustrations/i3.png') }}"
-                        srcset="{{ asset('app/assets/img/illustrations/i3.png') }}" alt="" /></figure>
+                <figure><img class="w-auto" src="{{ asset('assets/img/chart-2.jpg') }}"
+                        srcset="{{ asset('assets/img/chart-2.jpg') }}" alt="" /></figure>
             </div>
             <!--/column -->
             <div class="col-lg-5">

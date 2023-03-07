@@ -678,6 +678,11 @@
                             <i class="fas fa-file"></i>{{__('Account Plans') }}
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{ route('blogs.index') }}" class="nav-link {{ (Request::route()->getName() == 'blogs.index' || Request::route()->getName() == 'blogs.create' || Request::route()->getName() == 'blogs.edit') ? ' active' : '' }}">
+                            <i class="fas fa-file"></i>{{__('Blogs') }}
+                        </a>
+                    </li>
 
                     @else
 

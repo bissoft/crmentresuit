@@ -50,4 +50,6 @@ Check out our plans and features <a href="/subscription/plans"> here </a>
         </div>
     </div>
 </div>
+
+
 @endsection

@@ -87,7 +87,7 @@
 
         <div class="col-lg-4 col-md-4 col-sm-6">
             <div class="form-group">
-                {{Form::label('billing_phone',__('Number Phone'),array('class'=>'form-control-label')) }}
+                {{Form::label('billing_phone',__('Phone Number '),array('class'=>'form-control-label')) }}
                 <div class="form-icon-user">
                     <span><i class="fas fa-mobile-alt"></i></span>
                     {{Form::text('billing_phone',null,array('class'=>'form-control'))}}

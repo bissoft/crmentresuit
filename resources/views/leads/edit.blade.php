@@ -87,7 +87,7 @@ left: 37px;
     <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-6">
             <div class="form-group">
-                {{Form::label('name',__('Name'),array('class'=>'form-control-label')) }}
+                {{Form::label('name',__('Leads Name'),array('class'=>'form-control-label')) }}
                 <div class="form-icon-user">
                     <span><i class="fas fa-address-card"></i></span>
                     {{Form::text('name',null,array('class'=>'form-control','required'=>'required'))}}
@@ -115,7 +115,7 @@ left: 37px;
         
         <div class="col-lg-4 col-md-4 col-sm-6">
             <div class="form-group">
-                {{Form::label('email',__('Email'),['class'=>'form-control-label'])}}
+                {{Form::label('email',__('Email Address'),['class'=>'form-control-label'])}}
                 <div class="form-icon-user">
                     <span><i class="fas fa-envelope"></i></span>
                     {{Form::text('email',null,array('class'=>'form-control'))}}
@@ -132,7 +132,7 @@ left: 37px;
             @enderror
         </div>
         <div class="col-lg-4 col-md-4 col-sm-6">
-            {{ Form::label('Status', __('Status'),['class'=>'form-control-label']) }}
+            {{ Form::label('Status', __('Leads Status'),['class'=>'form-control-label']) }}
             {{ Form::select('status_id', $statuses, null, ['placeholder' => 'Pick a Lead Status...', 'class' => 'form-control select2']) }}
             @error('status')
             <small class="invalid-name" role="alert">
