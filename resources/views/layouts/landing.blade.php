@@ -7,7 +7,7 @@
     <div class="hero-shape shape-two scene"><span data-depth="2"></span></div>
     <div class="hero-shape shape-three scene"><span data-depth=".5"></span></div>
     <div class="container">
-        <div class="row justify-content-center">
+        <div class="row justify-content-center"> 
             <div class="col-lg-8">
                 <div class="hero-content text-center">
                     <h1 data-aos="fade-up">EntreSuite CRM</h1>

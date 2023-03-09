@@ -137,7 +137,7 @@
                         <h4 class="mb-1">Email Marketing</h4>
                         <p class="mb-0">Nurture those leads by creating marketing campaigns to stay in touch</p>
                     </div>
-                </div>
+                </div> 
                 <div class="d-flex flex-row mb-3">
                     <div>
                         <span class="icon btn btn-circle btn-soft-primary pe-none me-5"><span

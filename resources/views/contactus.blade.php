@@ -40,7 +40,7 @@
                                 </div>
                                 <div class="text">
                                     <h5>Phone</h5>
-                                    <p><a href="tel:+123-589-847">+123 - 589 - 847</a></p>
+                                    <p><a href="tel:+123-589-847">770-882-4207</a></p>
                                 </div>
                             </div>
                             <div class="information-item d-flex mb-30 animated-hover-icon">
@@ -48,8 +48,8 @@
                                     <i class="far fa-envelope-open"></i>
                                 </div>
                                 <div class="text">
-                                    <h5>Phone</h5>
-                                    <p><a href="mailto:Saap@gmail.com">Saap@gmail.com</a></p>
+                                    <h5>Email</h5>
+                                    <p><a href="mailto:Saap@gmail.com">Quotes@entresuitecrm.com</a></p>
                                 </div>
                             </div>
                             <div class="information-item d-flex mb-30 animated-hover-icon">
@@ -58,8 +58,7 @@
                                 </div>
                                 <div class="text">
                                     <h5>Location</h5>
-                                    <p>1791 Yorkshire Circle Kitty
-                                        Hawk, NC 279499</p>
+                                    <p> Moonshine St. 14/05 <br /> Light City, London </p>
                                 </div>
                             </div>
                         </div>
@@ -67,7 +66,7 @@
                 </div>
                 <div class="col-lg-7">
                     <div class="img-holder text-right mb-50" data-aos="fade-left" data-aos-delay="30">
-                        <img src="assets/images/contact-1.png" alt="contact image">
+                        <img src="{{ asset('assets/img/contact.jpg') }}" alt="contact image">
                         <img src="assets/images/arrow.png" class="shape-icon shape-icon-one animate-float-x" alt="">
                     </div>
                 </div>
