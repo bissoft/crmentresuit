@@ -162,12 +162,22 @@ Route::prefix('customer')->as('customer.')->group(
                 'XSS',
             ]
         );
+
         Route::get('change-language/{lang}', 'CustomerController@changeLanquage')->name('change.language')->middleware(
             [
                 'auth:customer',
                 'XSS',
             ]
         );
+
+        Route::get('demo-video', 'CustomerController@demovideoIndex')->name('demo-video.index')->middleware(
+            [
+                'auth:customer',
+                'XSS',
+            ]
+        );
+
+
 
         Route::post('{id}/pay-with-paypal', 'PaypalController@customerPayWithPaypal')->name('pay.with.paypal')->middleware(
             [
@@ -195,6 +205,14 @@ Route::prefix('vender')->as('vender.')->group(
                 'XSS',
             ]
         );
+
+        Route::get('demo-video', 'VenderController@demovideoIndex')->name('demo-video.index')->middleware(
+            [
+                'auth:vender',
+                'XSS',
+            ]
+        );
+
         Route::get('bill', 'BillController@VenderBill')->name('bill')->middleware(
             [
                 'auth:vender',
@@ -551,6 +569,8 @@ Route::resource('plan_attributes', 'PlanAttributeController')->middleware(
     ]
 );
 
+Route::get('/subscription/plans/{type?}', 'SubscriptionController@retrievePlans')->name('subscription.plans');
+
 Route::group(
     [
         'middleware' => [
@@ -559,7 +579,7 @@ Route::group(
         ],
     ], function (){
 
-        Route::get('/subscription/plans/{type?}', 'SubscriptionController@retrievePlans')->name('subscription.plans');
+       
         Route::get('/subscribe/{id}', 'SubscriptionController@showSubscription')->name('subscribe');
         Route::post('/subscribe', 'SubscriptionController@processSubscription')->name('process.subscription');
         Route::get('/subscribed/users', 'SubscriptionController@subscribedUsers')->name('subscribed.users');

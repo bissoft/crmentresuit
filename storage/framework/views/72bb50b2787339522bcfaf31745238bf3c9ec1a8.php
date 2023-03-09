@@ -19,8 +19,8 @@
             </div>
             <!-- /column -->
             <div class="col-lg-7" data-cue="slideInDown">
-                <figure><img class="w-auto" src="<?php echo e(url('public/app/assets/img/illustrations/i6.png')); ?>"
-                        srcset=" <?php echo e(url('public/app/assets/img/illustrations/i6@2x.png 2x')); ?>" alt="" /></figure>
+                <figure><img class="w-auto" src="<?php echo e(asset('assets/img/li-1.jpg')); ?>"
+                        srcset=" <?php echo e(asset('assets/img/li-1.jpg')); ?>" alt="" /></figure>
             </div>
             <!-- /column -->
         </div>
@@ -35,7 +35,7 @@
             <div class="col-md-6 col-xl-3">
                 <div class="card shadow-lg card-border-bottom border-soft-yellow">
                     <div class="card-body">
-                        <img src=" <?php echo e(url('public/app/assets/img/icons/lineal/browser.svg')); ?>"
+                        <img src=" <?php echo e(asset('app/assets/img/icons/lineal/browser.svg')); ?>"
                             class="svg-inject icon-svg icon-svg-md text-yellow mb-3" alt="" />
                         <p class="mb-2">Whether you're a road warrior, Subcontractor, or in the office, EntreSuite can
                             help you stay on top of your day</p>
@@ -49,7 +49,7 @@
             <div class="col-md-6 col-xl-3">
                 <div class="card shadow-lg card-border-bottom border-soft-green">
                     <div class="card-body">
-                        <img src="<?php echo e(url('public/app/assets/img/icons/lineal/chat-2.svg')); ?>"
+                        <img src="<?php echo e(asset('app/assets/img/icons/lineal/chat-2.svg')); ?>"
                             class="svg-inject icon-svg icon-svg-md text-green mb-3" alt="" />
                         <p class="mb-2">Contracts, eSignatures, workflows, marketing campaigns, calendars & scheduling
                             and so much more.</p>
@@ -63,7 +63,7 @@
             <div class="col-md-6 col-xl-3">
                 <div class="card shadow-lg card-border-bottom border-soft-orange">
                     <div class="card-body">
-                        <img src="<?php echo e(url('public/app/assets/img/icons/lineal/id-card.svg')); ?>"
+                        <img src="<?php echo e(asset('app/assets/img/icons/lineal/id-card.svg')); ?>"
                             class="svg-inject icon-svg icon-svg-md text-orange mb-3" alt="" />
                         <p class="mb-2">30 Days money back guarantee</p>
                         <a href="#" class="more hover link-orange">Learn More</a>
@@ -76,7 +76,7 @@
             <div class="col-md-6 col-xl-3">
                 <div class="card shadow-lg card-border-bottom border-soft-blue">
                     <div class="card-body">
-                        <img src="<?php echo e(url('public/app/assets/img/icons/lineal/gift.svg')); ?>"
+                        <img src="<?php echo e(asset('app/assets/img/icons/lineal/gift.svg')); ?>"
                             class="svg-inject icon-svg icon-svg-md text-blue mb-3" alt="" />
                         <p class="mb-2">Sign up today and if you’re not 100% satisfied, just cancel before your first 30
                             days and we will refund you. It's that simple! We want you to be happy with us!</p>
@@ -91,8 +91,8 @@
         <!--/.row -->
         <div class="row gx-lg-8 gx-xl-12 gy-10 mb-14 mb-md-17 align-items-center">
             <div class="col-lg-7">
-                <figure><img class="w-auto" src="<?php echo e(url('public/app/assets/img/illustrations/i8.png')); ?>"
-                        srcset="<?php echo e(url('public/app/assets/img/illustrations/i8@2x.png 2x')); ?>" alt="" /></figure>
+                <figure><img class="w-auto" src="<?php echo e(asset('assets/img/li-2.jpg')); ?>"
+                        srcset="<?php echo e(asset('assets/img/li-2.jpg')); ?>" alt="" /></figure>
             </div>
             <!--/column -->
             <div class="col-lg-5">
@@ -215,8 +215,8 @@
         <!--/.row -->
         <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center">
             <div class="col-lg-7 order-lg-2">
-                <figure><img class="w-auto" src=" <?php echo e(url('public/app/assets/img/illustrations/i2.png')); ?>"
-                        srcset=" <?php echo e(url('public/app/assets/img/illustrations/i2@2x.png 2x')); ?>" alt="" /></figure>
+                <figure><img class="w-auto" src=" <?php echo e(asset('assets/img/li-3.jpg')); ?>"
+                        srcset=" <?php echo e(asset('assets/img/li-3.jpg')); ?>" alt="" /></figure>
             </div>
             <!--/column -->
             <div class="col-lg-5">
@@ -293,8 +293,8 @@
     <div class="container py-16 py-md-18">
         <div class="row gx-lg-8 gx-xl-12 gy-10 mb-8 align-items-center">
             <div class="col-lg-7 order-lg-2">
-                <figure><img class="w-auto" src="<?php echo e(url('public/app/assets/img/illustrations/i3.png')); ?>"
-                        srcset="<?php echo e(url('public/app/assets/img/illustrations/i3@2x.png 2x')); ?>" alt="" /></figure>
+                <figure><img class="w-auto" src="<?php echo e(asset('assets/img/chart-2.jpg')); ?>"
+                        srcset="<?php echo e(asset('assets/img/chart-2.jpg')); ?>" alt="" /></figure>
             </div>
             <!--/column -->
             <div class="col-lg-5">
@@ -363,8 +363,8 @@
                         <div class="card shadow-lg">
                             <div class="card-body">
                                 <img class="rounded-circle w-15 mb-4"
-                                    src="<?php echo e(url('public/app/assets/img/avatars/te2.jpg')); ?>"
-                                    srcset="<?php echo e(url('public/app/assets/img/avatars/te2@2x.jpg 2x')); ?>" alt="" />
+                                    src="<?php echo e(asset('app/assets/img/avatars/te2.jpg')); ?>"
+                                    srcset="<?php echo e(asset('app/assets/img/avatars/te2@2x.jpg 2x')); ?>" alt="" />
                                 <h4 class="mb-1">Dr. Shy</h4>
                                 <div class="meta mb-2">CEO/ FOUNDER </div>
                                 <p class="mb-2">Dr. Shy Courtney Is The Ceo/ Founder Of Entresuite Crm And The Winners
@@ -388,8 +388,8 @@
                         <div class="card shadow-lg">
                             <div class="card-body">
                                 <img class="rounded-circle w-15 mb-4"
-                                    src="<?php echo e(url('public/app/assets/img/avatars/te3.jpg')); ?>"
-                                    srcset="<?php echo e(url('public/app/assets/img/avatars/te3@2x.jpg 2x')); ?>" alt="" />
+                                    src="<?php echo e(asset('app/assets/img/avatars/te3.jpg')); ?>"
+                                    srcset="<?php echo e(asset('app/assets/img/avatars/te3@2x.jpg 2x')); ?>" alt="" />
                                 <h4 class="mb-1">Raymond Saylor</h4>
                                 <div class="meta mb-2">COMPANY'S CPA</div>
                                 <p class="mb-2">Raymond Saylor Is The Company'S Cpa Who Has Been Practicing In His Field
@@ -411,8 +411,8 @@
                         <div class="card shadow-lg">
                             <div class="card-body">
                                 <img class="rounded-circle w-15 mb-4"
-                                    src="<?php echo e(url('public/app/assets/img/avatars/te4.jpg')); ?>"
-                                    srcset="<?php echo e(url('public/app/assets/img/avatars/te4@2x.jpg 2x')); ?>" alt="" />
+                                    src="<?php echo e(asset('app/assets/img/avatars/te4.jpg')); ?>"
+                                    srcset="<?php echo e(asset('app/assets/img/avatars/te4@2x.jpg 2x')); ?>" alt="" />
                                 <h4 class="mb-1">Sarah Boorsma</h4>
                                 <div class="meta mb-2">OPERATIONS MANAGER</div>
                                 <p class="mb-2">Sarah Boorsma Is Our Operations Manager Who Has Also Been Working With
@@ -454,21 +454,21 @@
             <div class="col-lg-8 mt-lg-2">
                 <div class="row align-items-center counter-wrapper gy-6 text-center">
                     <div class="col-md-4">
-                        <img src="<?php echo e(url('public/app/assets/img/icons/lineal/check.svg')); ?>"
+                        <img src="<?php echo e(asset('app/assets/img/icons/lineal/check.svg')); ?>"
                             class="svg-inject icon-svg icon-svg-md text-primary mb-3" alt="" />
                         <h3 class="counter">7518</h3>
                         <p>Completed Projects</p>
                     </div>
                     <!--/column -->
                     <div class="col-md-4">
-                        <img src="<?php echo e(url('public/app/assets/img/icons/lineal/user.svg')); ?>"
+                        <img src="<?php echo e(asset('app/assets/img/icons/lineal/user.svg')); ?>"
                             class="svg-inject icon-svg icon-svg-md text-primary mb-3" alt="" />
                         <h3 class="counter">3472</h3>
                         <p>Happy Customers</p>
                     </div>
                     <!--/column -->
                     <div class="col-md-4">
-                        <img src="<?php echo e(url('public/app/assets/img/icons/lineal/briefcase-2.svg')); ?>"
+                        <img src="<?php echo e(asset('app/assets/img/icons/lineal/briefcase-2.svg')); ?>"
                             class="svg-inject icon-svg icon-svg-md text-primary mb-3" alt="" />
                         <h3 class="counter">2184</h3>
                         <p>Expert Employees</p>

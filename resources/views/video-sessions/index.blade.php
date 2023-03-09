@@ -45,7 +45,8 @@
                             <div class="form-group">
                                 <label for="roomName" class="col-sm-3 control-label">Enter Room ID</label>
                                 <div class="col-md-12">
-                                    <input type="text" name="roomName" class="form-control" id="roomName"
+                                    <input type="text" name="roomName" onload="convertToSlug(this.value)" 
+                                    onkeyup="convertToSlug(this.value)" class="form-control" id="roomName"
                                            value="" required
                                            placeholder="Room ID">
                                 </div>
@@ -68,8 +69,21 @@
 
     </div>
 @endsection
-@section('script')
+@section('scripts')
     <script>
-
+        function convertToSlug( str ) {
+    
+            //replace all special characters | symbols with a space
+            str = str.replace(/[`~!@#$%^&*()_\+=\[\]{};:'"\\|\/,.<>?\s]/g, ' ')
+                    .toLowerCase();
+            
+            // trim spaces at start and end of string
+            str = str.replace(/^\s+|\s+$/gm,'');
+            
+            // replace space with dash/hyphen
+            str = str.replace(/\s+/g, '-');   
+            document.getElementById("roomName").value = str;
+            //return str;
+        }
     </script>
 @endsection

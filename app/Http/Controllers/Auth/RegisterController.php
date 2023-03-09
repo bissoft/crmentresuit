@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Spatie\Permission\Models\Role;
 
@@ -41,6 +42,15 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+    }
+
+    protected function redirectTo()
+    {   
+        $plan_id = Session::get('plan_id');
+        if ($plan_id == 2 || $plan_id == 3) {
+            return route('subscribe', $plan_id);
+        }
+        return RouteServiceProvider::HOME;
     }
 
     /**

@@ -5,13 +5,13 @@
 
     <!DOCTYPE html>
 <html lang="en">
-<meta name="csrf-token" id="csrf-token" content="<?php echo e(csrf_token()); ?>">
+
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <?php if(auth()->guard()->check()): ?>
 
-    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
+    <meta name="_token" content="<?php echo e(csrf_token()); ?>">
     <meta name="base-url" content="<?php echo e(url('/')); ?>">
     <meta name="user-id" content="<?php echo e(Auth::id()); ?>">
     <?php
@@ -156,6 +156,7 @@
     </script>
 <?php endif; ?>
 <?php echo $__env->yieldPushContent('script-page'); ?>
+<script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="6cf972f1-fe97-4d08-8a5b-31d0272ab093";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
 </body>
 </html>
 <?php /**PATH C:\xampp\htdocs\ItSolzTechOkara\crmentresuit\resources\views/layouts/admin.blade.php ENDPATH**/ ?>

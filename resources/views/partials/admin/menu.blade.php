@@ -13,7 +13,7 @@
                 $user = auth()->user();
             @endphp
             @if (!isset($user->app_logo) or $user->app_logo=="")
-            <img src="{{asset('app/assets/img/logov2.png') }}" class="navbar-brand-img"/>
+            <img src="{{url('public/app/assets/img/logov2.png') }}" class="navbar-brand-img"/>
             @else
                 @php
                 $image = url("/public/assets/images/".$user->app_logo);
@@ -39,24 +39,37 @@
                         <a href="{{route('customer.dashboard')}}" class="nav-link {{ (Request::route()->getName() == 'customer.dashboard') ? ' active' : '' }}">
                             <i class="fas fa-fire"></i>{{__('Dashboard')}}
                         </a>
+                        <li class="nav-item">
+                            <a href="{{ route('customer.demo-video.index') }}" class="nav-link {{ (request()->segment(1) == 'demo-video') ? 'active':''}}">
+                                <i class="fas fa-file"></i>{{__('Demo Videos')}}
+                            </a>
+                        </li>
+
                     @elseif(\Auth::guard('vender')->check())
                         <a href="{{route('vender.dashboard')}}" class="nav-link {{ (Request::route()->getName() == 'vender.dashboard') ? ' active' : '' }}">
                             <i class="fas fa-fire"></i>{{__('Dashboard')}}
                         </a>
+                        <li class="nav-item">
+                            <a href="{{ route('vender.demo-video.index') }}" class="nav-link {{ (request()->segment(1) == 'demo-video') ? 'active':''}}">
+                                <i class="fas fa-file"></i>{{__('Demo Videos')}}
+                            </a>
+                        </li>
                     @else
                         <a href="{{route('dashboard')}}" class="nav-link {{ (Request::route()->getName() == 'dashboard') ? ' active' : '' }}">
                             <i class="fas fa-fire"></i>{{__('Dashboard')}}
                         </a>
                         <li class="nav-item">
                             <a href="{{ route('join.video.session') }}" class="nav-link {{ (request()->segment(1) == 'join-video-session') ? 'active':''}}">
-                                <i class="fas fa-file"></i>{{__('Startup Meetups')}}
+                                <i class="fas fa-file"></i>{{__('Meetings')}}
                             </a>
                         </li>
-                        <li class="nav-item">
+
+                        {{-- <li class="nav-item">
                             <a href="{{ route('record.video') }}" class="nav-link {{ (request()->segment(1) == 'video') ? 'active':''}}">
                                 <i class="fas fa-file"></i>{{__('Startups Help')}}
                             </a>
-                        </li>
+                        </li> --}}
+
                         <li class="nav-item">
                             <a href="{{ route('demo-video.index') }}" class="nav-link {{ (request()->segment(1) == 'demo-video') ? 'active':''}}">
                                 <i class="fas fa-file"></i>{{__('Demo Videos')}}
@@ -74,7 +87,7 @@
 
                 {{-- <li class="nav-item">
                     <a href="{{ route('video_chat') }}" class="nav-link {{ (request()->segment(1) == 'video_chat') ? 'active':''}}">
-                        <i class="fas fa-file"></i>{{__('Startup Meetups')}}
+                        <i class="fas fa-file"></i>{{__('Meetings')}}
                     </a>
                 </li> --}}
 					{{-- @can('manage customer proposal') --}}
@@ -87,7 +100,7 @@
 
                             {{-- <li class="nav-item">
                                 <a href="{{ route('join.video.session') }}" class="nav-link {{ (request()->segment(1) == 'join-video-session') ? 'active':''}}">
-                                    <i class="fas fa-file"></i>{{__('Startup Meetups')}}
+                                    <i class="fas fa-file"></i>{{__('Meetings')}}
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -397,9 +410,11 @@
                                     </li>
                                 @endcan
                                 @can('manage revenue')
+                                {{--  
                                     <li class="nav-item {{ (Request::route()->getName() == 'revenue.index' || Request::route()->getName() == 'revenue.create' || Request::route()->getName() == 'revenue.edit') ? ' active' : '' }}">
                                         <a href="{{route('revenue.index')}}" class="nav-link">{{ __('Revenue') }}</a>
                                     </li>
+                                --}}
                                 @endcan
                                 <!-- @can('manage credit note')
                                     <li class="nav-item {{ (Request::route()->getName() == 'credit.note' ) ? ' active' : '' }}">
@@ -438,7 +453,9 @@
                         </div>
                     </li>
                 @endif
+                 <!--
                 @if( Gate::check('manage chart of account') ||  Gate::check('manage journal entry') ||   Gate::check('balance sheet report') ||  Gate::check('ledger report') ||  Gate::check('trial balance report'))
+                    
                     <li class="nav-item">
                         <a class="nav-link {{ (Request::segment(1) == 'chart-of-account' || Request::segment(1) == 'journal-entry' || Request::segment(2) == 'ledger' ||  Request::segment(2) == 'balance-sheet' ||  Request::segment(2) == 'trial-balance')?' active':'collapsed'}}" href="#navbar-double-entry" data-toggle="collapse" role="button" aria-expanded="{{ (Request::segment(1) == 'bill' )?'true':'false'}}" aria-controls="navbar-double-entry">
                             <i class="fas fa-balance-scale"></i>{{__('Double Entry')}}
@@ -476,7 +493,7 @@
                         </div>
                     </li>
                 @endif
-
+                    -->
                 @if(Gate::check('manage goal'))
                     <li class="nav-item">
                         <a href="{{ route('projects.index') }}" class="nav-link {{ (Request::segment(1) == 'projects')?'active':''}}">
@@ -512,6 +529,8 @@
                         </a>
                     </li>
                 @endif -->
+
+                {{--  
                 @if( Gate::check('income report') || Gate::check('expense report') || Gate::check('income vs expense report') || Gate::check('tax report')  || Gate::check('loss & profit report') || Gate::check('invoice report') || Gate::check('bill report') || Gate::check('invoice report') ||  Gate::check('manage transaction')||  Gate::check('statement report'))
                     <li class="nav-item">
                         <a class="nav-link {{ ((Request::segment(1) == 'report' || Request::segment(1) == 'transaction') &&  Request::segment(2) != 'ledger' &&  Request::segment(2) != 'balance-sheet' &&  Request::segment(2) != 'trial-balance')?' active':'collapsed'}}" href="#navbar-reports" data-toggle="collapse" role="button" aria-expanded="{{ (Request::segment(1) == 'report' || Request::segment(1) == 'transaction')?'true':'false'}}" aria-controls="navbar-reports">
@@ -570,6 +589,7 @@
                         </div>
                     </li>
                 @endif
+                --}}
                 @if(Gate::check('manage constant tax') || Gate::check('manage constant category') ||Gate::check('manage constant unit') ||Gate::check('manage constant payment method') ||Gate::check('manage constant custom field') )
                     <li class="nav-item">
                         <a class="nav-link {{ (Request::segment(1) == 'taxes' || Request::segment(1) == 'product-category' || Request::segment(1) == 'product-unit' || Request::segment(1) == 'payment-method' || Request::segment(1) == 'custom-field' || Request::segment(1) == 'chart-of-account-type')?' active':'collapsed'}}" href="#navbar-constant" data-toggle="collapse" role="button" aria-expanded="{{ (Request::segment(1) == 'taxes' || Request::segment(1) == 'product-category' || Request::segment(1) == 'product-unit' || Request::segment(1) ==
@@ -634,7 +654,7 @@
                             <i class="fas fa-headset"></i>{{__('Support')}}
                         </a>
                     </li>
-                     --}}
+                    
                     <li class="nav-item">
                         <a class="nav-link {{ (Request::segment(1) == 'departments' || Request::segment(1) == 'services' || Request::segment(2) == 'redefined-replies' ||  Request::segment(2) == 'ticketpriorities' ||  Request::segment(2) == 'ticketstatuses')?' active':'collapsed'}}" href="#navbar-support-setting" data-toggle="collapse" role="button" aria-expanded="{{ (Request::segment(1) == 'bill' )?'true':'false'}}" aria-controls="navbar-support-setting">
                             <i class="fas fa-cog"></i>{{__('Support Settings')}}
@@ -671,18 +691,20 @@
                             </ul>
                         </div>
                     </li>
-
+                     --}}
                     @if ( Auth::user()->name == 'Admin')
                     <li class="nav-item">
                         <a href="{{ route('plans.index') }}" class="nav-link {{ (Request::route()->getName() == 'plans.index' || Request::route()->getName() == 'plans.create' || Request::route()->getName() == 'plans.edit') ? ' active' : '' }}">
                             <i class="fas fa-file"></i>{{__('Account Plans') }}
                         </a>
                     </li>
+                    {{--  
                     <li class="nav-item">
                         <a href="{{ route('blogs.index') }}" class="nav-link {{ (Request::route()->getName() == 'blogs.index' || Request::route()->getName() == 'blogs.create' || Request::route()->getName() == 'blogs.edit') ? ' active' : '' }}">
                             <i class="fas fa-file"></i>{{__('Blogs') }}
                         </a>
                     </li>
+                    --}}
 
                     @else
 

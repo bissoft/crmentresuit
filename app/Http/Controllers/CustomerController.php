@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Customer;
 use App\CustomField;
+use App\DemoVideo;
 use App\Department;
 use App\Designation;
 use App\Mail\UserCreate;
@@ -27,6 +28,14 @@ class CustomerController extends Controller
 
         return view('customer.dashboard', $data);
     }
+
+    public function demovideoIndex()
+    {
+        $user = User::where('id',\Auth::user()->created_by)->first();
+        $videos = DemoVideo::where('created_by', $user->id)->paginate(10);
+        return view('record-screens.index', compact('videos'));
+    }
+
 
     public function index()
     {

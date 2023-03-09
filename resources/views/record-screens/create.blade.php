@@ -31,7 +31,7 @@
                 </div>
             </div> --}}
             <!-- calnder row -->
-            <div class="bg-gray col-12">
+            <div class="col-12">
 
                 <div class="card p-4">
                     <form role="form" method="post" class="form-horizontal form-groups-bordered validate"

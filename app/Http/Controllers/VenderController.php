@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\CustomField;
+use App\DemoVideo;
 use App\Mail\UserCreate;
 use App\Transaction;
 use App\User;
@@ -37,6 +38,13 @@ class VenderController extends Controller
         {
             return redirect()->back()->with('error', __('Permission denied.'));
         }
+    }
+
+    public function demovideoIndex()
+    {
+        $user = User::where('id',\Auth::user()->created_by)->first();
+        $videos = DemoVideo::where('created_by', $user->id)->paginate(10);
+        return view('record-screens.index', compact('videos'));
     }
 
 
