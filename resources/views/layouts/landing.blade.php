@@ -366,7 +366,7 @@
                             <p>Phasellus eget leo sit amet massa lobortis condimentum. Suspendisse potenti. Pellentesque non orci arcu. Quisque tincidunt euismod erat id euismod.</p>
                             <div class="author-thumb-title" >
                                 <div class="author-thumb">
-                                    <img src="assets/images/testimonial/img-1.jpg" alt="">
+                                    <img src="{{ asset('assets/img/li-s1.jpg') }}" alt="">
                                 </div>
                                 <div class="author-title">
                                     <h5>Michelle yeoh</h5>
@@ -380,7 +380,7 @@
                             <p>Phasellus eget leo sit amet massa lobortis condimentum. Suspendisse potenti. Pellentesque non orci arcu. Quisque tincidunt euismod erat id euismod.</p>
                             <div class="author-thumb-title">
                                 <div class="author-thumb">
-                                    <img src="assets/images/testimonial/img-2.jpg" alt="">
+                                    <img src="{{ asset('assets/img/li-s3.jpg') }}" alt="">
                                 </div>
                                 <div class="author-title">
                                     <h5>Michelle yeoh</h5>
@@ -394,7 +394,7 @@
                             <p>Phasellus eget leo sit amet massa lobortis condimentum. Suspendisse potenti. Pellentesque non orci arcu. Quisque tincidunt euismod erat id euismod.</p>
                             <div class="author-thumb-title">
                                 <div class="author-thumb">
-                                    <img src="assets/images/testimonial/img-1.jpg" alt="">
+                                    <img src="{{ asset('assets/img/li-s1.jpg') }}" alt="">
                                 </div>
                                 <div class="author-title">
                                     <h5>Michelle yeoh</h5>
