@@ -1,11 +1,16 @@
 @extends('layouts.admin')
-
+@section('page-title')
+    {{__('Demo Videos')}}
+@endsection
 @section('content')
     <div class="content">
         <!-- Start Content-->
         <div class="container-fluid">
             <!-- start page title -->
             <div class="row mt-2">
+                @if(\Auth::guard('customer')->check())
+                @elseif(\Auth::guard('vender')->check())
+                @else
                 <div class="col-md-12 float-right">
                         <a class="btn btn-outline-primary btn-sm float-right ml-2 mb-2"
                            href="{{route('demo-video.create')}}">
@@ -18,6 +23,7 @@
                         <i class='fa fa-check'></i>
                         All Intro Videos</a>
                 </div>
+                @endif
             </div>
             <div class="row mt-2">
                 <div class="col-md-12">
@@ -40,11 +46,19 @@
                     <tr>
                         <th style="width: 10px">#</th>
                         <th>Heading</th>
+                        @if(\Auth::guard('customer')->check())
+                        @elseif(\Auth::guard('vender')->check())
+                        @else
                         <th>Link</th>
+                        @endif
                         {{--<th>Description</th>
                         <th>Thumbnail</th>--}}
                         <th>Video</th>
+                        @if(\Auth::guard('customer')->check())
+                        @elseif(\Auth::guard('vender')->check())
+                        @else
                         <th width="10">Actions</th>
+                        @endif
                     </tr>
                     </thead>
                     <tbody>
@@ -53,6 +67,9 @@
                             <tr>
                                 <td>{{$index + 1}}</td>
                                 <td>{{$list->heading}}</td>
+                                @if(\Auth::guard('customer')->check())
+                                @elseif(\Auth::guard('vender')->check())
+                                @else
                                 <td>
                                     <div class="input-group">
                                         <input type="text" class="form-control" demoId="{{$list->id}}"
@@ -67,6 +84,7 @@
                                         </span>
                                     </div>
                                 </td>
+                               @endif
                                 <td>
                                     <video width="250" height="150" controls>
                                         <source src="{{url('public/assets/videos/demo-videos/'.$list->video)}}"
@@ -76,6 +94,9 @@
                                         Your browser does not support the video tag.
                                     </video>
                                 </td>
+                                @if(\Auth::guard('customer')->check())
+                                @elseif(\Auth::guard('vender')->check())
+                                @else
                                 @if($list->trashed())
                                     <td style="text-align: center">
                                         <a class="btn btn-outline-info btn-sm"
@@ -102,6 +123,7 @@
                                                 <i class="fa fa-trash"></i>
                                             </a>
                                     </td>
+                                @endif
                                 @endif
                             </tr>
                         @endforeach

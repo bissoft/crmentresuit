@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
+use Illuminate\Support\Facades\Session;
 
 class Authenticate extends Middleware
 {
@@ -15,6 +16,12 @@ class Authenticate extends Middleware
     protected function redirectTo($request)
     {
         if (! $request->expectsJson()) {
+            $subscribe = $request->route()->getName();
+            if ($subscribe == "subscribe") {
+                $id = $request->segment(2);
+                Session::put('plan_id', $id);
+                return route('register');
+            }
             return route('login');
         }
     }

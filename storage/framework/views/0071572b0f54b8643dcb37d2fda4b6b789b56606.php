@@ -12,13 +12,13 @@
 
 
     <!-- Styles -->
-    <link rel="shortcut icon" href="<?php echo e(url('public/favicon.png')); ?>">
-    <link rel="stylesheet" href="<?php echo e('/'. asset('app/assets/css/plugins.css')); ?>">
-    <link rel="stylesheet" href="<?php echo e('/'. asset('app/assets/css/style.css')); ?>">
+    <link rel="shortcut icon" href="<?php echo e(asset('favicon.png')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('app/assets/css/plugins.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('app/assets/css/style.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('app/assets/css/colors/yellow.css')); ?>">
 
     <!-- Fonts -->
-    <link rel="preload" href="<?php echo e('/'. asset('app/assets/css/fonts/thicccboi.css')); ?>" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="<?php echo e(asset('app/assets/css/fonts/thicccboi.css')); ?>" as="style" onload="this.rel='stylesheet'">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
     <?php echo $__env->yieldContent('styles'); ?>
@@ -31,7 +31,7 @@
                 <div class="container flex-lg-row flex-nowrap align-items-center">
                     <div class="navbar-brand w-100">
                         <a href="<?php echo e(url('/')); ?>">
-                            <img src="<?php echo e(url('public/app/assets/img/logov2.png')); ?>" srcset="<?php echo e(url('public/app/assets/img/logov2.png')); ?>" width="200" alt="" />
+                            <img src="<?php echo e(asset('app/assets/img/logov2.png')); ?>" srcset="<?php echo e(asset('app/assets/img/logov2.png')); ?>" width="200" alt="" />
                         </a>
                     </div>
                     <div class="navbar-collapse offcanvas offcanvas-nav offcanvas-start">
@@ -42,14 +42,17 @@
                         <div class="offcanvas-body ms-lg-auto d-flex flex-column h-100">
                             <ul class="navbar-nav align-items-center">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Home</a>
+                                    <a class="nav-link" href="<?php echo e(url('/')); ?>">Home</a>
                                 </li>
-                               
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/blogs-list">Blogs</a>
+                                </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="/aboutus">About us</a>
                                 </li>
+                               
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Contact us</a>
+                                    <a class="nav-link" href="/contactus">Contact us</a>
                                 </li>
                               
                                 <?php if(auth()->guard()->guest()): ?>
@@ -196,11 +199,11 @@ Or Click the chat button to speak with one of our Customer Success Agents
                     <div class="widget">
                         <h4 class="widget-title  mb-3"> For customized pricing:</h4>
                        
-Email: Quotes@entresuitecrm.com
+                    Email: Quotes@entresuitecrm.com
 
-Mailing Address
-PO Box 668 
-Hoschton GA 30548
+                    Mailing Address
+                    PO Box 668 
+                    Hoschton GA 30548
 
                     </div>
                     <!-- /.widget -->

@@ -38,12 +38,17 @@
 
                             </ul>
                             <div class="pricingTable-signup">
-
+                                @auth
                                 @if(auth()->user()->subscribed($plan->name))
                                 <a class="btn-yellow rounded p-1 px-3 px-md-1" href="javascript:void(0)">Subscribed</a>
                                 @else
                                 <a class="btn-yellow rounded p-1 px-3 px-md-1" href="{{ route('subscribe', $plan->id) }}">Subscribe</a>
                                 @endif
+                                @endauth
+
+                                @guest
+                                <a class="btn-yellow rounded p-1 px-3 px-md-1" href="{{ route('subscribe', $plan->id) }}">Subscribe</a>
+                                @endguest
                             </div>
                         </div>
                     </div>

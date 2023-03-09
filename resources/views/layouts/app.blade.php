@@ -12,13 +12,13 @@
 
 
     <!-- Styles -->
-    <link rel="shortcut icon" href="{{ asset('favicon.png') }}">
-    <link rel="stylesheet" href="{{asset('app/assets/css/plugins.css') }}">
-    <link rel="stylesheet" href="{{asset('app/assets/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('app/assets/css/colors/yellow.css') }}">
+    <link rel="shortcut icon" href="{{ url('public/favicon.png') }}">
+    <link rel="stylesheet" href="{{ url('public/app/assets/css/plugins.css') }}">
+    <link rel="stylesheet" href="{{ url('public/app/assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{  url('public/app/assets/css/colors/yellow.css') }}">
 
     <!-- Fonts -->
-    <link rel="preload" href="{{asset('app/assets/css/fonts/thicccboi.css') }}" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="{{ url('public/app/assets/css/fonts/thicccboi.css') }}" as="style" onload="this.rel='stylesheet'">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
     @yield('styles')
@@ -31,7 +31,7 @@
                 <div class="container flex-lg-row flex-nowrap align-items-center">
                     <div class="navbar-brand w-100">
                         <a href="{{ url('/') }}">
-                            <img src="{{ asset('app/assets/img/logov2.png') }}" srcset="{{ asset('app/assets/img/logov2.png') }}" width="200" alt="" />
+                            <img src="{{ url('public/app/assets/img/logov2.png') }}" srcset="{{ url('public/app/assets/img/logov2.png') }}" width="200" alt="" />
                         </a>
                     </div>
                     <div class="navbar-collapse offcanvas offcanvas-nav offcanvas-start">
@@ -44,8 +44,11 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{url('/')}}">Home</a>
                                 </li>
-                                <li class="nav-item">
+                                {{-- <li class="nav-item">
                                     <a class="nav-link" href="/blogs-list">Blogs</a>
+                                </li> --}}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('subscription.plans') }}">Plans</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="/aboutus">About us</a>
@@ -99,8 +102,8 @@
             <!-- /.navbar -->
             <div class="offcanvas offcanvas-end text-inverse" id="offcanvas-info" data-bs-scroll="true">
                 <div class="offcanvas-header">
-                    <h3 class="text-white fs-30 mb-0"> <img src="{{ asset('app/assets/img/logo-dark.png') }}"
-                            srcset="{{ asset('app/assets/img/logov2.png') }}" width="200" alt="" /></h3>
+                    <h3 class="text-white fs-30 mb-0"> <img src="{{ url('public/app/assets/img/logo-dark.png') }}"
+                            srcset="{{ url('public/app/assets/img/logov2.png') }}" width="200" alt="" /></h3>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
                         aria-label="Close"></button>
                 </div>
@@ -161,7 +164,7 @@
             <div class="row gy-6 gy-lg-0">
                 <div class="col-md-4 col-lg-3">
                     <div class="widget">
-                        <img class="mb-4" src="{{ asset('app/assets/img/logo-dark.png') }}" srcset="{{ asset('app/assets/img/logov2.png') }}" width="200"
+                        <img class="mb-4" src="{{ url('public/app/assets/img/logo-dark.png') }}" srcset="{{ url('public/app/assets/img/logov2.png') }}" width="200"
                             alt="" />
                         <p class="mb-4">For support
 Hours: Mondays-Fridays 9am – 8pm (est)
@@ -254,9 +257,10 @@ Or Click the chat button to speak with one of our Customer Success Agents
         <!-- /.container -->
     </footer>
 
-    <script src="{{ asset('app/assets/js/plugins.js') }}"></script>
-    <script src="{{ asset('app/assets/js/theme.js') }}"></script>
+    <script src="{{ url('public/app/assets/js/plugins.js') }}"></script>
+    <script src="{{ url('public/app/assets/js/theme.js') }}"></script>
     @yield('scripts')
+    <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="6cf972f1-fe97-4d08-8a5b-31d0272ab093";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
 </body>
 
 </html>

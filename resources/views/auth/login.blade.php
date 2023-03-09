@@ -49,7 +49,8 @@
             <!--<h5 class="copyright-text">-->
             <!--    {{(Utility::getValByName('footer_text')) ? Utility::getValByName('footer_text') :  __('Copyright AccountGo') }} {{ date('Y') }}-->
             <!--</h5>-->
-            {{-- <div class="all-select">
+            {{--  
+            <div class="all-select">
                 <a href="#" class="monthly-btn">
                     <span class="monthly-text py-0">{{__('Change Language')}}</span>
                     <select class="select-box" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);" id="language">
@@ -58,7 +59,8 @@
                         @endforeach
                     </select>
                 </a>
-            </div> --}}
+            </div>
+            --}}
         </div>
     </div>
 @endsection
