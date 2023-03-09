@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\BalanceSheet;
 use App\BankAccount;
 use App\Bill;
+use App\Blog;
 use App\Goal;
 use App\Invoice;
 use App\Payment;
@@ -112,7 +113,8 @@ DashboardController extends Controller
             }
             else
             {
-                return view('layouts.landing');
+                $blog = Blog::limit(3)->get();
+                return view('layouts.landing',compact('blog'));
                 //return redirect('login');
             }
         }
